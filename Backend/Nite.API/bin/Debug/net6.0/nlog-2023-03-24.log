@@ -1,0 +1,493 @@
+2023-03-24 17:23:47.1235|INFO|Nite.API.Program|Initializing application...
+2023-03-24 17:24:01.2620|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (75ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1
+2023-03-24 17:24:01.5511|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (91ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [NiteDB] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+END;
+2023-03-24 17:24:01.5881|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (35ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+DROP DATABASE [NiteDB];
+2023-03-24 17:24:01.8406|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (186ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+CREATE DATABASE [NiteDB];
+2023-03-24 17:24:01.9888|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (146ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [NiteDB] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+2023-03-24 17:24:01.9982|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1
+2023-03-24 17:24:02.1717|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (9ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+);
+2023-03-24 17:24:02.1717|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1
+2023-03-24 17:24:02.2334|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (46ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-03-24 17:24:02.2618|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (17ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-03-24 17:24:02.3209|INFO|Microsoft.EntityFrameworkCore.Migrations|Applying migration '20230312122859_Initial Migration'.
+2023-03-24 17:24:02.4178|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [Users] (
+    [Id] int NOT NULL IDENTITY,
+    [Username] nvarchar(max) NOT NULL,
+    [Email] nvarchar(max) NOT NULL,
+    [Password] nvarchar(max) NOT NULL,
+    [IsAdmin] bit NOT NULL,
+    CONSTRAINT [PK_Users] PRIMARY KEY ([Id])
+);
+2023-03-24 17:24:02.4731|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (52ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Email', N'IsAdmin', N'Password', N'Username') AND [object_id] = OBJECT_ID(N'[Users]'))
+    SET IDENTITY_INSERT [Users] ON;
+INSERT INTO [Users] ([Id], [Email], [IsAdmin], [Password], [Username])
+VALUES (1, N'deeagabor@gmail.com', CAST(1 AS bit), N'ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f', N'deeagabor'),
+(2, N'wolflorena@gmail.com', CAST(1 AS bit), N'ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f', N'wolflorena'),
+(3, N'testunu@gmail.com', CAST(0 AS bit), N'ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f', N'test1'),
+(4, N'testdoi@gmail.com', CAST(0 AS bit), N'ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f', N'test2');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Email', N'IsAdmin', N'Password', N'Username') AND [object_id] = OBJECT_ID(N'[Users]'))
+    SET IDENTITY_INSERT [Users] OFF;
+2023-03-24 17:24:02.4830|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (8ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20230312122859_Initial Migration', N'7.0.3');
+2023-03-24 17:24:02.9919|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\Andreea\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-03-24 17:24:05.2594|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 GET https://localhost:7053/ - -
+2023-03-24 17:24:05.3962|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 GET https://localhost:7053/ - - - 404 0 - 142.1314ms
+2023-03-24 17:25:35.9919|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 OPTIONS https://localhost:7053/api/users - -
+2023-03-24 17:25:36.0038|INFO|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|CORS policy execution successful.
+2023-03-24 17:25:36.0136|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 OPTIONS https://localhost:7053/api/users - - - 204 - - 21.6101ms
+2023-03-24 17:25:36.0136|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 POST https://localhost:7053/api/users application/json;charset=UTF-8 122
+2023-03-24 17:25:36.0136|INFO|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|CORS policy execution successful.
+2023-03-24 17:25:36.0268|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Nite.API.Controllers.UsersController.CreateUser (Nite.API)'
+2023-03-24 17:25:36.0848|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "CreateUser", controller = "Users"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CreateUser(Nite.API.Data.Models.UserCreationDTO) on controller Nite.API.Controllers.UsersController (Nite.API).
+2023-03-24 17:25:37.0936|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (206ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = Boolean), @p2='?' (Size = 4000), @p3='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Email], [IsAdmin], [Password], [Username])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3);
+2023-03-24 17:25:37.1923|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing CreatedAtRouteResult, writing value of type 'Nite.API.Data.Models.UserDTO'.
+2023-03-24 17:25:37.3331|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Nite.API.Controllers.UsersController.CreateUser (Nite.API) in 1242.0031ms
+2023-03-24 17:25:37.3331|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Nite.API.Controllers.UsersController.CreateUser (Nite.API)'
+2023-03-24 17:25:37.3537|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 POST https://localhost:7053/api/users application/json;charset=UTF-8 122 - 201 145 application/json;+charset=utf-8 1331.8801ms
+2023-03-24 17:25:58.8576|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 OPTIONS https://localhost:7053/api/users - -
+2023-03-24 17:25:58.8576|INFO|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|CORS policy execution successful.
+2023-03-24 17:25:58.8576|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 OPTIONS https://localhost:7053/api/users - - - 204 - - 1.6558ms
+2023-03-24 17:25:58.8576|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 POST https://localhost:7053/api/users application/json;charset=UTF-8 122
+2023-03-24 17:25:58.8576|INFO|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|CORS policy execution successful.
+2023-03-24 17:25:58.8576|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Nite.API.Controllers.UsersController.CreateUser (Nite.API)'
+2023-03-24 17:25:58.8576|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "CreateUser", controller = "Users"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CreateUser(Nite.API.Data.Models.UserCreationDTO) on controller Nite.API.Controllers.UsersController (Nite.API).
+2023-03-24 17:25:58.9512|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (3ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = Boolean), @p2='?' (Size = 4000), @p3='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Email], [IsAdmin], [Password], [Username])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3);
+2023-03-24 17:25:58.9512|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing CreatedAtRouteResult, writing value of type 'Nite.API.Data.Models.UserDTO'.
+2023-03-24 17:25:58.9512|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Nite.API.Controllers.UsersController.CreateUser (Nite.API) in 89.7467ms
+2023-03-24 17:25:58.9512|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Nite.API.Controllers.UsersController.CreateUser (Nite.API)'
+2023-03-24 17:25:58.9512|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 POST https://localhost:7053/api/users application/json;charset=UTF-8 122 - 201 145 application/json;+charset=utf-8 90.8949ms
+2023-03-24 17:27:15.2350|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 OPTIONS https://localhost:7053/api/users - -
+2023-03-24 17:27:15.2350|INFO|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|CORS policy execution successful.
+2023-03-24 17:27:15.2350|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 OPTIONS https://localhost:7053/api/users - - - 204 - - 1.3499ms
+2023-03-24 17:27:15.2350|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 POST https://localhost:7053/api/users application/json;charset=UTF-8 122
+2023-03-24 17:27:15.2350|INFO|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|CORS policy execution successful.
+2023-03-24 17:27:15.2497|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Nite.API.Controllers.UsersController.CreateUser (Nite.API)'
+2023-03-24 17:27:15.2497|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "CreateUser", controller = "Users"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CreateUser(Nite.API.Data.Models.UserCreationDTO) on controller Nite.API.Controllers.UsersController (Nite.API).
+2023-03-24 17:27:15.2731|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (11ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = Boolean), @p2='?' (Size = 4000), @p3='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Email], [IsAdmin], [Password], [Username])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3);
+2023-03-24 17:27:15.2731|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing CreatedAtRouteResult, writing value of type 'Nite.API.Data.Models.UserDTO'.
+2023-03-24 17:27:15.2731|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Nite.API.Controllers.UsersController.CreateUser (Nite.API) in 23.9337ms
+2023-03-24 17:27:15.2731|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Nite.API.Controllers.UsersController.CreateUser (Nite.API)'
+2023-03-24 17:27:15.2731|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 POST https://localhost:7053/api/users application/json;charset=UTF-8 122 - 201 145 application/json;+charset=utf-8 31.5899ms
+2023-03-24 17:28:23.2790|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 OPTIONS https://localhost:7053/api/users - -
+2023-03-24 17:28:23.2790|INFO|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|CORS policy execution successful.
+2023-03-24 17:28:23.2790|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 OPTIONS https://localhost:7053/api/users - - - 204 - - 5.8551ms
+2023-03-24 17:28:23.2932|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 POST https://localhost:7053/api/users application/json;charset=UTF-8 122
+2023-03-24 17:28:23.2932|INFO|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|CORS policy execution successful.
+2023-03-24 17:28:23.2932|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Nite.API.Controllers.UsersController.CreateUser (Nite.API)'
+2023-03-24 17:28:23.2932|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "CreateUser", controller = "Users"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CreateUser(Nite.API.Data.Models.UserCreationDTO) on controller Nite.API.Controllers.UsersController (Nite.API).
+2023-03-24 17:28:23.2932|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (2ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = Boolean), @p2='?' (Size = 4000), @p3='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Email], [IsAdmin], [Password], [Username])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3);
+2023-03-24 17:28:23.2932|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing CreatedAtRouteResult, writing value of type 'Nite.API.Data.Models.UserDTO'.
+2023-03-24 17:28:23.2932|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Nite.API.Controllers.UsersController.CreateUser (Nite.API) in 7.9407ms
+2023-03-24 17:28:23.2932|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Nite.API.Controllers.UsersController.CreateUser (Nite.API)'
+2023-03-24 17:28:23.2932|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 POST https://localhost:7053/api/users application/json;charset=UTF-8 122 - 201 145 application/json;+charset=utf-8 8.4218ms
+2023-03-24 20:14:37.7032|INFO|Nite.API.Program|Initializing application...
+2023-03-24 20:14:51.1112|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (2,797ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+CREATE DATABASE [NiteDb];
+2023-03-24 20:14:52.9925|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1,835ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [NiteDb] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+2023-03-24 20:14:53.2135|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (37ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1
+2023-03-24 20:14:53.7348|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (78ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+);
+2023-03-24 20:14:53.7540|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (9ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1
+2023-03-24 20:14:53.9272|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (138ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-03-24 20:14:53.9858|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (33ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-03-24 20:14:54.1326|INFO|Microsoft.EntityFrameworkCore.Migrations|Applying migration '20230312122859_Initial Migration'.
+2023-03-24 20:14:54.4708|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (18ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [Users] (
+    [Id] int NOT NULL IDENTITY,
+    [Username] nvarchar(max) NOT NULL,
+    [Email] nvarchar(max) NOT NULL,
+    [Password] nvarchar(max) NOT NULL,
+    [IsAdmin] bit NOT NULL,
+    CONSTRAINT [PK_Users] PRIMARY KEY ([Id])
+);
+2023-03-24 20:14:54.6765|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (199ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Email', N'IsAdmin', N'Password', N'Username') AND [object_id] = OBJECT_ID(N'[Users]'))
+    SET IDENTITY_INSERT [Users] ON;
+INSERT INTO [Users] ([Id], [Email], [IsAdmin], [Password], [Username])
+VALUES (1, N'deeagabor@gmail.com', CAST(1 AS bit), N'ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f', N'deeagabor'),
+(2, N'wolflorena@gmail.com', CAST(1 AS bit), N'ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f', N'wolflorena'),
+(3, N'testunu@gmail.com', CAST(0 AS bit), N'ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f', N'test1'),
+(4, N'testdoi@gmail.com', CAST(0 AS bit), N'ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f', N'test2');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Email', N'IsAdmin', N'Password', N'Username') AND [object_id] = OBJECT_ID(N'[Users]'))
+    SET IDENTITY_INSERT [Users] OFF;
+2023-03-24 20:14:54.6920|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (10ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20230312122859_Initial Migration', N'7.0.3');
+2023-03-24 20:14:54.7415|INFO|Microsoft.EntityFrameworkCore.Migrations|Applying migration '20230324181419_Azure_Test'.
+2023-03-24 20:14:54.7580|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20230324181419_Azure_Test', N'7.0.3');
+2023-03-24 20:14:55.2644|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\Andreea\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-03-24 20:14:58.7588|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 GET https://localhost:7053/ - -
+2023-03-24 20:14:58.9445|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 GET https://localhost:7053/ - - - 404 0 - 191.5485ms
+2023-03-24 20:18:48.5913|INFO|Nite.API.Program|Initializing application...
+2023-03-24 20:18:57.0058|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (87ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1
+2023-03-24 20:19:00.3402|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (3,092ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [NiteDb] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+END;
+2023-03-24 20:19:00.7747|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (432ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+DROP DATABASE [NiteDb];
+2023-03-24 20:19:04.0675|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (3,038ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+CREATE DATABASE [NiteDb];
+2023-03-24 20:19:05.1399|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1,068ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [NiteDb] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+2023-03-24 20:19:05.2037|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (12ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1
+2023-03-24 20:19:05.5075|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (36ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+);
+2023-03-24 20:19:05.5155|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1
+2023-03-24 20:19:05.6011|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (67ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-03-24 20:19:05.6294|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (14ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-03-24 20:19:05.7123|INFO|Microsoft.EntityFrameworkCore.Migrations|Applying migration '20230312122859_Initial Migration'.
+2023-03-24 20:19:06.1965|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (83ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [Users] (
+    [Id] int NOT NULL IDENTITY,
+    [Username] nvarchar(max) NOT NULL,
+    [Email] nvarchar(max) NOT NULL,
+    [Password] nvarchar(max) NOT NULL,
+    [IsAdmin] bit NOT NULL,
+    CONSTRAINT [PK_Users] PRIMARY KEY ([Id])
+);
+2023-03-24 20:19:06.4892|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (282ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Email', N'IsAdmin', N'Password', N'Username') AND [object_id] = OBJECT_ID(N'[Users]'))
+    SET IDENTITY_INSERT [Users] ON;
+INSERT INTO [Users] ([Id], [Email], [IsAdmin], [Password], [Username])
+VALUES (1, N'deeagabor@gmail.com', CAST(1 AS bit), N'ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f', N'deeagabor'),
+(2, N'wolflorena@gmail.com', CAST(1 AS bit), N'ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f', N'wolflorena'),
+(3, N'testunu@gmail.com', CAST(0 AS bit), N'ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f', N'test1'),
+(4, N'testdoi@gmail.com', CAST(0 AS bit), N'ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f', N'test2');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Email', N'IsAdmin', N'Password', N'Username') AND [object_id] = OBJECT_ID(N'[Users]'))
+    SET IDENTITY_INSERT [Users] OFF;
+2023-03-24 20:19:06.5130|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (16ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20230312122859_Initial Migration', N'7.0.3');
+2023-03-24 20:19:06.6326|INFO|Microsoft.EntityFrameworkCore.Migrations|Applying migration '20230324181419_Azure_Test'.
+2023-03-24 20:19:06.6499|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20230324181419_Azure_Test', N'7.0.3');
+2023-03-24 20:19:07.0431|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\Andreea\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-03-24 20:19:08.5141|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 GET https://localhost:7053/ - -
+2023-03-24 20:19:08.7532|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 GET https://localhost:7053/ - - - 404 0 - 248.6311ms
+2023-03-24 20:28:20.7712|INFO|Nite.API.Program|Initializing application...
+2023-03-24 20:28:27.7529|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (142ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1
+2023-03-24 20:28:31.3716|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (3,213ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [NiteDb] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+END;
+2023-03-24 20:28:32.2677|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (892ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+DROP DATABASE [NiteDb];
+2023-03-24 20:28:34.3340|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1,830ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+CREATE DATABASE [NiteDb];
+2023-03-24 20:28:35.5966|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1,260ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [NiteDb] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+2023-03-24 20:28:35.6353|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1
+2023-03-24 20:28:36.0109|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (103ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+);
+2023-03-24 20:28:36.0315|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (10ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1
+2023-03-24 20:28:36.1797|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (111ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-03-24 20:28:36.2227|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (22ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-03-24 20:28:36.3564|INFO|Microsoft.EntityFrameworkCore.Migrations|Applying migration '20230312122859_Initial Migration'.
+2023-03-24 20:28:36.7031|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (20ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [Users] (
+    [Id] int NOT NULL IDENTITY,
+    [Username] nvarchar(max) NOT NULL,
+    [Email] nvarchar(max) NOT NULL,
+    [Password] nvarchar(max) NOT NULL,
+    [IsAdmin] bit NOT NULL,
+    CONSTRAINT [PK_Users] PRIMARY KEY ([Id])
+);
+2023-03-24 20:28:36.8597|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (151ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Email', N'IsAdmin', N'Password', N'Username') AND [object_id] = OBJECT_ID(N'[Users]'))
+    SET IDENTITY_INSERT [Users] ON;
+INSERT INTO [Users] ([Id], [Email], [IsAdmin], [Password], [Username])
+VALUES (1, N'deeagabor@gmail.com', CAST(1 AS bit), N'ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f', N'deeagabor'),
+(2, N'wolflorena@gmail.com', CAST(1 AS bit), N'ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f', N'wolflorena'),
+(3, N'testunu@gmail.com', CAST(0 AS bit), N'ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f', N'test1'),
+(4, N'testdoi@gmail.com', CAST(0 AS bit), N'ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f', N'test2');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Email', N'IsAdmin', N'Password', N'Username') AND [object_id] = OBJECT_ID(N'[Users]'))
+    SET IDENTITY_INSERT [Users] OFF;
+2023-03-24 20:28:36.8597|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20230312122859_Initial Migration', N'7.0.3');
+2023-03-24 20:28:36.8999|INFO|Microsoft.EntityFrameworkCore.Migrations|Applying migration '20230324181419_Azure_Test'.
+2023-03-24 20:28:36.9104|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20230324181419_Azure_Test', N'7.0.3');
+2023-03-24 20:28:37.2868|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\Andreea\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-03-24 20:28:38.4821|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 GET https://localhost:7053/ - -
+2023-03-24 20:28:38.6137|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 GET https://localhost:7053/ - - - 404 0 - 137.3806ms
+2023-03-24 20:33:29.0419|INFO|Nite.API.Program|Initializing application...
+2023-03-24 20:33:39.1341|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (94ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1
+2023-03-24 20:33:42.5183|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (3,179ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [NiteDb] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+END;
+2023-03-24 20:33:44.0691|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1,548ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+DROP DATABASE [NiteDb];
+2023-03-24 20:33:45.8895|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1,682ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+CREATE DATABASE [NiteDb];
+2023-03-24 20:33:47.0014|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1,109ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [NiteDb] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+2023-03-24 20:33:47.0323|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1
+2023-03-24 20:33:47.4609|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (19ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+);
+2023-03-24 20:33:47.4687|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1
+2023-03-24 20:33:47.5359|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (51ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-03-24 20:33:47.5580|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (12ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-03-24 20:33:47.6193|INFO|Microsoft.EntityFrameworkCore.Migrations|Applying migration '20230312122859_Initial Migration'.
+2023-03-24 20:33:47.9062|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (13ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [Users] (
+    [Id] int NOT NULL IDENTITY,
+    [Username] nvarchar(max) NOT NULL,
+    [Email] nvarchar(max) NOT NULL,
+    [Password] nvarchar(max) NOT NULL,
+    [IsAdmin] bit NOT NULL,
+    CONSTRAINT [PK_Users] PRIMARY KEY ([Id])
+);
+2023-03-24 20:33:48.0875|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (175ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Email', N'IsAdmin', N'Password', N'Username') AND [object_id] = OBJECT_ID(N'[Users]'))
+    SET IDENTITY_INSERT [Users] ON;
+INSERT INTO [Users] ([Id], [Email], [IsAdmin], [Password], [Username])
+VALUES (1, N'deeagabor@gmail.com', CAST(1 AS bit), N'ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f', N'deeagabor'),
+(2, N'wolflorena@gmail.com', CAST(1 AS bit), N'ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f', N'wolflorena'),
+(3, N'testunu@gmail.com', CAST(0 AS bit), N'ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f', N'test1'),
+(4, N'testdoi@gmail.com', CAST(0 AS bit), N'ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f', N'test2');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Email', N'IsAdmin', N'Password', N'Username') AND [object_id] = OBJECT_ID(N'[Users]'))
+    SET IDENTITY_INSERT [Users] OFF;
+2023-03-24 20:33:48.0994|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20230312122859_Initial Migration', N'7.0.3');
+2023-03-24 20:33:48.5304|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\Andreea\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-03-24 20:33:49.6196|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 GET https://localhost:7053/ - -
+2023-03-24 20:33:49.8115|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 GET https://localhost:7053/ - - - 404 0 - 198.0206ms
+2023-03-24 20:37:30.9713|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 OPTIONS https://localhost:7053/api/users - -
+2023-03-24 20:37:30.9865|INFO|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|CORS policy execution successful.
+2023-03-24 20:37:30.9865|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 OPTIONS https://localhost:7053/api/users - - - 204 - - 22.5750ms
+2023-03-24 20:37:31.0037|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 POST https://localhost:7053/api/users application/json;charset=UTF-8 122
+2023-03-24 20:37:31.0037|INFO|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|CORS policy execution successful.
+2023-03-24 20:37:31.0137|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Nite.API.Controllers.UsersController.CreateUser (Nite.API)'
+2023-03-24 20:37:31.0990|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "CreateUser", controller = "Users"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CreateUser(Nite.API.Data.Models.UserCreationDTO) on controller Nite.API.Controllers.UsersController (Nite.API).
+2023-03-24 20:37:33.2285|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (197ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = Boolean), @p2='?' (Size = 4000), @p3='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Email], [IsAdmin], [Password], [Username])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3);
+2023-03-24 20:37:33.4036|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing CreatedAtRouteResult, writing value of type 'Nite.API.Data.Models.UserDTO'.
+2023-03-24 20:37:33.6784|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Nite.API.Controllers.UsersController.CreateUser (Nite.API) in 2564.9069ms
+2023-03-24 20:37:33.6784|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Nite.API.Controllers.UsersController.CreateUser (Nite.API)'
+2023-03-24 20:37:33.7148|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 POST https://localhost:7053/api/users application/json;charset=UTF-8 122 - 201 145 application/json;+charset=utf-8 2711.1808ms
+2023-03-24 20:40:26.6936|INFO|Nite.API.Program|Initializing application...
+2023-03-24 20:40:34.1660|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (200ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1
+2023-03-24 20:40:38.0237|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (3,395ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [NiteDb] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+END;
+2023-03-24 20:40:39.0818|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1,054ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+DROP DATABASE [NiteDb];
+2023-03-24 20:40:41.5855|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (2,286ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+CREATE DATABASE [NiteDb];
+2023-03-24 20:40:42.4574|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (865ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [NiteDb] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+2023-03-24 20:40:42.5162|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1
+2023-03-24 20:40:42.9755|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (35ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+);
+2023-03-24 20:40:42.9966|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (10ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1
+2023-03-24 20:40:43.1812|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (145ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-03-24 20:40:43.2343|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (25ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-03-24 20:40:43.3704|INFO|Microsoft.EntityFrameworkCore.Migrations|Applying migration '20230312122859_Initial Migration'.
+2023-03-24 20:40:43.7441|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (25ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [Users] (
+    [Id] int NOT NULL IDENTITY,
+    [Username] nvarchar(max) NOT NULL,
+    [Email] nvarchar(max) NOT NULL,
+    [Password] nvarchar(max) NOT NULL,
+    [IsAdmin] bit NOT NULL,
+    CONSTRAINT [PK_Users] PRIMARY KEY ([Id])
+);
+2023-03-24 20:40:43.8645|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (116ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Email', N'IsAdmin', N'Password', N'Username') AND [object_id] = OBJECT_ID(N'[Users]'))
+    SET IDENTITY_INSERT [Users] ON;
+INSERT INTO [Users] ([Id], [Email], [IsAdmin], [Password], [Username])
+VALUES (1, N'deeagabor@gmail.com', CAST(1 AS bit), N'ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f', N'deeagabor'),
+(2, N'wolflorena@gmail.com', CAST(1 AS bit), N'ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f', N'wolflorena'),
+(3, N'testunu@gmail.com', CAST(0 AS bit), N'ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f', N'test1'),
+(4, N'testdoi@gmail.com', CAST(0 AS bit), N'ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f', N'test2');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Email', N'IsAdmin', N'Password', N'Username') AND [object_id] = OBJECT_ID(N'[Users]'))
+    SET IDENTITY_INSERT [Users] OFF;
+2023-03-24 20:40:43.8733|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20230312122859_Initial Migration', N'7.0.3');
+2023-03-24 20:40:44.6120|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\Andreea\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-03-24 20:40:45.8761|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 GET https://localhost:7053/ - -
+2023-03-24 20:40:46.0552|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 GET https://localhost:7053/ - - - 404 0 - 185.7363ms
+2023-03-24 20:46:26.8193|INFO|Nite.API.Program|Initializing application...
+2023-03-24 20:46:34.1821|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (79ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1
+2023-03-24 20:46:34.3047|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (58ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-03-24 20:46:34.3194|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1
+2023-03-24 20:46:34.3322|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-03-24 20:46:34.4186|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (8ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-03-24 20:46:34.4894|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2023-03-24 20:46:35.1092|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\Andreea\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-03-24 20:46:36.6816|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 GET https://localhost:7053/ - -
+2023-03-24 20:46:36.9122|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 GET https://localhost:7053/ - - - 404 0 - 239.9782ms
+2023-03-24 20:47:21.5138|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 OPTIONS https://localhost:7053/api/users - -
+2023-03-24 20:47:21.5336|INFO|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|CORS policy execution successful.
+2023-03-24 20:47:21.5487|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 OPTIONS https://localhost:7053/api/users - - - 204 - - 34.8717ms
+2023-03-24 20:47:21.5725|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 POST https://localhost:7053/api/users application/json;charset=UTF-8 122
+2023-03-24 20:47:21.5780|INFO|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|CORS policy execution successful.
+2023-03-24 20:47:21.5780|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Nite.API.Controllers.UsersController.CreateUser (Nite.API)'
+2023-03-24 20:47:21.7425|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "CreateUser", controller = "Users"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CreateUser(Nite.API.Data.Models.UserCreationDTO) on controller Nite.API.Controllers.UsersController (Nite.API).
+2023-03-24 20:47:23.8729|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (200ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = Boolean), @p2='?' (Size = 4000), @p3='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Email], [IsAdmin], [Password], [Username])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3);
+2023-03-24 20:47:24.0749|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing CreatedAtRouteResult, writing value of type 'Nite.API.Data.Models.UserDTO'.
+2023-03-24 20:47:24.4391|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Nite.API.Controllers.UsersController.CreateUser (Nite.API) in 2667.7137ms
+2023-03-24 20:47:24.4391|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Nite.API.Controllers.UsersController.CreateUser (Nite.API)'
+2023-03-24 20:47:24.4811|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 POST https://localhost:7053/api/users application/json;charset=UTF-8 122 - 201 145 application/json;+charset=utf-8 2908.6541ms
+2023-03-24 20:49:08.6574|INFO|Nite.API.Program|Initializing application...
+2023-03-24 20:49:16.3879|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (62ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1
+2023-03-24 20:49:16.6479|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (167ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-03-24 20:49:16.6721|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (11ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1
+2023-03-24 20:49:16.6864|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (9ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-03-24 20:49:16.8344|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (11ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-03-24 20:49:16.8977|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2023-03-24 20:49:17.2219|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\Andreea\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-03-24 20:49:18.5901|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 GET https://localhost:7053/ - -
+2023-03-24 20:49:18.7343|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 GET https://localhost:7053/ - - - 404 0 - 149.7837ms
