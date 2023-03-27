@@ -15,10 +15,11 @@
 <body>
     <div class="form-parent">
         <img src="img/logo.png" alt="">
-        <form action="" class="form">
+        <div id="error"></div>
+        <form class="form" id="form">
             <div class="labelInput">
-                <label for="email">Email</label>
-                <input type="email" name="email" id="email">
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username">
             </div>
             
             <div class="labelInput">
@@ -28,9 +29,11 @@
             
             <button type="submit">LOGIN</button>
         </form>
-        <h5>Don't have an account? <a href="#">Signup here!</a></h5>
+        <h5>Don't have an account? <a href="signup.html">Signup here!</a></h5>
     </div>
 
-    <script src="/frontend/js/login.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/crypto-js@4.0.0/crypto-js.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="js/login.js"></script>
 </body>
 </html>
