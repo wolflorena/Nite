@@ -16,14 +16,14 @@ namespace Nite.API
             _config = config ?? throw new ArgumentNullException(nameof(config));
         }
 
-        public void ConfigureServices(IServiceCollection services) 
+        public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
 
             services.AddControllersWithViews()
                     .AddNewtonsoftJson();
 
-            var connectionString = @"Server=(localdb)\MSSQLLocalDB;Database=NiteDB;Trusted_Connection=True;";
+            var connectionString = @"Server=localhost,1433;Database=NiteDb;Persist Security Info=False;User ID=sa;Password=Password.1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Connection Timeout=30;";
             
             services.AddDbContext<DataContext>(o =>
             {
