@@ -15,7 +15,9 @@
 <body>
     <div class="form-parent">
         <img src="img/logo.png" alt="">
-        <form action="" class="form">
+        <div class="alert" id="alert">
+        </div>
+        <form class="form" id="form">
             <div class="labelInput">
                 <label for="username">Username</label>
                 <input type="text" name="username" id="username">
@@ -41,6 +43,8 @@
         <h5>Already have an account? <a href="#">Login here!</a></h5>
     </div>
 
-    <script src="/frontend/js/signup.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/crypto-js@4.0.0/crypto-js.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="js/signup.js"></script>
 </body>
 </html>

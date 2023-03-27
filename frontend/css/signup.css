@@ -74,6 +74,7 @@ body::before{
     color: var(--light-gray);
     font-size: 14px;
     font-weight: 500;
+    width: 250px;
 }
 
 .form .labelInput{
