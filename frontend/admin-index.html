@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/logCircle.png">
+    <link rel="stylesheet" href="css/admin-index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/09c942d75c.js" crossorigin="anonymous"></script>
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+    
+    <title>Nite | Users</title>
+</head>
+<body>
+    <menu class="vertical-menu">
+        <img src="/frontend/img/logo.png" alt="">
+        <div class="links">
+            <a href="admin-index.html">  <div class="active"><i class="fa-solid fa-user"></i>Users</div></a>
+            <a href="admin-tvshows.html"><i class="fa-solid fa-clapperboard"></i>TV Shows</a>
+            <a href="admin-addtvshow.html"><i class="fa-solid fa-plus"></i>Add a TV Show</a>
+            
+        </div>
+        <button onclick="logout();">LOG OUT</button>
+    </menu>
+
+    <div class="main">
+        <table class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Username</th>
+                <th >Email</th>
+                <th >IsAdmin</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th >1</th>
+                <td>deeagabor</td>
+                <td>deeagabor@gmail.com</td>
+                <td>true</td>
+                <td><i class="fa-solid fa-trash"></i></td>
+                <td><i class="fa-solid fa-pen"></i></td>
+              </tr>
+              <tr>
+                <th>2</th>
+                <td>wolflorena</td>
+                <td>wolflorenaani@gmail.com</td>
+                <td>true</td>
+                <td><i class="fa-solid fa-trash"></i></td>
+                <td><i class="fa-solid fa-pen"></i></td>
+              </tr>
+              <tr>
+                <th>3</th>
+                <td>test1</td>
+                <td>testunu@gmail.com</td>
+                <td>false</td>
+                <td><i class="fa-solid fa-trash"></i></td>
+                <td><i class="fa-solid fa-pen"></i></td>
+              </tr>
+              <tr>
+                <th>4</th>
+                <td>test2</td>
+                <td>testdoi@gmail.com</td>
+                <td>false</td>
+                <td><i class="fa-solid fa-trash"></i></td>
+                <td><i class="fa-solid fa-pen"></i></td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+
+    
+
+    <script src="/frontend/js/admin-index.js"></script>
+</body>
+</html>
