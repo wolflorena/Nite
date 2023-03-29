@@ -1,0 +1,814 @@
+2023-03-29 01:47:14.4739|INFO|Nite.API.Program|Initializing application...
+2023-03-29 01:47:19.7358|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (91ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1
+2023-03-29 01:47:19.8713|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (75ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-03-29 01:47:19.8820|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1
+2023-03-29 01:47:19.8820|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-03-29 01:47:19.9622|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (17ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-03-29 01:47:20.0151|INFO|Microsoft.EntityFrameworkCore.Migrations|Applying migration '20230328164011_Initial Migration'.
+2023-03-29 01:47:20.2579|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (82ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [TVShows] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NOT NULL,
+    [Year] int NOT NULL,
+    [Audience] nvarchar(max) NOT NULL,
+    [Seasons] int NOT NULL,
+    [Genre] nvarchar(max) NOT NULL,
+    [Status] nvarchar(max) NOT NULL,
+    [Description] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_TVShows] PRIMARY KEY ([Id])
+);
+2023-03-29 01:47:20.2886|ERROR|Nite.API.Program|An error occured while migrating the database!|Microsoft.Data.SqlClient.SqlException (0x80131904): There is already an object named 'TVShows' in the database.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean isAsync, Int32 timeout, Boolean asyncWrite)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String methodName)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteNonQuery(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Migrations.MigrationCommand.ExecuteNonQuery(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.ExecuteNonQuery(IEnumerable`1 migrationCommands, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.Migrate(String targetMigration)
+   at Nite.API.Program.Main(String[] args) in D:\Nite\Nite - Backend\Nite.API\Program.cs:line 29
+ClientConnectionId:96562906-d7bb-418d-a715-10bd564da667
+Error Number:2714,State:6,Class:16
+2023-03-29 01:47:20.6546|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\Andreea\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-03-29 01:47:22.0945|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 GET https://localhost:7053/ - -
+2023-03-29 01:47:22.2787|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 GET https://localhost:7053/ - - - 404 0 - 186.2469ms
+2023-03-29 01:47:38.0090|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 GET https://localhost:7053/api/shows/2 application/json 177
+2023-03-29 01:47:38.0090|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Nite.API.Controllers.TVShowsController.GetTVShow (Nite.API)'
+2023-03-29 01:47:38.0658|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "GetTVShow", controller = "TVShows"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetTVShow(Int32) on controller Nite.API.Controllers.TVShowsController (Nite.API).
+2023-03-29 01:47:39.5362|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (282ms) [Parameters=[@__showId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Audience], [t].[Description], [t].[Genre], [t].[Name], [t].[Seasons], [t].[Status], [t].[Year]
+FROM [TVShows] AS [t]
+WHERE [t].[Id] = @__showId_0
+2023-03-29 01:47:39.6531|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type 'Nite.API.Data.Models.TVShowDTO'.
+2023-03-29 01:47:39.8737|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Nite.API.Controllers.TVShowsController.GetTVShow (Nite.API) in 1799.0783ms
+2023-03-29 01:47:39.8737|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Nite.API.Controllers.TVShowsController.GetTVShow (Nite.API)'
+2023-03-29 01:47:39.8889|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 GET https://localhost:7053/api/shows/2 application/json 177 - 200 309 application/json;+charset=utf-8 1879.8408ms
+2023-03-29 01:48:18.1672|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 POST https://localhost:7053/api/shows application/json 336
+2023-03-29 01:48:18.1672|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Nite.API.Controllers.TVShowsController.CreateTVShow (Nite.API)'
+2023-03-29 01:48:18.1672|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "CreateTVShow", controller = "TVShows"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CreateTVShow(Nite.API.Data.Models.TVShowCreationDTO) on controller Nite.API.Controllers.TVShowsController (Nite.API).
+2023-03-29 01:48:18.5882|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (75ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [TVShows] ([Audience], [Description], [Genre], [Name], [Seasons], [Status], [Year])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+2023-03-29 01:48:18.6269|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing CreatedAtRouteResult, writing value of type 'Nite.API.Data.Models.TVShowDTO'.
+2023-03-29 01:48:18.6749|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Nite.API.Controllers.TVShowsController.CreateTVShow (Nite.API) in 504.0403ms
+2023-03-29 01:48:18.6749|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Nite.API.Controllers.TVShowsController.CreateTVShow (Nite.API)'
+2023-03-29 01:48:18.6749|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 POST https://localhost:7053/api/shows application/json 336 - 201 295 application/json;+charset=utf-8 507.9041ms
+2023-03-29 01:48:37.6775|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 GET https://localhost:7053/api/shows application/json 336
+2023-03-29 01:48:37.6775|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Nite.API.Controllers.TVShowsController.GetTVShows (Nite.API)'
+2023-03-29 01:48:37.6787|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "GetTVShows", controller = "TVShows"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetTVShows() on controller Nite.API.Controllers.TVShowsController (Nite.API).
+2023-03-29 01:48:37.6997|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (10ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Audience], [t].[Description], [t].[Genre], [t].[Name], [t].[Seasons], [t].[Status], [t].[Year]
+FROM [TVShows] AS [t]
+2023-03-29 01:48:37.7181|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Nite.API.Data.Models.TVShowDTO, Nite.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-03-29 01:48:37.7294|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Nite.API.Controllers.TVShowsController.GetTVShows (Nite.API) in 50.6737ms
+2023-03-29 01:48:37.7294|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Nite.API.Controllers.TVShowsController.GetTVShows (Nite.API)'
+2023-03-29 01:48:37.7294|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 GET https://localhost:7053/api/shows application/json 336 - 200 1538 application/json;+charset=utf-8 52.0494ms
+2023-03-29 02:21:24.8499|INFO|Nite.API.Program|Initializing application...
+2023-03-29 02:21:31.8057|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (89ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1
+2023-03-29 02:21:31.9145|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (62ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-03-29 02:21:31.9145|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1
+2023-03-29 02:21:31.9309|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-03-29 02:21:32.0036|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (19ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-03-29 02:21:32.0578|INFO|Microsoft.EntityFrameworkCore.Migrations|Applying migration '20230328164011_Initial Migration'.
+2023-03-29 02:21:32.2974|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (81ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [TVShows] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NOT NULL,
+    [Year] int NOT NULL,
+    [Audience] nvarchar(max) NOT NULL,
+    [Seasons] int NOT NULL,
+    [Genre] nvarchar(max) NOT NULL,
+    [Status] nvarchar(max) NOT NULL,
+    [Description] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_TVShows] PRIMARY KEY ([Id])
+);
+2023-03-29 02:21:32.3330|ERROR|Nite.API.Program|An error occured while migrating the database!|Microsoft.Data.SqlClient.SqlException (0x80131904): There is already an object named 'TVShows' in the database.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean isAsync, Int32 timeout, Boolean asyncWrite)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String methodName)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteNonQuery(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Migrations.MigrationCommand.ExecuteNonQuery(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.ExecuteNonQuery(IEnumerable`1 migrationCommands, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.Migrate(String targetMigration)
+   at Nite.API.Program.Main(String[] args) in D:\Nite\Nite - Backend\Nite.API\Program.cs:line 29
+ClientConnectionId:23f77151-e955-447c-b176-ed6440875cf4
+Error Number:2714,State:6,Class:16
+2023-03-29 02:21:32.8709|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\Andreea\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-03-29 02:21:34.3068|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 GET https://localhost:7053/ - -
+2023-03-29 02:21:34.4689|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 GET https://localhost:7053/ - - - 404 0 - 168.1232ms
+2023-03-29 02:22:24.1678|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 DELETE https://localhost:7053/api/shows/1001 application/json 336
+2023-03-29 02:22:24.1678|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Nite.API.Controllers.TVShowsController.DeleteTVShow (Nite.API)'
+2023-03-29 02:22:24.2224|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "DeleteTVShow", controller = "TVShows"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult DeleteTVShow(Int32) on controller Nite.API.Controllers.TVShowsController (Nite.API).
+2023-03-29 02:22:25.5203|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (147ms) [Parameters=[@__showId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TVShows] AS [t]
+        WHERE [t].[Id] = @__showId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-03-29 02:22:25.6213|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (12ms) [Parameters=[@__showId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Audience], [t].[Description], [t].[Genre], [t].[Name], [t].[Seasons], [t].[Status], [t].[Year]
+FROM [TVShows] AS [t]
+WHERE [t].[Id] = @__showId_0
+2023-03-29 02:22:25.9055|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (47ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+DELETE FROM [TVShows]
+OUTPUT 1
+WHERE [Id] = @p0;
+2023-03-29 02:22:25.9335|INFO|Microsoft.AspNetCore.Mvc.StatusCodeResult|Executing StatusCodeResult, setting HTTP status code 204
+2023-03-29 02:22:25.9335|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Nite.API.Controllers.TVShowsController.DeleteTVShow (Nite.API) in 1711.4345ms
+2023-03-29 02:22:25.9335|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Nite.API.Controllers.TVShowsController.DeleteTVShow (Nite.API)'
+2023-03-29 02:22:25.9630|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 DELETE https://localhost:7053/api/shows/1001 application/json 336 - 204 - - 1795.1583ms
+2023-03-29 02:22:36.6351|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 GET https://localhost:7053/api/shows application/json 336
+2023-03-29 02:22:36.6351|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Nite.API.Controllers.TVShowsController.GetTVShows (Nite.API)'
+2023-03-29 02:22:36.6351|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "GetTVShows", controller = "TVShows"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetTVShows() on controller Nite.API.Controllers.TVShowsController (Nite.API).
+2023-03-29 02:22:36.8050|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (16ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Audience], [t].[Description], [t].[Genre], [t].[Name], [t].[Seasons], [t].[Status], [t].[Year]
+FROM [TVShows] AS [t]
+2023-03-29 02:22:36.8727|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Nite.API.Data.Models.TVShowDTO, Nite.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-03-29 02:22:37.1137|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Nite.API.Controllers.TVShowsController.GetTVShows (Nite.API) in 474.7259ms
+2023-03-29 02:22:37.1137|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Nite.API.Controllers.TVShowsController.GetTVShows (Nite.API)'
+2023-03-29 02:22:37.1137|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 GET https://localhost:7053/api/shows application/json 336 - 200 1242 application/json;+charset=utf-8 478.8895ms
+2023-03-29 02:25:43.0719|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 PATCH https://localhost:7053/api/shows/1 application/json 328
+2023-03-29 02:25:43.0719|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Nite.API.Controllers.TVShowsController.PartialUpdateTVShow (Nite.API)'
+2023-03-29 02:25:43.0719|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "PartialUpdateTVShow", controller = "TVShows"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PartialUpdateTVShow(Int32, Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1[Nite.API.Data.Models.TVShowUpdateDTO]) on controller Nite.API.Controllers.TVShowsController (Nite.API).
+2023-03-29 02:25:43.1430|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2023-03-29 02:25:43.1888|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Nite.API.Controllers.TVShowsController.PartialUpdateTVShow (Nite.API) in 110.4193ms
+2023-03-29 02:25:43.1888|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Nite.API.Controllers.TVShowsController.PartialUpdateTVShow (Nite.API)'
+2023-03-29 02:25:43.1888|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 PATCH https://localhost:7053/api/shows/1 application/json 328 - 400 319 application/problem+json;+charset=utf-8 117.5106ms
+2023-03-29 02:27:58.2139|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 GET https://localhost:7053/api/shows/1 application/json 40
+2023-03-29 02:27:58.2139|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Nite.API.Controllers.TVShowsController.GetTVShow (Nite.API)'
+2023-03-29 02:27:58.2139|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "GetTVShow", controller = "TVShows"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetTVShow(Int32) on controller Nite.API.Controllers.TVShowsController (Nite.API).
+2023-03-29 02:27:58.2929|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (4ms) [Parameters=[@__showId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Audience], [t].[Description], [t].[Genre], [t].[Name], [t].[Seasons], [t].[Status], [t].[Year]
+FROM [TVShows] AS [t]
+WHERE [t].[Id] = @__showId_0
+2023-03-29 02:27:58.2929|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type 'Nite.API.Data.Models.TVShowDTO'.
+2023-03-29 02:27:58.2929|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Nite.API.Controllers.TVShowsController.GetTVShow (Nite.API) in 83.0152ms
+2023-03-29 02:27:58.2929|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Nite.API.Controllers.TVShowsController.GetTVShow (Nite.API)'
+2023-03-29 02:27:58.2929|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 GET https://localhost:7053/api/shows/1 application/json 40 - 200 255 application/json;+charset=utf-8 85.1914ms
+2023-03-29 02:28:21.2537|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 PATCH https://localhost:7053/api/shows/1 application/json 65
+2023-03-29 02:28:21.2537|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Nite.API.Controllers.TVShowsController.PartialUpdateTVShow (Nite.API)'
+2023-03-29 02:28:21.2862|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "PartialUpdateTVShow", controller = "TVShows"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PartialUpdateTVShow(Int32, Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1[Nite.API.Data.Models.TVShowUpdateDTO]) on controller Nite.API.Controllers.TVShowsController (Nite.API).
+2023-03-29 02:28:21.3597|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (4ms) [Parameters=[@__showId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TVShows] AS [t]
+        WHERE [t].[Id] = @__showId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-03-29 02:28:21.3675|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (4ms) [Parameters=[@__showId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Audience], [t].[Description], [t].[Genre], [t].[Name], [t].[Seasons], [t].[Status], [t].[Year]
+FROM [TVShows] AS [t]
+WHERE [t].[Id] = @__showId_0
+2023-03-29 02:28:21.5538|FATAL|Nite.API.Controllers.TVShowsController|Exception while updating the TV show with id 1!
+2023-03-29 02:28:21.5538|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'System.String'.
+2023-03-29 02:28:21.5538|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Nite.API.Controllers.TVShowsController.PartialUpdateTVShow (Nite.API) in 268.9939ms
+2023-03-29 02:28:21.5538|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Nite.API.Controllers.TVShowsController.PartialUpdateTVShow (Nite.API)'
+2023-03-29 02:28:21.5538|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 PATCH https://localhost:7053/api/shows/1 application/json 65 - 500 - text/plain;+charset=utf-8 301.6985ms
+2023-03-29 02:28:32.0572|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 PATCH https://localhost:7053/api/shows/1 application/json 66
+2023-03-29 02:28:32.0572|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Nite.API.Controllers.TVShowsController.PartialUpdateTVShow (Nite.API)'
+2023-03-29 02:28:32.0572|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "PartialUpdateTVShow", controller = "TVShows"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PartialUpdateTVShow(Int32, Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1[Nite.API.Data.Models.TVShowUpdateDTO]) on controller Nite.API.Controllers.TVShowsController (Nite.API).
+2023-03-29 02:28:32.0572|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (3ms) [Parameters=[@__showId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TVShows] AS [t]
+        WHERE [t].[Id] = @__showId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-03-29 02:28:32.0736|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (3ms) [Parameters=[@__showId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Audience], [t].[Description], [t].[Genre], [t].[Name], [t].[Seasons], [t].[Status], [t].[Year]
+FROM [TVShows] AS [t]
+WHERE [t].[Id] = @__showId_0
+2023-03-29 02:28:32.1327|FATAL|Nite.API.Controllers.TVShowsController|Exception while updating the TV show with id 1!
+2023-03-29 02:28:32.1327|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'System.String'.
+2023-03-29 02:28:32.1327|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Nite.API.Controllers.TVShowsController.PartialUpdateTVShow (Nite.API) in 75.4687ms
+2023-03-29 02:28:32.1327|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Nite.API.Controllers.TVShowsController.PartialUpdateTVShow (Nite.API)'
+2023-03-29 02:28:32.1327|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 PATCH https://localhost:7053/api/shows/1 application/json 66 - 500 - text/plain;+charset=utf-8 76.0441ms
+2023-03-29 02:28:39.5224|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 PATCH https://localhost:7053/api/shows/1 application/json 66
+2023-03-29 02:28:39.5224|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Nite.API.Controllers.TVShowsController.PartialUpdateTVShow (Nite.API)'
+2023-03-29 02:28:39.5224|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "PartialUpdateTVShow", controller = "TVShows"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PartialUpdateTVShow(Int32, Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1[Nite.API.Data.Models.TVShowUpdateDTO]) on controller Nite.API.Controllers.TVShowsController (Nite.API).
+2023-03-29 02:28:39.5224|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (2ms) [Parameters=[@__showId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TVShows] AS [t]
+        WHERE [t].[Id] = @__showId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-03-29 02:28:39.5224|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (2ms) [Parameters=[@__showId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Audience], [t].[Description], [t].[Genre], [t].[Name], [t].[Seasons], [t].[Status], [t].[Year]
+FROM [TVShows] AS [t]
+WHERE [t].[Id] = @__showId_0
+2023-03-29 02:28:39.5900|FATAL|Nite.API.Controllers.TVShowsController|Exception while updating the TV show with id 1!
+2023-03-29 02:28:39.5900|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'System.String'.
+2023-03-29 02:28:39.5900|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Nite.API.Controllers.TVShowsController.PartialUpdateTVShow (Nite.API) in 67.5769ms
+2023-03-29 02:28:39.5900|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Nite.API.Controllers.TVShowsController.PartialUpdateTVShow (Nite.API)'
+2023-03-29 02:28:39.5900|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 PATCH https://localhost:7053/api/shows/1 application/json 66 - 500 - text/plain;+charset=utf-8 67.8589ms
+2023-03-29 02:32:41.6599|INFO|Nite.API.Program|Initializing application...
+2023-03-29 02:32:47.0915|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (75ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1
+2023-03-29 02:32:47.2168|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (68ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-03-29 02:32:47.2267|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1
+2023-03-29 02:32:47.2267|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-03-29 02:32:47.2981|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (15ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-03-29 02:32:47.3514|INFO|Microsoft.EntityFrameworkCore.Migrations|Applying migration '20230328164011_Initial Migration'.
+2023-03-29 02:32:47.6150|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (68ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [TVShows] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NOT NULL,
+    [Year] int NOT NULL,
+    [Audience] nvarchar(max) NOT NULL,
+    [Seasons] int NOT NULL,
+    [Genre] nvarchar(max) NOT NULL,
+    [Status] nvarchar(max) NOT NULL,
+    [Description] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_TVShows] PRIMARY KEY ([Id])
+);
+2023-03-29 02:32:47.6548|ERROR|Nite.API.Program|An error occured while migrating the database!|Microsoft.Data.SqlClient.SqlException (0x80131904): There is already an object named 'TVShows' in the database.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean isAsync, Int32 timeout, Boolean asyncWrite)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String methodName)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteNonQuery(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Migrations.MigrationCommand.ExecuteNonQuery(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.ExecuteNonQuery(IEnumerable`1 migrationCommands, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.Migrate(String targetMigration)
+   at Nite.API.Program.Main(String[] args) in D:\Nite\Nite - Backend\Nite.API\Program.cs:line 29
+ClientConnectionId:b37f8974-a6f6-457e-91a2-559ec2b73f44
+Error Number:2714,State:6,Class:16
+2023-03-29 02:32:48.0660|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\Andreea\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-03-29 02:32:49.3401|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 GET https://localhost:7053/ - -
+2023-03-29 02:32:49.4944|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 GET https://localhost:7053/ - - - 404 0 - 159.7137ms
+2023-03-29 02:32:56.7301|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 PATCH https://localhost:7053/api/shows/1 application/json 65
+2023-03-29 02:32:56.7301|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Nite.API.Controllers.TVShowsController.PartialUpdateTVShow (Nite.API)'
+2023-03-29 02:32:56.7787|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "PartialUpdateTVShow", controller = "TVShows"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PartialUpdateTVShow(Int32, Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1[Nite.API.Data.Models.TVShowUpdateDTO]) on controller Nite.API.Controllers.TVShowsController (Nite.API).
+2023-03-29 02:32:58.2560|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (77ms) [Parameters=[@__showId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TVShows] AS [t]
+        WHERE [t].[Id] = @__showId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-03-29 02:32:58.3358|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (10ms) [Parameters=[@__showId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Audience], [t].[Description], [t].[Genre], [t].[Name], [t].[Seasons], [t].[Status], [t].[Year]
+FROM [TVShows] AS [t]
+WHERE [t].[Id] = @__showId_0
+2023-03-29 02:32:58.4507|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (4ms) [Parameters=[@__showId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Audience], [t].[Description], [t].[Genre], [t].[Name], [t].[Seasons], [t].[Status], [t].[Year]
+FROM [TVShows] AS [t]
+WHERE [t].[Id] = @__showId_0
+2023-03-29 02:32:58.6686|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (97ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [TVShows] SET [Audience] = @p0
+OUTPUT 1
+WHERE [Id] = @p1;
+2023-03-29 02:32:58.6900|INFO|Microsoft.AspNetCore.Mvc.StatusCodeResult|Executing StatusCodeResult, setting HTTP status code 204
+2023-03-29 02:32:58.6954|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Nite.API.Controllers.TVShowsController.PartialUpdateTVShow (Nite.API) in 1911.7819ms
+2023-03-29 02:32:58.6954|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Nite.API.Controllers.TVShowsController.PartialUpdateTVShow (Nite.API)'
+2023-03-29 02:32:58.7125|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 PATCH https://localhost:7053/api/shows/1 application/json 65 - 204 - - 1982.4151ms
+2023-03-29 02:33:04.8046|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 GET https://localhost:7053/api/shows/1 application/json 65
+2023-03-29 02:33:04.8046|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Nite.API.Controllers.TVShowsController.GetTVShow (Nite.API)'
+2023-03-29 02:33:04.8046|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "GetTVShow", controller = "TVShows"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetTVShow(Int32) on controller Nite.API.Controllers.TVShowsController (Nite.API).
+2023-03-29 02:33:04.8804|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (4ms) [Parameters=[@__showId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Audience], [t].[Description], [t].[Genre], [t].[Name], [t].[Seasons], [t].[Status], [t].[Year]
+FROM [TVShows] AS [t]
+WHERE [t].[Id] = @__showId_0
+2023-03-29 02:33:04.8921|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type 'Nite.API.Data.Models.TVShowDTO'.
+2023-03-29 02:33:04.9538|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Nite.API.Controllers.TVShowsController.GetTVShow (Nite.API) in 145.8771ms
+2023-03-29 02:33:04.9538|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Nite.API.Controllers.TVShowsController.GetTVShow (Nite.API)'
+2023-03-29 02:33:04.9538|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 GET https://localhost:7053/api/shows/1 application/json 65 - 200 255 application/json;+charset=utf-8 149.4182ms
+2023-03-29 02:33:24.5004|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 PATCH https://localhost:7053/api/shows/1 application/json 65
+2023-03-29 02:33:24.5004|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Nite.API.Controllers.TVShowsController.PartialUpdateTVShow (Nite.API)'
+2023-03-29 02:33:24.5004|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "PartialUpdateTVShow", controller = "TVShows"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PartialUpdateTVShow(Int32, Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1[Nite.API.Data.Models.TVShowUpdateDTO]) on controller Nite.API.Controllers.TVShowsController (Nite.API).
+2023-03-29 02:33:24.5107|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (3ms) [Parameters=[@__showId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TVShows] AS [t]
+        WHERE [t].[Id] = @__showId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-03-29 02:33:24.5107|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (3ms) [Parameters=[@__showId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Audience], [t].[Description], [t].[Genre], [t].[Name], [t].[Seasons], [t].[Status], [t].[Year]
+FROM [TVShows] AS [t]
+WHERE [t].[Id] = @__showId_0
+2023-03-29 02:33:24.5107|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (2ms) [Parameters=[@__showId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Audience], [t].[Description], [t].[Genre], [t].[Name], [t].[Seasons], [t].[Status], [t].[Year]
+FROM [TVShows] AS [t]
+WHERE [t].[Id] = @__showId_0
+2023-03-29 02:33:24.5317|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (8ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [TVShows] SET [Audience] = @p0
+OUTPUT 1
+WHERE [Id] = @p1;
+2023-03-29 02:33:24.5317|INFO|Microsoft.AspNetCore.Mvc.StatusCodeResult|Executing StatusCodeResult, setting HTTP status code 204
+2023-03-29 02:33:24.5317|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Nite.API.Controllers.TVShowsController.PartialUpdateTVShow (Nite.API) in 31.3115ms
+2023-03-29 02:33:24.5317|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Nite.API.Controllers.TVShowsController.PartialUpdateTVShow (Nite.API)'
+2023-03-29 02:33:24.5317|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 PATCH https://localhost:7053/api/shows/1 application/json 65 - 204 - - 31.7170ms
+2023-03-29 02:33:32.0227|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 GET https://localhost:7053/api/shows/1 application/json 65
+2023-03-29 02:33:32.0227|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Nite.API.Controllers.TVShowsController.GetTVShow (Nite.API)'
+2023-03-29 02:33:32.0227|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "GetTVShow", controller = "TVShows"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetTVShow(Int32) on controller Nite.API.Controllers.TVShowsController (Nite.API).
+2023-03-29 02:33:32.0227|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (3ms) [Parameters=[@__showId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Audience], [t].[Description], [t].[Genre], [t].[Name], [t].[Seasons], [t].[Status], [t].[Year]
+FROM [TVShows] AS [t]
+WHERE [t].[Id] = @__showId_0
+2023-03-29 02:33:32.0227|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type 'Nite.API.Data.Models.TVShowDTO'.
+2023-03-29 02:33:32.0227|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Nite.API.Controllers.TVShowsController.GetTVShow (Nite.API) in 6.2055ms
+2023-03-29 02:33:32.0227|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Nite.API.Controllers.TVShowsController.GetTVShow (Nite.API)'
+2023-03-29 02:33:32.0227|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 GET https://localhost:7053/api/shows/1 application/json 65 - 200 255 application/json;+charset=utf-8 6.5730ms
+2023-03-29 02:35:00.0946|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 PUT https://localhost:7053/api/shows/1 application/json 314
+2023-03-29 02:35:00.0946|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Nite.API.Controllers.TVShowsController.UpdateTVShow (Nite.API)'
+2023-03-29 02:35:00.1031|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "UpdateTVShow", controller = "TVShows"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UpdateTVShow(Int32, Nite.API.Data.Models.TVShowUpdateDTO) on controller Nite.API.Controllers.TVShowsController (Nite.API).
+2023-03-29 02:35:00.1348|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (3ms) [Parameters=[@__showId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TVShows] AS [t]
+        WHERE [t].[Id] = @__showId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-03-29 02:35:00.1348|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (2ms) [Parameters=[@__showId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Audience], [t].[Description], [t].[Genre], [t].[Name], [t].[Seasons], [t].[Status], [t].[Year]
+FROM [TVShows] AS [t]
+WHERE [t].[Id] = @__showId_0
+2023-03-29 02:35:00.1522|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (10ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [TVShows] SET [Genre] = @p0
+OUTPUT 1
+WHERE [Id] = @p1;
+2023-03-29 02:35:00.1522|INFO|Microsoft.AspNetCore.Mvc.StatusCodeResult|Executing StatusCodeResult, setting HTTP status code 204
+2023-03-29 02:35:00.1522|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Nite.API.Controllers.TVShowsController.UpdateTVShow (Nite.API) in 49.2685ms
+2023-03-29 02:35:00.1522|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Nite.API.Controllers.TVShowsController.UpdateTVShow (Nite.API)'
+2023-03-29 02:35:00.1522|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 PUT https://localhost:7053/api/shows/1 application/json 314 - 204 - - 58.0266ms
+2023-03-29 02:35:04.8481|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 GET https://localhost:7053/api/shows/1 application/json 314
+2023-03-29 02:35:04.8481|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Nite.API.Controllers.TVShowsController.GetTVShow (Nite.API)'
+2023-03-29 02:35:04.8481|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "GetTVShow", controller = "TVShows"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetTVShow(Int32) on controller Nite.API.Controllers.TVShowsController (Nite.API).
+2023-03-29 02:35:04.8541|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (3ms) [Parameters=[@__showId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Audience], [t].[Description], [t].[Genre], [t].[Name], [t].[Seasons], [t].[Status], [t].[Year]
+FROM [TVShows] AS [t]
+WHERE [t].[Id] = @__showId_0
+2023-03-29 02:35:04.8541|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type 'Nite.API.Data.Models.TVShowDTO'.
+2023-03-29 02:35:04.8541|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Nite.API.Controllers.TVShowsController.GetTVShow (Nite.API) in 6.3205ms
+2023-03-29 02:35:04.8541|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Nite.API.Controllers.TVShowsController.GetTVShow (Nite.API)'
+2023-03-29 02:35:04.8541|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 GET https://localhost:7053/api/shows/1 application/json 314 - 200 256 application/json;+charset=utf-8 6.6414ms
+2023-03-29 02:35:16.0627|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 PUT https://localhost:7053/api/shows/1 application/json 313
+2023-03-29 02:35:16.0627|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Nite.API.Controllers.TVShowsController.UpdateTVShow (Nite.API)'
+2023-03-29 02:35:16.0627|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "UpdateTVShow", controller = "TVShows"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UpdateTVShow(Int32, Nite.API.Data.Models.TVShowUpdateDTO) on controller Nite.API.Controllers.TVShowsController (Nite.API).
+2023-03-29 02:35:16.0692|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (3ms) [Parameters=[@__showId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TVShows] AS [t]
+        WHERE [t].[Id] = @__showId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-03-29 02:35:16.0692|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (3ms) [Parameters=[@__showId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Audience], [t].[Description], [t].[Genre], [t].[Name], [t].[Seasons], [t].[Status], [t].[Year]
+FROM [TVShows] AS [t]
+WHERE [t].[Id] = @__showId_0
+2023-03-29 02:35:16.0872|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (9ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [TVShows] SET [Genre] = @p0
+OUTPUT 1
+WHERE [Id] = @p1;
+2023-03-29 02:35:16.0872|INFO|Microsoft.AspNetCore.Mvc.StatusCodeResult|Executing StatusCodeResult, setting HTTP status code 204
+2023-03-29 02:35:16.0872|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Nite.API.Controllers.TVShowsController.UpdateTVShow (Nite.API) in 24.5462ms
+2023-03-29 02:35:16.0872|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Nite.API.Controllers.TVShowsController.UpdateTVShow (Nite.API)'
+2023-03-29 02:35:16.0872|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 PUT https://localhost:7053/api/shows/1 application/json 313 - 204 - - 24.9362ms
+2023-03-29 02:35:20.6822|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 GET https://localhost:7053/api/shows/1 application/json 313
+2023-03-29 02:35:20.6822|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Nite.API.Controllers.TVShowsController.GetTVShow (Nite.API)'
+2023-03-29 02:35:20.6822|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "GetTVShow", controller = "TVShows"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetTVShow(Int32) on controller Nite.API.Controllers.TVShowsController (Nite.API).
+2023-03-29 02:35:20.6822|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (3ms) [Parameters=[@__showId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Audience], [t].[Description], [t].[Genre], [t].[Name], [t].[Seasons], [t].[Status], [t].[Year]
+FROM [TVShows] AS [t]
+WHERE [t].[Id] = @__showId_0
+2023-03-29 02:35:20.6822|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type 'Nite.API.Data.Models.TVShowDTO'.
+2023-03-29 02:35:20.6822|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Nite.API.Controllers.TVShowsController.GetTVShow (Nite.API) in 7.0142ms
+2023-03-29 02:35:20.6822|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Nite.API.Controllers.TVShowsController.GetTVShow (Nite.API)'
+2023-03-29 02:35:20.6822|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 GET https://localhost:7053/api/shows/1 application/json 313 - 200 255 application/json;+charset=utf-8 7.3928ms
+2023-03-29 11:11:07.9670|INFO|Nite.API.Program|Initializing application...
+2023-03-29 11:11:16.2280|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (104ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1
+2023-03-29 11:11:16.4711|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (115ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-03-29 11:11:16.4896|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (10ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1
+2023-03-29 11:11:16.4991|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-03-29 11:11:16.6336|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (27ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-03-29 11:11:16.7357|INFO|Microsoft.EntityFrameworkCore.Migrations|Applying migration '20230328164011_Initial Migration'.
+2023-03-29 11:11:17.0886|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (65ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [TVShows] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NOT NULL,
+    [Year] int NOT NULL,
+    [Audience] nvarchar(max) NOT NULL,
+    [Seasons] int NOT NULL,
+    [Genre] nvarchar(max) NOT NULL,
+    [Status] nvarchar(max) NOT NULL,
+    [Description] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_TVShows] PRIMARY KEY ([Id])
+);
+2023-03-29 11:11:17.1819|ERROR|Nite.API.Program|An error occured while migrating the database!|Microsoft.Data.SqlClient.SqlException (0x80131904): There is already an object named 'TVShows' in the database.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean isAsync, Int32 timeout, Boolean asyncWrite)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String methodName)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteNonQuery(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Migrations.MigrationCommand.ExecuteNonQuery(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.ExecuteNonQuery(IEnumerable`1 migrationCommands, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.Migrate(String targetMigration)
+   at Nite.API.Program.Main(String[] args) in D:\Nite\Nite - Backend\Nite.API\Program.cs:line 29
+ClientConnectionId:c781730b-f651-4bea-842d-8ff290aeebfe
+Error Number:2714,State:6,Class:16
+2023-03-29 11:11:19.9856|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\Andreea\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-03-29 11:11:22.4715|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 GET https://localhost:7053/ - -
+2023-03-29 11:11:22.7476|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 GET https://localhost:7053/ - - - 404 0 - 282.9530ms
+2023-03-29 11:11:31.4516|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 GET https://localhost:7053/api/shows application/json 313
+2023-03-29 11:11:31.4516|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Nite.API.Controllers.TVShowsController.GetTVShows (Nite.API)'
+2023-03-29 11:11:31.5056|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "GetTVShows", controller = "TVShows"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetTVShows() on controller Nite.API.Controllers.TVShowsController (Nite.API).
+2023-03-29 11:11:31.5266|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Nite.API.Controllers.TVShowsController.GetTVShows (Nite.API) in 9.1642ms
+2023-03-29 11:11:31.5266|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Nite.API.Controllers.TVShowsController.GetTVShows (Nite.API)'
+2023-03-29 11:11:31.5640|ERROR|Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware|An unhandled exception has occurred while executing the request.|System.InvalidOperationException: Unable to resolve service for type 'Nite.API.Services.ITVShowsServiceModel' while attempting to activate 'Nite.API.Controllers.TVShowsController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method19(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass7_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2023-03-29 11:11:31.5823|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 GET https://localhost:7053/api/shows application/json 313 - 500 - text/plain;+charset=utf-8 130.7816ms
+2023-03-29 11:12:25.4927|INFO|Nite.API.Program|Initializing application...
+2023-03-29 11:12:35.5872|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (89ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1
+2023-03-29 11:12:35.7317|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (61ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-03-29 11:12:35.7465|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (9ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1
+2023-03-29 11:12:35.7465|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-03-29 11:12:35.8514|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (11ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-03-29 11:12:35.9357|INFO|Microsoft.EntityFrameworkCore.Migrations|Applying migration '20230328164011_Initial Migration'.
+2023-03-29 11:12:36.3189|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (32ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [TVShows] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NOT NULL,
+    [Year] int NOT NULL,
+    [Audience] nvarchar(max) NOT NULL,
+    [Seasons] int NOT NULL,
+    [Genre] nvarchar(max) NOT NULL,
+    [Status] nvarchar(max) NOT NULL,
+    [Description] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_TVShows] PRIMARY KEY ([Id])
+);
+2023-03-29 11:12:36.3663|ERROR|Nite.API.Program|An error occured while migrating the database!|Microsoft.Data.SqlClient.SqlException (0x80131904): There is already an object named 'TVShows' in the database.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean isAsync, Int32 timeout, Boolean asyncWrite)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String methodName)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteNonQuery(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Migrations.MigrationCommand.ExecuteNonQuery(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.ExecuteNonQuery(IEnumerable`1 migrationCommands, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.Migrate(String targetMigration)
+   at Nite.API.Program.Main(String[] args) in D:\Nite\Nite - Backend\Nite.API\Program.cs:line 29
+ClientConnectionId:c498e829-002f-4144-a214-c9566f7cb05d
+Error Number:2714,State:6,Class:16
+2023-03-29 11:12:36.9903|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\Andreea\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-03-29 11:12:38.1426|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 GET https://localhost:7053/ - -
+2023-03-29 11:12:39.7037|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 GET https://localhost:7053/ - - - 404 0 - 1569.8392ms
+2023-03-29 11:12:46.4467|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 GET https://localhost:7053/api/shows application/json 313
+2023-03-29 11:12:46.4467|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Nite.API.Controllers.TVShowsController.GetTVShows (Nite.API)'
+2023-03-29 11:12:46.4955|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "GetTVShows", controller = "TVShows"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetTVShows() on controller Nite.API.Controllers.TVShowsController (Nite.API).
+2023-03-29 11:12:48.1902|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (65ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Audience], [t].[Description], [t].[Genre], [t].[Name], [t].[Seasons], [t].[Status], [t].[Year]
+FROM [TVShows] AS [t]
+2023-03-29 11:12:48.4301|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Nite.API.Data.Models.TVShowDTO, Nite.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-03-29 11:12:48.8854|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Nite.API.Controllers.TVShowsController.GetTVShows (Nite.API) in 2371.1114ms
+2023-03-29 11:12:48.8854|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Nite.API.Controllers.TVShowsController.GetTVShows (Nite.API)'
+2023-03-29 11:12:48.9319|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 GET https://localhost:7053/api/shows application/json 313 - 200 1242 application/json;+charset=utf-8 2485.1510ms
+2023-03-29 11:12:55.4758|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 GET https://localhost:7053/api/shows/2 application/json 313
+2023-03-29 11:12:55.4758|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Nite.API.Controllers.TVShowsController.GetTVShow (Nite.API)'
+2023-03-29 11:12:55.5049|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "GetTVShow", controller = "TVShows"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetTVShow(Int32) on controller Nite.API.Controllers.TVShowsController (Nite.API).
+2023-03-29 11:12:56.4554|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (151ms) [Parameters=[@__showId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Audience], [t].[Description], [t].[Genre], [t].[Name], [t].[Seasons], [t].[Status], [t].[Year]
+FROM [TVShows] AS [t]
+WHERE [t].[Id] = @__showId_0
+2023-03-29 11:12:56.4682|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type 'Nite.API.Data.Models.TVShowDTO'.
+2023-03-29 11:12:56.4682|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Nite.API.Controllers.TVShowsController.GetTVShow (Nite.API) in 964.0723ms
+2023-03-29 11:12:56.4682|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Nite.API.Controllers.TVShowsController.GetTVShow (Nite.API)'
+2023-03-29 11:12:56.4682|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 GET https://localhost:7053/api/shows/2 application/json 313 - 200 309 application/json;+charset=utf-8 993.6870ms
+2023-03-29 11:13:14.0621|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 POST https://localhost:7053/api/shows application/json 288
+2023-03-29 11:13:14.0621|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Nite.API.Controllers.TVShowsController.CreateTVShow (Nite.API)'
+2023-03-29 11:13:14.0621|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "CreateTVShow", controller = "TVShows"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CreateTVShow(Nite.API.Data.Models.TVShowCreationDTO) on controller Nite.API.Controllers.TVShowsController (Nite.API).
+2023-03-29 11:13:14.7793|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (80ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [TVShows] ([Audience], [Description], [Genre], [Name], [Seasons], [Status], [Year])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+2023-03-29 11:13:14.8635|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing CreatedAtRouteResult, writing value of type 'Nite.API.Data.Models.TVShowDTO'.
+2023-03-29 11:13:14.9439|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Nite.API.Controllers.TVShowsController.CreateTVShow (Nite.API) in 877.0073ms
+2023-03-29 11:13:14.9439|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Nite.API.Controllers.TVShowsController.CreateTVShow (Nite.API)'
+2023-03-29 11:13:14.9439|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 POST https://localhost:7053/api/shows application/json 288 - 201 247 application/json;+charset=utf-8 882.0971ms
+2023-03-29 11:13:56.6611|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 PUT https://localhost:7053/api/shows/2001 application/json 293
+2023-03-29 11:13:56.6668|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Nite.API.Controllers.TVShowsController.UpdateTVShow (Nite.API)'
+2023-03-29 11:13:56.6668|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "UpdateTVShow", controller = "TVShows"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UpdateTVShow(Int32, Nite.API.Data.Models.TVShowUpdateDTO) on controller Nite.API.Controllers.TVShowsController (Nite.API).
+2023-03-29 11:13:56.7471|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (13ms) [Parameters=[@__showId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TVShows] AS [t]
+        WHERE [t].[Id] = @__showId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-03-29 11:13:56.7762|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (6ms) [Parameters=[@__showId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Audience], [t].[Description], [t].[Genre], [t].[Name], [t].[Seasons], [t].[Status], [t].[Year]
+FROM [TVShows] AS [t]
+WHERE [t].[Id] = @__showId_0
+2023-03-29 11:13:56.8322|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (23ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [TVShows] SET [Name] = @p0
+OUTPUT 1
+WHERE [Id] = @p1;
+2023-03-29 11:13:56.8436|INFO|Microsoft.AspNetCore.Mvc.StatusCodeResult|Executing StatusCodeResult, setting HTTP status code 204
+2023-03-29 11:13:56.8436|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Nite.API.Controllers.TVShowsController.UpdateTVShow (Nite.API) in 172.6944ms
+2023-03-29 11:13:56.8436|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Nite.API.Controllers.TVShowsController.UpdateTVShow (Nite.API)'
+2023-03-29 11:13:56.8436|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 PUT https://localhost:7053/api/shows/2001 application/json 293 - 204 - - 183.0817ms
+2023-03-29 11:15:09.0713|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 PATCH https://localhost:7053/api/shows/2001 application/json 76
+2023-03-29 11:15:09.0713|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Nite.API.Controllers.TVShowsController.PartialUpdateTVShow (Nite.API)'
+2023-03-29 11:15:09.0713|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "PartialUpdateTVShow", controller = "TVShows"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PartialUpdateTVShow(Int32, Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1[Nite.API.Data.Models.TVShowUpdateDTO]) on controller Nite.API.Controllers.TVShowsController (Nite.API).
+2023-03-29 11:15:09.1595|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (6ms) [Parameters=[@__showId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TVShows] AS [t]
+        WHERE [t].[Id] = @__showId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-03-29 11:15:09.1691|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (4ms) [Parameters=[@__showId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Audience], [t].[Description], [t].[Genre], [t].[Name], [t].[Seasons], [t].[Status], [t].[Year]
+FROM [TVShows] AS [t]
+WHERE [t].[Id] = @__showId_0
+2023-03-29 11:15:09.1971|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (5ms) [Parameters=[@__showId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Audience], [t].[Description], [t].[Genre], [t].[Name], [t].[Seasons], [t].[Status], [t].[Year]
+FROM [TVShows] AS [t]
+WHERE [t].[Id] = @__showId_0
+2023-03-29 11:15:09.2159|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (13ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [TVShows] SET [Description] = @p0
+OUTPUT 1
+WHERE [Id] = @p1;
+2023-03-29 11:15:09.2159|INFO|Microsoft.AspNetCore.Mvc.StatusCodeResult|Executing StatusCodeResult, setting HTTP status code 204
+2023-03-29 11:15:09.2159|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Nite.API.Controllers.TVShowsController.PartialUpdateTVShow (Nite.API) in 136.3513ms
+2023-03-29 11:15:09.2159|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Nite.API.Controllers.TVShowsController.PartialUpdateTVShow (Nite.API)'
+2023-03-29 11:15:09.2159|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 PATCH https://localhost:7053/api/shows/2001 application/json 76 - 204 - - 145.6102ms
+2023-03-29 11:15:14.6498|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 GET https://localhost:7053/api/shows/2001 application/json 76
+2023-03-29 11:15:14.6498|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Nite.API.Controllers.TVShowsController.GetTVShow (Nite.API)'
+2023-03-29 11:15:14.6498|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "GetTVShow", controller = "TVShows"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetTVShow(Int32) on controller Nite.API.Controllers.TVShowsController (Nite.API).
+2023-03-29 11:15:14.6626|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (6ms) [Parameters=[@__showId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Audience], [t].[Description], [t].[Genre], [t].[Name], [t].[Seasons], [t].[Status], [t].[Year]
+FROM [TVShows] AS [t]
+WHERE [t].[Id] = @__showId_0
+2023-03-29 11:15:14.6626|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type 'Nite.API.Data.Models.TVShowDTO'.
+2023-03-29 11:15:14.6626|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Nite.API.Controllers.TVShowsController.GetTVShow (Nite.API) in 12.901ms
+2023-03-29 11:15:14.6626|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Nite.API.Controllers.TVShowsController.GetTVShow (Nite.API)'
+2023-03-29 11:15:14.6626|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 GET https://localhost:7053/api/shows/2001 application/json 76 - 200 137 application/json;+charset=utf-8 13.9850ms
+2023-03-29 11:15:44.5554|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 GET https://localhost:7053/api/shows application/json 76
+2023-03-29 11:15:44.5554|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Nite.API.Controllers.TVShowsController.GetTVShows (Nite.API)'
+2023-03-29 11:15:44.5554|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "GetTVShows", controller = "TVShows"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetTVShows() on controller Nite.API.Controllers.TVShowsController (Nite.API).
+2023-03-29 11:15:44.6213|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Audience], [t].[Description], [t].[Genre], [t].[Name], [t].[Seasons], [t].[Status], [t].[Year]
+FROM [TVShows] AS [t]
+2023-03-29 11:15:44.6213|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Nite.API.Data.Models.TVShowDTO, Nite.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-03-29 11:15:44.6213|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Nite.API.Controllers.TVShowsController.GetTVShows (Nite.API) in 60.1024ms
+2023-03-29 11:15:44.6213|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Nite.API.Controllers.TVShowsController.GetTVShows (Nite.API)'
+2023-03-29 11:15:44.6213|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 GET https://localhost:7053/api/shows application/json 76 - 200 1380 application/json;+charset=utf-8 67.5099ms
+2023-03-29 11:16:25.7301|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 POST https://localhost:7053/api/shows application/json 322
+2023-03-29 11:16:25.7301|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Nite.API.Controllers.TVShowsController.CreateTVShow (Nite.API)'
+2023-03-29 11:16:25.7301|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "CreateTVShow", controller = "TVShows"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CreateTVShow(Nite.API.Data.Models.TVShowCreationDTO) on controller Nite.API.Controllers.TVShowsController (Nite.API).
+2023-03-29 11:16:25.8184|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (70ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [TVShows] ([Audience], [Description], [Genre], [Name], [Seasons], [Status], [Year])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+2023-03-29 11:16:25.8184|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing CreatedAtRouteResult, writing value of type 'Nite.API.Data.Models.TVShowDTO'.
+2023-03-29 11:16:25.8184|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Nite.API.Controllers.TVShowsController.CreateTVShow (Nite.API) in 83.1714ms
+2023-03-29 11:16:25.8184|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Nite.API.Controllers.TVShowsController.CreateTVShow (Nite.API)'
+2023-03-29 11:16:25.8184|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 POST https://localhost:7053/api/shows application/json 322 - 201 249 application/json;+charset=utf-8 90.5555ms
+2023-03-29 11:16:50.2256|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 DELETE https://localhost:7053/api/shows/2002 application/json 322
+2023-03-29 11:16:50.2256|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Nite.API.Controllers.TVShowsController.DeleteTVShow (Nite.API)'
+2023-03-29 11:16:50.2256|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "DeleteTVShow", controller = "TVShows"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult DeleteTVShow(Int32) on controller Nite.API.Controllers.TVShowsController (Nite.API).
+2023-03-29 11:16:50.2523|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (5ms) [Parameters=[@__showId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TVShows] AS [t]
+        WHERE [t].[Id] = @__showId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-03-29 11:16:50.2642|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (5ms) [Parameters=[@__showId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Audience], [t].[Description], [t].[Genre], [t].[Name], [t].[Seasons], [t].[Status], [t].[Year]
+FROM [TVShows] AS [t]
+WHERE [t].[Id] = @__showId_0
+2023-03-29 11:16:50.3106|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (17ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+DELETE FROM [TVShows]
+OUTPUT 1
+WHERE [Id] = @p0;
+2023-03-29 11:16:50.3250|INFO|Microsoft.AspNetCore.Mvc.StatusCodeResult|Executing StatusCodeResult, setting HTTP status code 204
+2023-03-29 11:16:50.3250|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Nite.API.Controllers.TVShowsController.DeleteTVShow (Nite.API) in 86.3609ms
+2023-03-29 11:16:50.3250|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Nite.API.Controllers.TVShowsController.DeleteTVShow (Nite.API)'
+2023-03-29 11:16:50.3250|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 DELETE https://localhost:7053/api/shows/2002 application/json 322 - 204 - - 99.8020ms
+2023-03-29 11:17:14.3339|INFO|Nite.API.Program|Initializing application...
+2023-03-29 11:17:22.2336|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (120ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1
+2023-03-29 11:17:22.4815|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (92ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-03-29 11:17:22.4924|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1
+2023-03-29 11:17:22.4924|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-03-29 11:17:22.5805|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (9ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-03-29 11:17:22.6574|INFO|Microsoft.EntityFrameworkCore.Migrations|Applying migration '20230328164011_Initial Migration'.
+2023-03-29 11:17:23.0061|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (33ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [TVShows] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NOT NULL,
+    [Year] int NOT NULL,
+    [Audience] nvarchar(max) NOT NULL,
+    [Seasons] int NOT NULL,
+    [Genre] nvarchar(max) NOT NULL,
+    [Status] nvarchar(max) NOT NULL,
+    [Description] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_TVShows] PRIMARY KEY ([Id])
+);
+2023-03-29 11:17:23.0595|ERROR|Nite.API.Program|An error occured while migrating the database!|Microsoft.Data.SqlClient.SqlException (0x80131904): There is already an object named 'TVShows' in the database.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean isAsync, Int32 timeout, Boolean asyncWrite)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String methodName)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteNonQuery(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Migrations.MigrationCommand.ExecuteNonQuery(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.ExecuteNonQuery(IEnumerable`1 migrationCommands, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.Migrate(String targetMigration)
+   at Nite.API.Program.Main(String[] args) in D:\Nite\Nite - Backend\Nite.API\Program.cs:line 29
+ClientConnectionId:36727495-e796-4d71-b436-42ab04b14418
+Error Number:2714,State:6,Class:16
+2023-03-29 11:17:23.5409|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\Andreea\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-03-29 11:17:24.7066|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 GET https://localhost:7053/ - -
+2023-03-29 11:17:24.8637|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 GET https://localhost:7053/ - - - 404 0 - 165.5843ms
+2023-03-29 11:17:38.0770|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 GET https://localhost:7053/api/shows application/json 322
+2023-03-29 11:17:38.0858|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Nite.API.Controllers.TVShowsController.GetTVShows (Nite.API)'
+2023-03-29 11:17:38.1343|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "GetTVShows", controller = "TVShows"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetTVShows() on controller Nite.API.Controllers.TVShowsController (Nite.API).
+2023-03-29 11:17:39.6550|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Audience], [t].[Description], [t].[Genre], [t].[Name], [t].[Seasons], [t].[Status], [t].[Year]
+FROM [TVShows] AS [t]
+2023-03-29 11:17:40.1392|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Nite.API.Data.Models.TVShowDTO, Nite.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-03-29 11:17:40.5243|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Nite.API.Controllers.TVShowsController.GetTVShows (Nite.API) in 2380.7907ms
+2023-03-29 11:17:40.5243|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Nite.API.Controllers.TVShowsController.GetTVShows (Nite.API)'
+2023-03-29 11:17:40.5485|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 GET https://localhost:7053/api/shows application/json 322 - 200 1380 application/json;+charset=utf-8 2471.6387ms
+2023-03-29 11:20:32.6185|INFO|Nite.API.Program|Initializing application...
+2023-03-29 11:20:40.9576|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (169ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1
+2023-03-29 11:20:41.1322|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (89ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-03-29 11:20:41.1496|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (10ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1
+2023-03-29 11:20:41.1496|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-03-29 11:20:41.2684|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (17ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-03-29 11:20:41.3566|INFO|Microsoft.EntityFrameworkCore.Migrations|Applying migration '20230328164011_Initial Migration'.
+2023-03-29 11:20:41.8318|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (55ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [TVShows] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NOT NULL,
+    [Year] int NOT NULL,
+    [Audience] nvarchar(max) NOT NULL,
+    [Seasons] int NOT NULL,
+    [Genre] nvarchar(max) NOT NULL,
+    [Status] nvarchar(max) NOT NULL,
+    [Description] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_TVShows] PRIMARY KEY ([Id])
+);
+2023-03-29 11:20:41.8698|ERROR|Nite.API.Program|An error occured while migrating the database!|Microsoft.Data.SqlClient.SqlException (0x80131904): There is already an object named 'TVShows' in the database.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean isAsync, Int32 timeout, Boolean asyncWrite)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String methodName)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteNonQuery(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Migrations.MigrationCommand.ExecuteNonQuery(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.ExecuteNonQuery(IEnumerable`1 migrationCommands, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.Migrate(String targetMigration)
+   at Nite.API.Program.Main(String[] args) in D:\Nite\Nite - Backend\Nite.API\Program.cs:line 29
+ClientConnectionId:8ec6e22b-c728-47d8-bd6a-6f22734808dd
+Error Number:2714,State:6,Class:16
+2023-03-29 11:20:42.6446|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\Andreea\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-03-29 11:20:43.8169|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 GET https://localhost:7053/ - -
+2023-03-29 11:20:44.0486|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 GET https://localhost:7053/ - - - 404 0 - 238.0585ms
+2023-03-29 11:20:59.7284|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 GET https://localhost:7053/api/users application/json 322
+2023-03-29 11:20:59.7284|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Nite.API.Controllers.UsersController.GetUsers (Nite.API)'
+2023-03-29 11:20:59.7983|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "GetUsers", controller = "Users"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetUsers() on controller Nite.API.Controllers.UsersController (Nite.API).
+2023-03-29 11:21:00.9590|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (59ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [u].[Id], [u].[Email], [u].[IsAdmin], [u].[Password], [u].[Username]
+FROM [Users] AS [u]
+2023-03-29 11:21:01.3803|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Nite.API.Data.Models.UserDTO, Nite.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-03-29 11:21:01.8898|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Nite.API.Controllers.UsersController.GetUsers (Nite.API) in 2077.7568ms
+2023-03-29 11:21:01.8898|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Nite.API.Controllers.UsersController.GetUsers (Nite.API)'
+2023-03-29 11:21:01.9236|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 GET https://localhost:7053/api/users application/json 322 - 200 759 application/json;+charset=utf-8 2195.2394ms
+2023-03-29 11:21:52.6985|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 GET https://localhost:7053/api/users/4 application/json 322
+2023-03-29 11:21:52.6985|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Nite.API.Controllers.UsersController.GetUser (Nite.API)'
+2023-03-29 11:21:52.7626|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "GetUser", controller = "Users"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetUser(Int32) on controller Nite.API.Controllers.UsersController (Nite.API).
+2023-03-29 11:21:54.1839|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (389ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[IsAdmin], [u].[Password], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__userId_0
+2023-03-29 11:21:54.2063|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type 'Nite.API.Data.Models.UserDTO'.
+2023-03-29 11:21:54.2063|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Nite.API.Controllers.UsersController.GetUser (Nite.API) in 1445.8296ms
+2023-03-29 11:21:54.2063|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Nite.API.Controllers.UsersController.GetUser (Nite.API)'
+2023-03-29 11:21:54.2063|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 GET https://localhost:7053/api/users/4 application/json 322 - 200 149 application/json;+charset=utf-8 1510.7529ms
+2023-03-29 11:22:22.7533|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 POST https://localhost:7053/api/users application/json 200
+2023-03-29 11:22:22.7533|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Nite.API.Controllers.UsersController.CreateUser (Nite.API)'
+2023-03-29 11:22:22.7769|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "CreateUser", controller = "Users"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CreateUser(Nite.API.Data.Models.UserCreationDTO) on controller Nite.API.Controllers.UsersController (Nite.API).
+2023-03-29 11:22:23.7286|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (88ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = Boolean), @p2='?' (Size = 4000), @p3='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Email], [IsAdmin], [Password], [Username])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3);
+2023-03-29 11:22:23.8437|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing CreatedAtRouteResult, writing value of type 'Nite.API.Data.Models.UserDTO'.
+2023-03-29 11:22:23.9442|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Nite.API.Controllers.UsersController.CreateUser (Nite.API) in 1167.0279ms
+2023-03-29 11:22:23.9442|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Nite.API.Controllers.UsersController.CreateUser (Nite.API)'
+2023-03-29 11:22:23.9442|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 POST https://localhost:7053/api/users application/json 200 - 201 156 application/json;+charset=utf-8 1191.4207ms
