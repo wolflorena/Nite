@@ -9,6 +9,7 @@ namespace Nite.API.Repository
         IEnumerable<User> GetUsers();
         User? GetUser(int userId);
         void AddUser(User user);
+
         bool Save();
     }
 }
