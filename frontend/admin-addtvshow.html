@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/logCircle.png">
+    <link rel="stylesheet" href="css/admin-addtvshow.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/09c942d75c.js" crossorigin="anonymous"></script>
+    
+    <title>Nite | Users</title>
+</head>
+<body>
+    <menu class="vertical-menu">
+        <img src="/frontend/img/logo.png" alt="">
+        <div class="links">
+            <a href="admin-index.html"> <i class="fa-solid fa-user"></i>Users</a>
+            <a href="admin-tvshows.html"><i class="fa-solid fa-clapperboard"></i>TV Shows</a>
+            <a href="admin-addtvshow.html"><div class="active"><i class="fa-solid fa-plus"></i>Add a TV Show</div></a>
+            
+        </div>
+        <button onclick="logout();">LOG OUT</button>
+    </menu>
+    
+    <div class="main">
+        <form class="form" id="form">
+            <div class="labelInput">
+                <label for="name">Name of the TV Show</label>
+                <input type="text" name="name" id="name">
+            </div>
+            
+            <div class="labelInput">
+                <label for="year">Release year</label>
+                <input type="number" name="year" id="year">
+            </div>
+            
+            <div class="labelInput">
+                <label for="audience">Audience</label>
+                <input type="text" name="audience" id="audience">
+            </div>
+            
+            <div class="labelInput">
+                <label for="seasons">Number of seasons</label>
+                <input type="number" name="seasons" id="seasons">
+            </div>
+
+            <div class="labelInput">
+                <label for="genre">Genre</label>
+                <input type="text" name="genre" id="genre">
+            </div>
+            
+            <div class="labelInput">
+                <label for="status">Status</label>
+                <select name="status" id="status">
+                    <option value="">Please choose an option</option>
+                    <option value="ended">Ended</option>
+                    <option value="cancelled">Cancelled</option>
+                    <option value="on-going">On going</option>
+                </select>
+            </div>
+            
+            <div class="labelInput">
+                <label for="description">A short description</label>
+                <input type="text" name="description" id="description">
+            </div>
+            
+            <div class="labelInput">
+                <label for="poster">Poster</label>
+                <input type="file" name="poster" id="poster">
+            </div>
+
+            <div class="labelInput">
+                <label for="banner">Banner</label>
+                <input type="file" name="banner" id="banner">
+            </div>
+            
+            <button type="submit">SUBMIT</button>
+        </form>
+    </div>
+
+
+    <script src="/frontend/js/admin-addtvshow.js"></script>
+</body>
+</html>
