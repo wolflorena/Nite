@@ -1,63 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="img/logCircle.png">
-    <link rel="stylesheet" href="css/admin-tvshows.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/09c942d75c.js" crossorigin="anonymous"></script>
-    
-    <title>Nite | Users</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="img/logCircle.png" />
+    <link rel="stylesheet" href="css/admin-tvshows.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/09c942d75c.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>Nite | TV Shows</title>
+  </head>
+  <body>
     <menu class="vertical-menu">
-        <img src="/frontend/img/logo.png" alt="">
-        <div class="links">
-            <a href="admin-index.html"> <i class="fa-solid fa-user"></i>Users</a>
-            <a href="admin-tvshows.html"><div class="active"><i class="fa-solid fa-clapperboard"></i>TV Shows</div></a>
-            <a href="admin-addtvshow.html"><i class="fa-solid fa-plus"></i>Add a TV Show</a>
-            
-        </div>
-        <button onclick="logout();">LOG OUT</button>
+      <img src="img/logo.png" alt="" />
+      <div class="links">
+        <a href="admin-index.html"> <i class="fa-solid fa-user"></i>Users</a>
+        <a href="admin-tvshows.html"
+          ><div class="active">
+            <i class="fa-solid fa-clapperboard"></i>TV Shows
+          </div></a
+        >
+        <a href="admin-addtvshow.html"
+          ><i class="fa-solid fa-plus"></i>Add a TV Show</a
+        >
+      </div>
+      <button onclick="logout();">LOG OUT</button>
     </menu>
-    
+
     <div class="main">
-        <table class="table">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Name</th>
-                <th >Year</th>
-                <th >Audience</th>
-                <th >Seasons</th>
-                <th >Genre</th>
-                <th >Status</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th >1</th>
-                <td>Dahmer. Monster: The Jeffrey Dahmer Story</td>
-                <td>2022</td>
-                <td>18+</td>
-                <td>1</td>
-                <td>Dark</td>
-                <td>Ended</td>
-                <td>The story of a cannibalistic serial killer named Jeffrey Dahmer A.K.A. the Milwaukee Monster.</td>
-                <td><i class="fa-solid fa-trash"></i></td>
-                <td><i class="fa-solid fa-pen"></i></td>
-              </tr>
-            </tbody>
-          </table>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Year</th>
+            <th>Audience</th>
+            <th>Seasons</th>
+            <th>Genre</th>
+            <th>Status</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody id="table"></tbody>
+      </table>
     </div>
 
-
-    <script src="/frontend/js/admin-tvshows.js"></script>
-</body>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="js/admin-tvshows.js"></script>
+  </body>
 </html>
