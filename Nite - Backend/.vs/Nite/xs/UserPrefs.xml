@@ -1,15 +1,13 @@
 ﻿<Properties StartupConfiguration="{E6CBEAB9-C075-42CE-89A7-ED187342D1F8}|Default">
+  <MonoDevelop.Ide.ItemProperties.Nite.API PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workbench ActiveDocument="Nite.API/Program.cs">
     <Files>
       <File FileName="Nite.API/Program.cs" Line="28" Column="60" />
       <File FileName="Nite.API/Startup.cs" />
-      <File FileName="Nite.API/Migrations/20230312122859_Initial Migration.cs" />
-      <File FileName="Nite.API/Migrations/20230324150524_Test.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -24,6 +22,6 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.Nite.API PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
 </Properties>

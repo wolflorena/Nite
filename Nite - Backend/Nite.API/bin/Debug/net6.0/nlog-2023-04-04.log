@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 2023-04-04 22:17:53.3548|INFO|Nite.API.Program|Initializing application...
 2023-04-04 22:18:04.7697|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (87ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
 SELECT 1
@@ -13,6 +14,23 @@ FROM [__EFMigrationsHistory]
 ORDER BY [MigrationId];
 2023-04-04 22:18:05.1138|INFO|Microsoft.EntityFrameworkCore.Migrations|Applying migration '20230328164011_Initial Migration'.
 2023-04-04 22:18:05.4045|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (123ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+=======
+2023-04-04 22:25:05.0323|INFO|Nite.API.Program|Initializing application...
+2023-04-04 22:25:06.3888|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (18ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1
+2023-04-04 22:25:06.4100|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (11ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-04-04 22:25:06.4129|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1
+2023-04-04 22:25:06.4152|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-04-04 22:25:06.4316|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-04-04 22:25:06.4390|INFO|Microsoft.EntityFrameworkCore.Migrations|Applying migration '20230328164011_Initial Migration'.
+2023-04-04 22:25:06.4835|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (14ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+>>>>>>> 04c54d59960588f6df0dac5b706c9a98e73ca673
 CREATE TABLE [TVShows] (
     [Id] int NOT NULL IDENTITY,
     [Name] nvarchar(max) NOT NULL,
@@ -24,6 +42,7 @@ CREATE TABLE [TVShows] (
     [Description] nvarchar(max) NOT NULL,
     CONSTRAINT [PK_TVShows] PRIMARY KEY ([Id])
 );
+<<<<<<< HEAD
 2023-04-04 22:18:05.4765|ERROR|Nite.API.Program|An error occured while migrating the database!|Microsoft.Data.SqlClient.SqlException (0x80131904): There is already an object named 'TVShows' in the database.
    at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
    at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
@@ -1221,6 +1240,20 @@ CREATE TABLE [TVShows] (
 );
 2023-04-04 22:28:49.2398|ERROR|Nite.API.Program|An error occured while migrating the database!|Microsoft.Data.SqlClient.SqlException (0x80131904): There is already an object named 'TVShows' in the database.
    at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+=======
+2023-04-04 22:25:06.5218|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (36ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [Users] (
+    [Id] int NOT NULL IDENTITY,
+    [Username] nvarchar(max) NOT NULL,
+    [Email] nvarchar(max) NOT NULL,
+    [Password] nvarchar(max) NOT NULL,
+    [IsAdmin] bit NOT NULL,
+    CONSTRAINT [PK_Users] PRIMARY KEY ([Id])
+);
+2023-04-04 22:25:06.5427|ERROR|Nite.API.Program|An error occured while migrating the database!|Microsoft.Data.SqlClient.SqlException (0x80131904): There is already an object named 'Users' in the database.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+>>>>>>> 04c54d59960588f6df0dac5b706c9a98e73ca673
    at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
    at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
    at Microsoft.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean isAsync, Int32 timeout, Boolean asyncWrite)
@@ -1230,6 +1263,7 @@ CREATE TABLE [TVShows] (
    at Microsoft.EntityFrameworkCore.Migrations.MigrationCommand.ExecuteNonQuery(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
    at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.ExecuteNonQuery(IEnumerable`1 migrationCommands, IRelationalConnection connection)
    at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.Migrate(String targetMigration)
+<<<<<<< HEAD
    at Nite.API.Program.Main(String[] args) in D:\Nite\Nite - Backend\Nite.API\Program.cs:line 29
 ClientConnectionId:908a3264-de83-4eb2-99a5-95674cd8e636
 Error Number:2714,State:6,Class:16
@@ -2030,3 +2064,102 @@ FROM [TVShows] AS [t]
 2023-04-04 23:58:39.7248|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Nite.API.Controllers.TVShowsController.GetTVShows (Nite.API) in 181.2817ms
 2023-04-04 23:58:39.7248|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Nite.API.Controllers.TVShowsController.GetTVShows (Nite.API)'
 2023-04-04 23:58:39.7248|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 GET https://localhost:7053/api/shows - - - 200 1242 application/json;+charset=utf-8 182.5781ms
+=======
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.Migrate(DatabaseFacade databaseFacade)
+   at Nite.API.Program.Main(String[] args) in /Users/wolflorena/Proiecte/Nite/Nite - Backend/Nite.API/Program.cs:line 29
+ClientConnectionId:4bbff1ae-b3bd-41a9-87dc-04b5a5e528a6
+Error Number:2714,State:6,Class:16
+2023-04-04 22:25:06.6263|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using '/Users/wolflorena/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2023-04-04 22:25:08.3776|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 GET https://localhost:7053/ - -
+2023-04-04 22:25:08.4102|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 GET https://localhost:7053/ - - - 404 0 - 33.3225ms
+2023-04-04 22:25:08.9264|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 GET https://localhost:7053/favicon.ico - -
+2023-04-04 22:25:08.9508|INFO|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|Sending file. Request path: '/favicon.ico'. Physical path: '/Users/wolflorena/Proiecte/Nite/Nite - Backend/Nite.API/wwwroot/favicon.ico'
+2023-04-04 22:25:08.9508|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 GET https://localhost:7053/favicon.ico - - - 200 5430 image/x-icon 24.5745ms
+2023-04-04 22:25:25.3633|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 OPTIONS https://localhost:7053/api/login - 0
+2023-04-04 22:25:25.3788|INFO|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|CORS policy execution successful.
+2023-04-04 22:25:25.3806|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 OPTIONS https://localhost:7053/api/login - 0 - 204 - - 17.5119ms
+2023-04-04 22:25:25.3833|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 POST https://localhost:7053/api/login application/json;+charset=UTF-8 103
+2023-04-04 22:25:25.3843|INFO|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|CORS policy execution successful.
+2023-04-04 22:25:25.3862|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Nite.API.Controllers.LoginController.Login (Nite.API)'
+2023-04-04 22:25:25.4142|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Login", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(Nite.API.Data.Models.LoginDTO) on controller Nite.API.Controllers.LoginController (Nite.API).
+2023-04-04 22:25:25.6714|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (20ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [u].[Id], [u].[Email], [u].[IsAdmin], [u].[Password], [u].[Username]
+FROM [Users] AS [u]
+2023-04-04 22:25:25.6950|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type 'Nite.API.Data.Models.UserDTO'.
+2023-04-04 22:25:25.7205|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Nite.API.Controllers.LoginController.Login (Nite.API) in 304.7997ms
+2023-04-04 22:25:25.7205|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Nite.API.Controllers.LoginController.Login (Nite.API)'
+2023-04-04 22:25:25.7238|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 POST https://localhost:7053/api/login application/json;+charset=UTF-8 103 - 200 156 application/json;+charset=utf-8 340.5530ms
+2023-04-04 22:25:45.7171|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 OPTIONS https://localhost:7053/api/login - 0
+2023-04-04 22:25:45.7202|INFO|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|CORS policy execution successful.
+2023-04-04 22:25:45.7208|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 OPTIONS https://localhost:7053/api/login - 0 - 204 - - 3.9394ms
+2023-04-04 22:25:45.7217|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 POST https://localhost:7053/api/login application/json;+charset=UTF-8 103
+2023-04-04 22:25:45.7217|INFO|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|CORS policy execution successful.
+2023-04-04 22:25:45.7217|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Nite.API.Controllers.LoginController.Login (Nite.API)'
+2023-04-04 22:25:45.7238|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Login", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(Nite.API.Data.Models.LoginDTO) on controller Nite.API.Controllers.LoginController (Nite.API).
+2023-04-04 22:25:45.7911|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (16ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [u].[Id], [u].[Email], [u].[IsAdmin], [u].[Password], [u].[Username]
+FROM [Users] AS [u]
+2023-04-04 22:25:45.7966|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type 'Nite.API.Data.Models.UserDTO'.
+2023-04-04 22:25:45.7999|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Nite.API.Controllers.LoginController.Login (Nite.API) in 75.9616ms
+2023-04-04 22:25:45.7999|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Nite.API.Controllers.LoginController.Login (Nite.API)'
+2023-04-04 22:25:45.7999|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 POST https://localhost:7053/api/login application/json;+charset=UTF-8 103 - 200 156 application/json;+charset=utf-8 78.4359ms
+2023-04-04 22:26:39.0487|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 OPTIONS https://localhost:7053/api/login - 0
+2023-04-04 22:26:39.0517|INFO|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|CORS policy execution successful.
+2023-04-04 22:26:39.0524|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 OPTIONS https://localhost:7053/api/login - 0 - 204 - - 3.8944ms
+2023-04-04 22:26:39.0550|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 POST https://localhost:7053/api/login application/json;+charset=UTF-8 103
+2023-04-04 22:26:39.0550|INFO|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|CORS policy execution successful.
+2023-04-04 22:26:39.0556|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Nite.API.Controllers.LoginController.Login (Nite.API)'
+2023-04-04 22:26:39.0579|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Login", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(Nite.API.Data.Models.LoginDTO) on controller Nite.API.Controllers.LoginController (Nite.API).
+2023-04-04 22:26:39.0870|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (12ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [u].[Id], [u].[Email], [u].[IsAdmin], [u].[Password], [u].[Username]
+FROM [Users] AS [u]
+2023-04-04 22:26:39.0884|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type 'Nite.API.Data.Models.UserDTO'.
+2023-04-04 22:26:39.0892|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Nite.API.Controllers.LoginController.Login (Nite.API) in 31.0674ms
+2023-04-04 22:26:39.0892|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Nite.API.Controllers.LoginController.Login (Nite.API)'
+2023-04-04 22:26:39.0894|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 POST https://localhost:7053/api/login application/json;+charset=UTF-8 103 - 200 156 application/json;+charset=utf-8 34.4240ms
+2023-04-04 22:27:03.6578|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 OPTIONS https://localhost:7053/api/login - 0
+2023-04-04 22:27:03.6602|INFO|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|CORS policy execution successful.
+2023-04-04 22:27:03.6609|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 OPTIONS https://localhost:7053/api/login - 0 - 204 - - 3.3472ms
+2023-04-04 22:27:03.6872|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 POST https://localhost:7053/api/login application/json;+charset=UTF-8 103
+2023-04-04 22:27:03.6872|INFO|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|CORS policy execution successful.
+2023-04-04 22:27:03.6872|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Nite.API.Controllers.LoginController.Login (Nite.API)'
+2023-04-04 22:27:03.6893|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Login", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(Nite.API.Data.Models.LoginDTO) on controller Nite.API.Controllers.LoginController (Nite.API).
+2023-04-04 22:27:03.7602|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (36ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [u].[Id], [u].[Email], [u].[IsAdmin], [u].[Password], [u].[Username]
+FROM [Users] AS [u]
+2023-04-04 22:27:03.7613|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type 'Nite.API.Data.Models.UserDTO'.
+2023-04-04 22:27:03.7620|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Nite.API.Controllers.LoginController.Login (Nite.API) in 72.6625ms
+2023-04-04 22:27:03.7620|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Nite.API.Controllers.LoginController.Login (Nite.API)'
+2023-04-04 22:27:03.7620|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 POST https://localhost:7053/api/login application/json;+charset=UTF-8 103 - 200 156 application/json;+charset=utf-8 74.9302ms
+2023-04-04 22:27:14.4838|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 OPTIONS https://localhost:7053/api/login - 0
+2023-04-04 22:27:14.4838|INFO|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|CORS policy execution successful.
+2023-04-04 22:27:14.4838|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 OPTIONS https://localhost:7053/api/login - 0 - 204 - - 0.6806ms
+2023-04-04 22:27:14.4880|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 POST https://localhost:7053/api/login application/json;+charset=UTF-8 103
+2023-04-04 22:27:14.4880|INFO|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|CORS policy execution successful.
+2023-04-04 22:27:14.4880|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Nite.API.Controllers.LoginController.Login (Nite.API)'
+2023-04-04 22:27:14.4880|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Login", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(Nite.API.Data.Models.LoginDTO) on controller Nite.API.Controllers.LoginController (Nite.API).
+2023-04-04 22:27:14.4962|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [u].[Id], [u].[Email], [u].[IsAdmin], [u].[Password], [u].[Username]
+FROM [Users] AS [u]
+2023-04-04 22:27:14.4971|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type 'Nite.API.Data.Models.UserDTO'.
+2023-04-04 22:27:14.4971|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Nite.API.Controllers.LoginController.Login (Nite.API) in 8.9826ms
+2023-04-04 22:27:14.4971|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Nite.API.Controllers.LoginController.Login (Nite.API)'
+2023-04-04 22:27:14.4977|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 POST https://localhost:7053/api/login application/json;+charset=UTF-8 103 - 200 156 application/json;+charset=utf-8 9.6343ms
+2023-04-04 22:27:35.9370|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 OPTIONS https://localhost:7053/api/users - 0
+2023-04-04 22:27:35.9390|INFO|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|CORS policy execution successful.
+2023-04-04 22:27:35.9398|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 OPTIONS https://localhost:7053/api/users - 0 - 204 - - 2.7250ms
+2023-04-04 22:27:35.9458|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 POST https://localhost:7053/api/users application/json;charset=UTF-8 132
+2023-04-04 22:27:35.9470|INFO|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|CORS policy execution successful.
+2023-04-04 22:27:35.9470|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Nite.API.Controllers.UsersController.CreateUser (Nite.API)'
+2023-04-04 22:27:35.9635|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "CreateUser", controller = "Users"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CreateUser(Nite.API.Data.Models.UserCreationDTO) on controller Nite.API.Controllers.UsersController (Nite.API).
+2023-04-04 22:27:36.0994|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (58ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = Boolean), @p2='?' (Size = 4000), @p3='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Email], [IsAdmin], [Password], [Username])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3);
+2023-04-04 22:27:36.1103|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing CreatedAtRouteResult, writing value of type 'Nite.API.Data.Models.UserDTO'.
+2023-04-04 22:27:36.1293|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Nite.API.Controllers.UsersController.CreateUser (Nite.API) in 165.7243ms
+2023-04-04 22:27:36.1293|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Nite.API.Controllers.UsersController.CreateUser (Nite.API)'
+2023-04-04 22:27:36.1293|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 POST https://localhost:7053/api/users application/json;charset=UTF-8 132 - 201 142 application/json;+charset=utf-8 184.5855ms
+>>>>>>> 04c54d59960588f6df0dac5b706c9a98e73ca673
