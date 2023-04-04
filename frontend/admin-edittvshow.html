@@ -18,11 +18,11 @@
       crossorigin="anonymous"
     ></script>
 
-    <title>Nite | Add TV Show</title>
+    <title>Nite | Edit TV Show</title>
   </head>
   <body>
     <menu class="vertical-menu">
-      <img src="/frontend/img/logo.png" alt="" />
+      <img src="img/logo.png" alt="" />
       <div class="links">
         <a href="admin-index.html"> <i class="fa-solid fa-user"></i>Users</a>
         <a href="admin-tvshows.html"
@@ -41,45 +41,45 @@
       <form class="form" id="form">
         <div class="labelInput">
           <label for="name">Name of the TV Show</label>
-          <input type="text" name="name" id="name" />
+          <input type="text" name="name" id="name-input" />
         </div>
 
         <div class="labelInput">
           <label for="year">Release year</label>
-          <input type="number" name="year" id="year" />
+          <input type="number" name="year" id="year-input" />
         </div>
 
         <div class="labelInput">
           <label for="audience">Audience</label>
-          <input type="text" name="audience" id="audience" />
+          <input type="text" name="audience" id="audience-input" />
         </div>
 
         <div class="labelInput">
           <label for="seasons">Number of seasons</label>
-          <input type="number" name="seasons" id="seasons" />
+          <input type="number" name="seasons" id="seasons-input" />
         </div>
 
         <div class="labelInput">
           <label for="genre">Genre</label>
-          <input type="text" name="genre" id="genre" />
+          <input type="text" name="genre" id="genre-input" />
         </div>
 
         <div class="labelInput">
           <label for="status">Status</label>
-          <select name="status" id="status">
-            <option value="">Please choose an option</option>
-            <option value="ended">Ended</option>
-            <option value="cancelled">Cancelled</option>
-            <option value="on-going">On going</option>
+          <select name="status" id="status-input">
+            <option value="" selected="">Please choose an option</option>
+            <option value="ended" selected="">Ended</option>
+            <option value="cancelled" selected="">Cancelled</option>
+            <option value="on-going" selected="">On going</option>
           </select>
         </div>
 
         <div class="labelInput">
           <label for="description">A short description</label>
-          <input type="text" name="description" id="description" />
+          <input type="text" name="description" id="description-input" />
         </div>
 
-        <div class="labelInput">
+        <!-- <div class="labelInput">
           <label for="poster">Poster</label>
           <input type="file" name="poster" id="poster" />
         </div>
@@ -87,12 +87,13 @@
         <div class="labelInput">
           <label for="banner">Banner</label>
           <input type="file" name="banner" id="banner" />
-        </div>
+        </div> -->
 
-        <button type="submit">SUBMIT</button>
+        <button type="submit" id="button">SAVE</button>
       </form>
     </div>
 
-    <script src="/frontend/js/admin-addtvshow.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="js/admin-edittvshow.js"></script>
   </body>
 </html>
