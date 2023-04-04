@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/logCircle.png">
+    <link rel="stylesheet" href="css/tvshow.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/09c942d75c.js" crossorigin="anonymous"></script>
+    
+    <title>Nite | Home</title>
+</head>
+<body>
+    <menu class="vertical-menu">
+        <img src="/frontend/img/logo.png" alt="">
+        <div class="links">
+            <a href="#">  <div class="active"><i class="fa-solid fa-house"></i>Home</div></a>
+            <a href="#"><i class="fa-solid fa-clock"></i>Upcoming</a>
+            <a href="#"><i class="fa-solid fa-list"></i>Watchlist</a>
+            <a href="#"><i class="fa-solid fa-heart"></i>Favorites</a>
+            <a href="#"><i class="fa-solid fa-user"></i>Profile</a>
+        </div>
+        <button onclick="logout();">LOG OUT</button>
+    </menu>
+
+    <div class="main">
+        <div class="info">
+            <img src="/frontend/img/dahmer_title.png" alt="">
+            <div class="first-child">
+                <ul class="general">
+                    <li>2022</li>
+                    <li>18+</li>
+                    <li>1 Season</li>
+                    <li>Ended</li>
+                </ul>
+                <img src="/frontend/img/netflix.png" alt="">
+                <button class="heart"><i class="fa-regular fa-heart fa-2xl"></i></button>
+            </div>
+
+            <div class="description">
+                <p>The story of a cannibalistic serial killer named Jeffrey Dahmer A.K.A. the Milwaukee Monster.</p>
+            </div>
+        </div>
+        <div class="episodes">
+            <div class="header">
+                <h3>Episodes</h3>
+                <label for="season"></label>
+                <select name="season" id="season">
+                    <option value="season1">Season 1</option>
+                </select>
+            </div>
+            <ol class="listOfEpisodes">
+                <div class="episode">
+                    <li>Episode one</li> 
+                    <button class="check"><i class="fa-solid fa-circle-check fa-2xl"></i></button>
+                </div>
+                
+                <div class="episode">
+                    <li>Please Don't Go</li> 
+                    <button class="check"><i class="fa-solid fa-circle-check fa-2xl"></i></button>
+                </div>
+
+                <div class="episode">
+                    <li>Doin' a Dahmer</li> 
+                    <button class="check"><i class="fa-solid fa-circle-check fa-2xl"></i></button>
+                </div>
+
+                <div class="episode">
+                    <li>The Good Boy Box</li> 
+                    <button class="check"><i class="fa-solid fa-circle-check fa-2xl"></i></button>
+                </div>
+
+                <div class="episode">
+                    <li>Blood On Their Hands</li> 
+                    <button class="check"><i class="fa-solid fa-circle-check fa-2xl"></i></button>
+                </div>
+
+                <div class="episode">
+                    <li>Silenced</li> 
+                    <button class="check"><i class="fa-solid fa-circle-check fa-2xl"></i></button>
+                </div>
+
+                <div class="episode">
+                    <li>Cassandra</li> 
+                    <button class="check"><i class="fa-solid fa-circle-check fa-2xl"></i></button>
+                </div>
+
+                <div class="episode">
+                    <li>Lionel</li> 
+                    <button class="check"><i class="fa-solid fa-circle-check fa-2xl"></i></button>
+                </div>
+
+                <div class="episode">
+                    <li>The Bogeyman</li> 
+                    <button class="check"><i class="fa-solid fa-circle-check fa-2xl"></i></button>
+                </div>
+                
+            </ol>
+            
+        </div>
+    </div>
+
+
+
+    <script src="/frontend/js/tvshow.js"></script>
+</body>
+</html>

@@ -10,10 +10,6 @@ imgs[5] = "img/marvel.jpg";
 window.onload = function () {
   const random = Math.floor(Math.random() * imgs.length);
 
-<<<<<<< HEAD
-  document.body.style.backgroundImage = `url(${imgs[random]})`;
-};
-=======
     document.body.style.backgroundImage = `url(${imgs[random]})`;
 }
 
@@ -84,4 +80,3 @@ function validateInputs(messages){
         messages.push("Password is required!");
     }
 }
->>>>>>> main
