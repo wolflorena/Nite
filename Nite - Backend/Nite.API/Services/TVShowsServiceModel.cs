@@ -73,9 +73,9 @@ namespace Nite.API.Services
 
 
 
-        public bool TVShowExistsService(int showId)
+        public bool TVShowExistService(int showId)
         {
-            return _TVShowsRepository.TVShowExists(showId);
+            return _TVShowsRepository.TVShowExist(showId);
         }
 
         public bool SaveService()

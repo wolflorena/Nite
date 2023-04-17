@@ -26,12 +26,12 @@
       <div class="links">
         <a href="admin-index.html"> <i class="fa-solid fa-user"></i>Users</a>
         <a href="admin-tvshows.html"
-          ><i class="fa-solid fa-clapperboard"></i>TV Shows</a
+          ><div class="active">
+            <i class="fa-solid fa-clapperboard"></i>TV Shows
+          </div></a
         >
         <a href="admin-addtvshow.html"
-          ><div class="active">
-            <i class="fa-solid fa-plus"></i>Add a TV Show
-          </div></a
+          ><div><i class="fa-solid fa-plus"></i>Add a TV Show</div></a
         >
       </div>
       <button onclick="logout();">LOG OUT</button>
@@ -68,9 +68,9 @@
           <label for="status">Status</label>
           <select name="status" id="status-input">
             <option value="" selected="">Please choose an option</option>
-            <option value="ended" selected="">Ended</option>
-            <option value="cancelled" selected="">Cancelled</option>
-            <option value="on-going" selected="">On going</option>
+            <option value="Ended" selected="">Ended</option>
+            <option value="Cancelled" selected="">Cancelled</option>
+            <option value="On-going" selected="">On going</option>
           </select>
         </div>
 

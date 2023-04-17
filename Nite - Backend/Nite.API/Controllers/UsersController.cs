@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.JsonPatch;
+using Microsoft.AspNetCore.Mvc;
 using Nite.API.Data.Models;
 using Nite.API.Services;
 
@@ -79,6 +80,91 @@ namespace Nite.API.Controllers
             {
                 _logger.LogCritical($"Exception while creating an user!");
                 return StatusCode(500, "A problem happend while handling your request!");
+            }
+        }
+
+
+        [HttpPut("{id}")]
+        public IActionResult UpdateUser(int id, [FromBody] UserUpdateDTO user)
+        {
+            try
+            {
+                if (!_service.UserExistService(id))
+                {
+                    _logger.LogInformation($"User with id {id} wasn't found!");
+                    return NotFound();
+                }
+
+                _service.UpdateWithPutUser(id, user);
+                _service.SaveService();
+
+                return NoContent();
+            }
+            catch
+            {
+                _logger.LogCritical($"Exception while updating user with id {id}");
+                return StatusCode(500, "A problem happend while handling your request.");
+            }
+        }
+
+
+        [HttpPatch("{id}")]
+        public IActionResult PartialUpdateUser(int id, [FromBody] JsonPatchDocument<UserUpdateDTO> patchDoc)
+        {
+            try
+            {
+                if (!_service.UserExistService(id))
+                {
+                    _logger.LogInformation($"User with id {id} wasn't found!");
+                    return NotFound();
+                }
+
+                var UserToPatch = _service.UpdateWithPatchUser(id);
+
+                patchDoc.ApplyTo(UserToPatch, ModelState);
+
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                if (!TryValidateModel(UserToPatch))
+                {
+                    return BadRequest(ModelState);
+                }
+
+
+                _service.UpdateUserFinishService(id, UserToPatch);
+                _service.SaveService();
+
+                return NoContent();
+            }
+            catch
+            {
+                _logger.LogCritical($"Exception while updating the user with id {id}!");
+                return StatusCode(500, "A problem happend while handling your request.");
+            }
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteUser(int id)
+        {
+            try
+            {
+                if (!_service.UserExistService(id))
+                {
+                    _logger.LogInformation($"User with id {id} wasn't found!");
+                    return NotFound();
+                }
+
+                _service.DeleteUserService(id);
+
+                return NoContent();
+            }
+            catch
+            {
+                _logger.LogCritical($"Exception while deleting the user with id {id}!");
+                return StatusCode(500, "A problem happend while handling your request.");
             }
         }
     }

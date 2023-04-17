@@ -12,7 +12,7 @@ namespace Nite.API.Repository
         void DeleteTVShow(TVShow show);
 
 
-        bool TVShowExists(int showId);
+        bool TVShowExist(int showId);
         bool Save();
     }
 }

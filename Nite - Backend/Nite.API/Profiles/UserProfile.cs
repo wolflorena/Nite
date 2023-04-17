@@ -11,6 +11,8 @@ namespace Nite.API.Profiles
             CreateMap<User, UserDTO>();
             CreateMap<UserCreationDTO, User>();
             CreateMap<LoginDTO, User>();
+            CreateMap<User, UserUpdateDTO>();
+            CreateMap<UserUpdateDTO, User>();
         }
     }
 }

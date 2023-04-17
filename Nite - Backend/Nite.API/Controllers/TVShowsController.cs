@@ -90,7 +90,7 @@ namespace Nite.API.Controllers
         {
             try
             {
-                if (!_service.TVShowExistsService(id))
+                if (!_service.TVShowExistService(id))
                 {
                     _logger.LogInformation($"TV show with id {id} wasn't found!");
                     return NotFound();
@@ -115,7 +115,7 @@ namespace Nite.API.Controllers
         {
             try
             {
-                if (!_service.TVShowExistsService(id))
+                if (!_service.TVShowExistService(id))
                 {
                     _logger.LogInformation($"TV show with id {id} wasn't found!");
                     return NotFound();
@@ -156,7 +156,7 @@ namespace Nite.API.Controllers
         {
             try
             {
-                if (!_service.TVShowExistsService(id))
+                if (!_service.TVShowExistService(id))
                 {
                     _logger.LogInformation($"TV show with id {id} wasn't found!");
                     return NotFound();

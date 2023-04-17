@@ -43,6 +43,18 @@ namespace Nite.API.Repository
             _context.Users.Add(user);
         }
 
+        public void DeleteUser(User user)
+        {
+            _context.Users.Remove(user);
+        }
+
+
+
+        public bool UserExist(int userId)
+        {
+            return _context.Users.Any(a => a.Id == userId);
+        }
+
         public bool Save()
         {
             return _context.SaveChanges() >= 0;
