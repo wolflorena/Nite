@@ -37,7 +37,7 @@ namespace Nite.API.Repository
 
 
 
-        public bool TVShowExists(int showId)
+        public bool TVShowExist(int showId)
         {
             return _context.TVShows.Any(a => a.Id == showId);
         }

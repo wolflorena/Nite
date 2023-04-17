@@ -18,7 +18,7 @@ namespace Nite.API.Services
         void DeleteTVShowService(int id);
 
 
-        bool TVShowExistsService(int showId);
+        bool TVShowExistService(int showId);
         bool SaveService();
     }
 }

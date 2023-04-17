@@ -10,6 +10,9 @@ namespace Nite.API.Repository
         User? GetUser(int userId);
         void AddUser(User user);
 
+        void DeleteUser(User user);
+        bool UserExist(int userId);
+
         bool Save();
     }
 }

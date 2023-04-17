@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="img/logCircle.png" />
+    <link rel="stylesheet" href="css/admin-addtvshow.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/09c942d75c.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>Nite | Edit User</title>
+  </head>
+  <body>
+    <menu class="vertical-menu">
+      <img src="img/logo.png" alt="" />
+      <div class="links">
+        <a href="admin-index.html">
+          <div class="active"><i class="fa-solid fa-user"></i>Users</div></a
+        >
+        <a href="admin-tvshows.html"
+          ><i class="fa-solid fa-clapperboard"></i>TV Shows</a
+        >
+        <a href="admin-addtvshow.html"
+          ><i class="fa-solid fa-plus"></i>Add a TV Show</a
+        >
+      </div>
+      <button onclick="logout();">LOG OUT</button>
+    </menu>
+
+    <div class="main">
+      <form class="form" id="form">
+        <div class="labelInput">
+          <label for="username">Username</label>
+          <input type="text" name="username" id="username-input" />
+        </div>
+
+        <div class="labelInput">
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email-input" />
+        </div>
+
+        <div class="labelInput">
+          <label for="admin">Admin</label>
+          <select name="admin" id="admin-input">
+            <option value="" selected="">Please choose an option</option>
+            <option value="true" selected="">true</option>
+            <option value="false" selected="">false</option>
+          </select>
+        </div>
+
+        <button type="submit" id="button">SAVE</button>
+      </form>
+    </div>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="js/admin-edituser.js"></script>
+  </body>
+</html>

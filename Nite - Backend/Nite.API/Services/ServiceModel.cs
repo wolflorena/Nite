@@ -52,5 +52,45 @@ namespace Nite.API.Services
 
             return _mapper.Map<UserDTO>(result);
         }
+
+
+        public void UpdateWithPutUser(int userId, UserUpdateDTO user)
+        {
+            var userEntity = _loginSignupRepository.GetUser(userId);
+            _mapper.Map(user, userEntity);
+        }
+
+        public UserUpdateDTO UpdateWithPatchUser(int id)
+        {
+            var userEntity = _loginSignupRepository.GetUser(id);
+            return _mapper.Map<UserUpdateDTO>(userEntity);
+        }
+
+        public void UpdateUserFinishService(int id, UserUpdateDTO userToPatch)
+        {
+            var userEntity = _loginSignupRepository.GetUser(id);
+            _mapper.Map(userToPatch, userEntity);
+        }
+
+        public void DeleteUserService(int id)
+        {
+            var userEntity = _loginSignupRepository.GetUser(id);
+
+            _loginSignupRepository.DeleteUser(userEntity);
+
+            _loginSignupRepository.Save();
+        }
+
+
+
+        public bool UserExistService(int userId)
+        {
+            return _loginSignupRepository.UserExist(userId);
+        }
+
+        public bool SaveService()
+        {
+            return _loginSignupRepository.Save();
+        }
     }
 }
