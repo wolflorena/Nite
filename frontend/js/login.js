@@ -60,14 +60,14 @@ function sendCredentials(username, password) {
     .then((data) => {
       if (data.isAdmin == true) {
         sessionStorage.setItem("id", data.id);
-        setTimeout(function () {
+        // setTimeout(function () {
           document.location.href = "admin-index.html";
-        }, 250);
+        // }, 250);
       } else {
-        sessionStorage.setItem("id", data.id);
-        setTimeout(function () {
+        sessionStorage.setItem("idUser", data.id);
+        // setTimeout(function () {
           document.location.href = "index.html";
-        }, 250);
+        // }, 250);
       }
     })
     .catch((error) => console.error(error));
