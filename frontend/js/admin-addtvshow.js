@@ -44,10 +44,9 @@ addShowsForm.addEventListener("submit", (e) => {
         throw new Error("Post failed");
       }
 
-      swal("The account has been successfully created!").then(() => {
-        addAccountsForm.reset();
-        window.location = "admin-tvshows.html";
-      });
+      alert("The account has been successfully created!");
+      addAccountsForm.reset();
+      window.location = "admin-tvshows.html";
     })
     .then((data) => {
       const dataArray = [];
@@ -90,4 +89,11 @@ function getShow(shows) {
   if (shows.length == 0 || getShowsTable.innerHTML === "") {
     noData.innerText = "There are no TV shows!";
   }
+}
+
+// BUTTONS
+
+function logout() {
+  sessionStorage.clear();
+  window.location = "login.html";
 }

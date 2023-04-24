@@ -1,57 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="img/logCircle.png">
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/09c942d75c.js" crossorigin="anonymous"></script> 
-    
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="img/logCircle.png" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/09c942d75c.js"
+      crossorigin="anonymous"
+    ></script>
+
     <title>Nite | Home</title>
-</head>
-<body>
+  </head>
+  <body>
     <menu class="vertical-menu">
-        <img src="/frontend/img/logo.png" alt="">
-        <div class="links">
-            <a href="#">  <div class="active"><i class="fa-solid fa-house"></i>Home</div></a>
-            <a href="#"><i class="fa-solid fa-clock"></i>Upcoming</a>
-            <a href="#"><i class="fa-solid fa-list"></i>Watchlist</a>
-            <a href="#"><i class="fa-solid fa-heart"></i>Favorites</a>
-            <a href="#"><i class="fa-solid fa-user"></i>Profile</a>
-        </div>
-        <button onclick="logout();">LOG OUT</button>
+      <img src="/frontend/img/logo.png" alt="" />
+      <h1>Hello, <span>@username!</span></h1>
+      <div class="links">
+        <a href="#">
+          <div class="active"><i class="fa-solid fa-house"></i>Home</div></a
+        >
+        <a href="upcoming.html"><i class="fa-solid fa-clock"></i>Upcoming</a>
+        <a href="#"><i class="fa-solid fa-list"></i>Watchlist</a>
+        <a href="#"><i class="fa-solid fa-heart"></i>Favorites</a>
+        <a href="#"><i class="fa-solid fa-user"></i>Profile</a>
+      </div>
+      <button onclick="logout();">LOG OUT</button>
     </menu>
 
     <div class="main">
-        <input type="text" id="search" class="search" placeholder="&#xF002; Search" style="font-family:Arial, FontAwesome" >
-        <div class="movies">
-            <div class="popular">
-                <div class="text">
-                    <h1>Popular</h1>
-                    <h3> <a href="#"> See all.. </a> </h3>
-                </div>
-                <div class="cards" id="cards-popular">
-                </div>
-            </div>
-
-            <div class="explore">
-                <div class="text">
-                    <h1>Explore</h1>
-                    <h3> <a href="#"> See all.. </a> </h3>
-                </div>
-                
-                <div class="cards" id="cards-explore">
-                </div>
-            </div>
-    
+      <input
+        type="text"
+        id="search"
+        class="search"
+        placeholder="&#xF002; Search"
+        style="font-family: Arial, FontAwesome"
+      />
+      <div class="movies">
+        <div class="popular">
+          <div class="text">
+            <h1>Popular</h1>
+            <h3><a href="#"> See all.. </a></h3>
+          </div>
+          <div class="cards" id="cards-popular"></div>
         </div>
+
+        <div class="explore">
+          <div class="text">
+            <h1>Explore</h1>
+            <h3><a href="#"> See all.. </a></h3>
+          </div>
+
+          <div class="cards" id="cards-explore"></div>
+        </div>
+      </div>
     </div>
 
     <script src="/frontend/js/index.js"></script>
-</body>
+  </body>
 </html>

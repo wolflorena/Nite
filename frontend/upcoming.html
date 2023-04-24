@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="img/logCircle.png" />
+    <link rel="stylesheet" href="css/upcoming.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/09c942d75c.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>Nite | Home</title>
+  </head>
+  <body>
+    <menu class="vertical-menu">
+      <img src="/frontend/img/logo.png" alt="" />
+      <h1>Hello, <span>@username!</span></h1>
+      <div class="links">
+        <a href="index.html"> <i class="fa-solid fa-house"></i>Home</a>
+        <a href="#"
+          ><div class="active">
+            <i class="fa-solid fa-clock"></i>Upcoming
+          </div></a
+        >
+        <a href="#"><i class="fa-solid fa-list"></i>Watchlist</a>
+        <a href="#"><i class="fa-solid fa-heart"></i>Favorites</a>
+        <a href="#"><i class="fa-solid fa-user"></i>Profile</a>
+      </div>
+      <button onclick="logout();">LOG OUT</button>
+    </menu>
+
+    <div class="main">
+      <input
+        type="text"
+        id="search"
+        class="search"
+        placeholder="&#xF002; Search"
+        style="font-family: Arial, FontAwesome"
+      />
+      <div class="cards" id="cards">
+        <a href="#">
+          <div class="card">
+            <img src="img/card_controlz.png" alt="" />
+            <div class="card-text-center">
+              <h3>1 day</h3>
+            </div>
+            <h3>Control Z</h3>
+            <h5>Season 3 ○ 10.03.2023</h5>
+          </div>
+        </a>
+
+        <a href="#">
+          <div class="card">
+            <img src="img/card_rebelde.png" alt="" />
+            <div class="card-text-center">
+              <h3>5 days</h3>
+            </div>
+            <h3>Rebelde</h3>
+            <h5>Season 6 ○ 10.03.2023</h5>
+          </div>
+        </a>
+
+        <a href="#">
+          <div class="card">
+            <img src="img/card_breakingbad.png" alt="" />
+            <div class="card-text-center">
+              <h3>300 days</h3>
+            </div>
+            <h3>Breaking Bad</h3>
+            <h5>Season 6 ○ 12.11.2025</h5>
+          </div>
+        </a>
+
+        <a href="#">
+          <div class="card">
+            <img src="img/card_arcane.png" alt="" />
+            <div class="card-text-center">
+              <h3>150 days</h3>
+            </div>
+            <h3>Arcane</h3>
+            <h5>Season 2 ○ 13.11.2023</h5>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <script src="js/upcoming.js"></script>
+  </body>
+</html>

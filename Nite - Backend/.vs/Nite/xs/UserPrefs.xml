@@ -1,27 +1,32 @@
 ﻿<Properties StartupConfiguration="{E6CBEAB9-C075-42CE-89A7-ED187342D1F8}|Default">
-  <MonoDevelop.Ide.ItemProperties.Nite.API PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Nite.API/Program.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.Nite.API PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Nite.API/Startup.cs">
     <Files>
-      <File FileName="Nite.API/Program.cs" Line="28" Column="60" />
-      <File FileName="Nite.API/Startup.cs" />
+      <File FileName="Nite.API/Program.cs" Line="53" Column="61" />
+      <File FileName="Nite.API/Startup.cs" Line="35" Column="69" />
+      <File FileName="Nite.API/Controllers/TVShowsController.cs" />
+      <File FileName="Nite.API/Services/TVShowsServiceModel.cs" />
+      <File FileName="Nite.API/appsettings.json" Line="10" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Nite" expanded="True">
             <Node name="Nite.API" expanded="True">
+              <Node name="Controllers" expanded="True" />
               <Node name="Migrations" expanded="True" />
-              <Node name="Program.cs" selected="True" />
+              <Node name="Services" expanded="True" />
+              <Node name="Startup.cs" selected="True" />
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
