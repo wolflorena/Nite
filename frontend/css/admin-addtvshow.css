@@ -116,15 +116,20 @@ body {
   height: 30px;
   background-color: rgba(238, 238, 238, 0.3);
   padding-left: 15px;
-  color: var(--light-gray);
+  color: var(--white);
   font-size: 14px;
   font-weight: 500;
   width: 250px;
 }
 
 .form .labelInput {
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
+}
+
+.form #description-input {
+  height: 120px;
 }
 
 .form button {
@@ -140,6 +145,14 @@ body {
   cursor: pointer;
 }
 
+.form textarea {
+  width: 250px;
+  border-radius: 15px;
+  background-color: rgba(238, 238, 238, 0.3);
+  padding-left: 15px;
+  color: var(--white);
+}
+
 .form select {
   -webkit-appearance: none;
   width: 265px;
@@ -149,5 +162,5 @@ body {
   border: none;
   outline: none;
   border-radius: 15px;
-  color: var(--light-gray);
+  color: var(--white);
 }

@@ -74,7 +74,7 @@ body::before {
   color: var(--light-gray);
   font-size: 14px;
   font-weight: 500;
-  width: 250px;
+  width: 200px;
 }
 
 .form .labelInput {
@@ -88,22 +88,33 @@ body::before {
   height: 30px;
   border: none;
   border-radius: 15px;
-  background-color: var(--yellow);
-  color: var(--dark-gray);
+  border: 0.5px solid;
+  background-color: transparent;
+  color: var(--yellow);
   font-size: 15px;
   font-weight: 500;
+  border-color: var(--yellow);
   cursor: pointer;
 }
 
+.form button:hover {
+  background-color: var(--yellow);
+  color: var(--dark-gray);
+}
 h5,
 a {
   color: var(--light-gray);
   text-decoration: none;
   font-weight: 400;
+  margin-top: 10px;
 }
 
 a {
   font-weight: 600;
+}
+
+a:hover {
+  color: var(--yellow);
 }
 
 @media screen and (max-height: 750px) {

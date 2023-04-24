@@ -6,6 +6,9 @@ imgs[2] = "img/wednesday.jpg";
 imgs[3] = "img/witcher.jpg";
 imgs[4] = "img/vikings.jpg";
 imgs[5] = "img/marvel.jpg";
+imgs[6] = "img/you.jpg";
+imgs[7] = "img/girlBefore.jpg";
+imgs[8] = "img/kaleidoscope.jpg";
 
 window.onload = function () {
   const random = Math.floor(Math.random() * imgs.length);
@@ -51,7 +54,7 @@ function sendCredentials(username, password) {
   })
     .then((res) => {
       if (!res.ok) {
-        swal("This account doesn't exist!");
+        alert("This account doesn't exist!");
         throw new Error("Login failed");
       }
       alert.innerText = "";
@@ -60,14 +63,10 @@ function sendCredentials(username, password) {
     .then((data) => {
       if (data.isAdmin == true) {
         sessionStorage.setItem("id", data.id);
-        // setTimeout(function () {
-          document.location.href = "admin-index.html";
-        // }, 250);
+        document.location.href = "admin-index.html";
       } else {
         sessionStorage.setItem("idUser", data.id);
-        // setTimeout(function () {
-          document.location.href = "index.html";
-        // }, 250);
+        document.location.href = "index.html";
       }
     })
     .catch((error) => console.error(error));
