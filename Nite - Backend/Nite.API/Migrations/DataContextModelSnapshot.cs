@@ -33,6 +33,9 @@ namespace Nite.API.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Banner")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -41,14 +44,30 @@ namespace Nite.API.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Likes")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Logo")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NewSeason")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Poster")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Seasons")
                         .HasColumnType("int");
 
                     b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Streaming")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -66,9 +85,11 @@ namespace Nite.API.Migrations
                             Audience = "18+",
                             Description = "Nine noble families fight for control over the lands of Westeros, while an ancient enemy returns after being dormant for millennia.",
                             Genre = "Drama",
+                            Likes = 1024,
                             Name = "Game of Thrones",
                             Seasons = 8,
                             Status = "Ended",
+                            Streaming = "Netflix",
                             Year = 2011
                         },
                         new
@@ -77,9 +98,12 @@ namespace Nite.API.Migrations
                             Audience = "18+",
                             Description = "Each season has its own self-contained storyline and characters and it has been posed that each season will introduce a new location as well as new characters and storylines.",
                             Genre = "Horror",
+                            Likes = 2200,
                             Name = "American Horror Story",
+                            NewSeason = "11/12/2023",
                             Seasons = 10,
                             Status = "On going",
+                            Streaming = "HBO",
                             Year = 2011
                         },
                         new
@@ -88,9 +112,11 @@ namespace Nite.API.Migrations
                             Audience = "18+",
                             Description = "Dexter is a serial killer with a \"code\" which directs his compulsions to kill only the guilty. As a blood spatter analyst for the Miami police, he has access to crime scenes, picking up clues and checking DNA to confirm a target's guilt before he kills them.",
                             Genre = "Mystery",
+                            Likes = 870,
                             Name = "Dexter",
                             Seasons = 8,
                             Status = "Ended",
+                            Streaming = "Disney+",
                             Year = 2006
                         },
                         new
@@ -99,9 +125,12 @@ namespace Nite.API.Migrations
                             Audience = "16+",
                             Description = "The series follows a dangerously charming, intensely obsessive young man who goes to extreme measures to insert himself into the lives of those he is transfixed by.",
                             Genre = "Psychological thriller",
+                            Likes = 2560,
                             Name = "You",
+                            NewSeason = "12/10/2023",
                             Seasons = 4,
                             Status = "On going",
+                            Streaming = "Amazon Prime",
                             Year = 2018
                         });
                 });

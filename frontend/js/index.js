@@ -28,12 +28,12 @@ function getShow(shows) {
     let find = "tvshow.html?" + show.id;
     let popular = `<a href="${find}">
                     <div class="card">
-                        <img src="/frontend/img/card_controlz.png" alt="">
+                        <img src="img/${show.poster}" alt="">
                         <h3>${show.name}</h3>
                     </div>
                 </a>`;
 
-    if (getShowsPopularContainer != null && countPopular <= 8) {
+    if (getShowsPopularContainer != null && countPopular <= 5) {
       const getShowsPopularContainer = document.getElementById("cards-popular");
       const newPopular = document.createElement("a");
       newPopular.innerHTML = popular;
@@ -45,12 +45,12 @@ function getShow(shows) {
   shows.forEach((show) => {
     let explore = `<a href="tvshow.html">
                       <div class="card">
-                          <img src="/frontend/img/card_controlz.png" alt="">
+                          <img src="img/${show.poster}" alt="">
                           <h3>${show.name}</h3>
                       </div>
                   </a>`;
 
-    if (getShowsExploreContainer != null && countExplore <= 8) {
+    if (getShowsExploreContainer != null && countExplore <= 5) {
       const getShowsExploreContainer = document.getElementById("cards-explore");
       const newExplore = document.createElement("a");
       newExplore.innerHTML = explore;
