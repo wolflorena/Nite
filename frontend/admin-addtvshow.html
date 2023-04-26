@@ -39,61 +39,98 @@
 
     <div class="main">
       <form class="form" id="form">
-        <div class="labelInput">
-          <label for="name">Name of the TV Show</label>
-          <input type="text" name="name" id="name-input" />
-        </div>
+        <div class="form-input">
+          <div class="info">
+            <div class="labelInput">
+              <label for="name">Name of the TV Show</label>
+              <input type="text" name="name" id="name-input" />
+            </div>
 
-        <div class="labelInput">
-          <label for="year">Release year</label>
-          <input type="number" name="year" id="year-input" />
-        </div>
+            <div class="labelInput">
+              <label for="year">Release year</label>
+              <input type="number" name="year" id="year-input" />
+            </div>
 
-        <div class="labelInput">
-          <label for="audience">Audience</label>
-          <input type="text" name="audience" id="audience-input" />
-        </div>
+            <div class="labelInput">
+              <label for="audience">Audience</label>
+              <input type="text" name="audience" id="audience-input" />
+            </div>
 
-        <div class="labelInput">
-          <label for="seasons">Number of seasons</label>
-          <input type="number" name="seasons" id="seasons-input" />
-        </div>
+            <div class="labelInput">
+              <label for="seasons">Number of seasons</label>
+              <input type="number" name="seasons" id="seasons-input" />
+            </div>
 
-        <div class="labelInput">
-          <label for="genre">Genre</label>
-          <input type="text" name="genre" id="genre-input" />
-        </div>
+            <div class="labelInput">
+              <label for="genre">Genre</label>
+              <input type="text" name="genre" id="genre-input" />
+            </div>
 
-        <div class="labelInput">
-          <label for="status">Status</label>
-          <select name="status" id="status-input">
-            <option value="">Please choose an option</option>
-            <option value="Ended">Ended</option>
-            <option value="Cancelled">Cancelled</option>
-            <option value="On-going">On going</option>
-          </select>
-        </div>
+            <div class="labelInput">
+              <label for="status">Status</label>
+              <select name="status" id="status-input">
+                <option value="">Please choose an option</option>
+                <option value="Ended">Ended</option>
+                <option value="Cancelled">Cancelled</option>
+                <option value="On going">On going</option>
+              </select>
+            </div>
 
-        <div class="labelInput">
-          <label for="description">A short description</label>
-          <textarea
-            type="text"
-            name="description"
-            id="description-input"
-            rows="5"
-            cols="60"
-          ></textarea>
-        </div>
+            <div class="labelInput">
+              <label for="streaming">Streaming</label>
+              <select name="streaming" id="streaming-input">
+                <option value="">Please choose an option</option>
+                <option value="Netflix">Netflix</option>
+                <option value="HBO">HBO</option>
+                <option value="Disney+">Disney+</option>
+                <option value="AmazonPrime">Amazon Prime</option>
+              </select>
+            </div>
+          </div>
 
-        <!-- <div class="labelInput">
-          <label for="poster">Poster</label>
-          <input type="file" name="poster" id="poster" />
-        </div>
+          <div class="images">
+            <div class="labelInput">
+              <label for="likes">Likes</label>
+              <input type="number" name="likes" id="likes-input" />
+            </div>
 
-        <div class="labelInput">
-          <label for="banner">Banner</label>
-          <input type="file" name="banner" id="banner" />
-        </div> -->
+            <div class="labelInput">
+              <label for="newseason">New Season</label>
+              <input type="text" name="newseason" id="newseason-input" />
+            </div>
+
+            <div class="labelInput">
+              <label for="description">A short description</label>
+              <textarea
+                type="text"
+                name="description"
+                id="description-input"
+                rows="5"
+                cols="60"
+              ></textarea>
+            </div>
+
+            <div class="labelInput">
+              <label for="poster">Poster</label>
+              <input
+                type="file"
+                accept=".jpg, .jpeg, .png"
+                name="poster"
+                id="poster"
+              />
+            </div>
+
+            <div class="labelInput">
+              <label for="banner">Banner</label>
+              <input type="file" name="banner" id="banner" />
+            </div>
+
+            <div class="labelInput">
+              <label for="logo">Logo</label>
+              <input type="file" name="logo" id="logo" />
+            </div>
+          </div>
+        </div>
 
         <button type="submit">SUBMIT</button>
       </form>

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Nite.API.Data.Models
 {
@@ -18,5 +19,10 @@ namespace Nite.API.Data.Models
         public string? Status { get; set; }
         [Required]
         public string? Description { get; set; }
+        [Required]
+        public string? Streaming { get; set; }
+        [Required]
+        public int Likes { get; set; }
+        public string? NewSeason { get; set; }
     }
 }

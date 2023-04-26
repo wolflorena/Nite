@@ -107,6 +107,19 @@ body {
   line-height: 27px;
   color: var(--white);
 }
+.form .form-input {
+  display: flex;
+  flex-direction: row;
+  gap: 5vh;
+}
+
+.form .info {
+  flex-direction: column;
+}
+
+.form .images {
+  flex-direction: column;
+}
 
 .form input {
   margin: 10px 0 10px 0;
@@ -163,4 +176,43 @@ body {
   outline: none;
   border-radius: 15px;
   color: var(--white);
+}
+
+.swal-title,
+.swal-text {
+  color: var(--white);
+}
+
+.swal-button {
+  background-color: var(--yellow);
+
+  color: var(--dark-gray);
+}
+
+.swal-button:not([disabled]):hover {
+  background-color: rgb(255, 211, 105, 0.8);
+}
+
+.swal-footer {
+  text-align: center;
+}
+
+.swal-modal {
+  background-color: var(--dark-gray);
+}
+
+.swal-overlay {
+  background-color: rgba(34, 40, 49, 0.8);
+}
+
+.swal-icon--success:before {
+  background-color: var(--dark-gray);
+}
+
+.swal-icon--success:after {
+  background-color: var(--dark-gray);
+}
+
+.swal-icon--success__hide-corners {
+  background-color: var(--dark-gray);
 }

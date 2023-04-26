@@ -9,6 +9,9 @@ const seasons = sessionStorage.getItem("seasons");
 const genre = sessionStorage.getItem("genre");
 const showStatus = sessionStorage.getItem("status");
 const description = sessionStorage.getItem("description");
+const streaming = sessionStorage.getItem("streaming");
+const likes = sessionStorage.getItem("likes");
+const newseason = sessionStorage.getItem("newseason");
 
 if (!id) {
   window.location = "login.html";
@@ -21,6 +24,9 @@ const seasonsValue = document.getElementById("seasons-input");
 const genreValue = document.getElementById("genre-input");
 const statusValue = document.getElementById("status-input");
 const descriptionValue = document.getElementById("description-input");
+const streamingValue = document.getElementById("streaming-input");
+const likesValue = document.getElementById("likes-input");
+const newSeasonValue = document.getElementById("newseason-input");
 
 const buttonSave = document.getElementById("button");
 
@@ -32,10 +38,19 @@ audienceValue.value = audience;
 seasonsValue.value = seasons;
 genreValue.value = genre;
 descriptionValue.value = description;
+likesValue.value = likes;
+newSeasonValue.value = newseason;
 
 for (let i = 0; i < statusValue.options.length; i++) {
   if (statusValue.options[i].value === showStatus) {
     statusValue.options[i].selected = true;
+    break;
+  }
+}
+
+for (let i = 0; i < streamingValue.options.length; i++) {
+  if (streamingValue.options[i].value === streaming) {
+    streamingValue.options[i].selected = true;
     break;
   }
 }
@@ -64,6 +79,9 @@ buttonSave.addEventListener("click", (e) => {
           genre: genreValue.value,
           status: statusValue.value,
           description: descriptionValue.value,
+          streaming: streamingValue.value,
+          likes: likesValue.value,
+          newSeason: newSeasonValue.value,
         }),
       })
         .then((res) => {
