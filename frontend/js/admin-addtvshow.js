@@ -1,6 +1,5 @@
 const getShowsTable = document.getElementById("table");
 const addShowsForm = document.getElementById("form");
-console.log(getShowsTable);
 
 const portUrl = "https://localhost:7053";
 const showsUrl = "/api/shows";
@@ -20,38 +19,57 @@ const seasonsValue = document.getElementById("seasons-input");
 const genreValue = document.getElementById("genre-input");
 const statusValue = document.getElementById("status-input");
 const descriptionValue = document.getElementById("description-input");
+const streamingValue = document.getElementById("streaming-input");
+const likesValue = document.getElementById("likes-input");
+const newSeasonValue = document.getElementById("newseason-input");
+const posterFile = document.getElementById("poster");
+const bannerFile = document.getElementById("banner");
+const logoFile = document.getElementById("logo");
 
 addShowsForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
+  const poster = posterFile.files[0];
+  const banner = bannerFile.files[0];
+  const logo = logoFile.files[0];
+
+  let formData = new FormData();
+
+  formData.append("name", nameValue.value);
+  formData.append("year", yearValue.value);
+  formData.append("audience", audienceValue.value);
+  formData.append("seasons", seasonsValue.value);
+  formData.append("genre", genreValue.value);
+  formData.append("status", statusValue.value);
+  formData.append("description", descriptionValue.value);
+  formData.append("streaming", streamingValue.value);
+  formData.append("likes", likesValue.value);
+  formData.append("newseason", newSeasonValue.value);
+  formData.append("posterFile", poster);
+  formData.append("bannerFile", banner);
+  formData.append("logoFile", logo);
+
   fetch(url, {
     method: "POST",
-    headers: {
-      "content-type": "application/json; charset=UTF-8",
-    },
-    body: JSON.stringify({
-      name: nameValue.value,
-      year: yearValue.value,
-      audience: audienceValue.value,
-      seasons: seasonsValue.value,
-      genre: genreValue.value,
-      status: statusValue.value,
-      description: descriptionValue.value,
-    }),
+    body: formData,
   })
     .then((res) => {
       if (!res.ok) {
         throw new Error("Post failed");
       }
-
-      alert("The account has been successfully created!");
-      addAccountsForm.reset();
-      window.location = "admin-tvshows.html";
+      swal({
+        title: "Success!",
+        text: "The tv show has been successfully created!",
+        icon: "success",
+        button: "Ok",
+      }).then(() => {
+        addShowsForm.reset();
+        window.location = "admin-tvshows.html";
+      });
     })
     .then((data) => {
       const dataArray = [];
       dataArray.push(data);
-      console.log(dataArray);
       getShow(dataArray);
     })
     .catch((error) => console.error(error));
@@ -69,11 +87,14 @@ function getShow(shows) {
                       <td id="genre">${show.genre}</td>
                       <td id="status">${show.status}</td>
                       <td id="description">${show.description}</td>
+                      <td id="streaming">${show.streaming}</td>
+                      <td id="likes">${show.likes}</td>
+                      <td id="new-season">${show.newSeason}</td>
                       <td>
                           <button id="delete-user" class="button-delete" onclick="deleteShow(${show.id})"> <i class="fa-solid fa-trash"></i></button>
                       </td>
                       <td>
-                          <button id="edit-user" class="button-edit" onclick="editShow(${show.id},'${show.name}',${show.year},'${show.audience}',${show.seasons},'${show.genre}','${show.status}','${show.description}')"><i class="fa-solid fa-pen"></i></button>
+                          <button id="edit-user" class="button-edit" onclick="editShow(${show.id},'${show.name}',${show.year},'${show.audience}',${show.seasons},'${show.genre}','${show.status}','${show.description}','${show.streaming}',${show.likes},'${show.newSeason}')"><i class="fa-solid fa-pen"></i></button>
                       </td>
                   </tr>`;
 

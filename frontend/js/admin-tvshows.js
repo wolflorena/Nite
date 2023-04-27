@@ -19,6 +19,10 @@ const noData = document.getElementById("no-data");
 function getShow(shows) {
   let count = 1;
   shows.forEach((show) => {
+    let k = "Unknown";
+    if (show.newSeason != null && show.newSeason != "") k = show.newSeason;
+    if (show.status != "On going") k = show.status;
+
     let row = `<tr>
                     <th id="index">${count}</th>
                     <td id="name">${show.name}</td>
@@ -28,11 +32,14 @@ function getShow(shows) {
                     <td id="genre">${show.genre}</td>
                     <td id="status">${show.status}</td>
                     <td id="description">${show.description}</td>
+                    <td id="streaming">${show.streaming}</td>
+                    <td id="likes">${show.likes}</td>
+                    <td id="new-season">${k}</td>
                     <td>
                         <button id="delete-user" class="button-delete" onclick="deleteShow(${show.id})"> <i class="fa-solid fa-trash"></i></button>
                     </td>
                     <td>
-                        <button id="edit-user" class="button-edit" onclick="editShow(${show.id},'${show.name}',${show.year},'${show.audience}',${show.seasons},'${show.genre}','${show.status}','${show.description}')"><i class="fa-solid fa-pen"></i></button>
+                        <button id="edit-user" class="button-edit" onclick="editShow(${show.id},'${show.name}',${show.year},'${show.audience}',${show.seasons},'${show.genre}','${show.status}','${show.description}','${show.streaming}',${show.likes},'${show.newSeason}')"><i class="fa-solid fa-pen"></i></button>
                     </td>
                 </tr>`;
 
@@ -83,7 +90,10 @@ function editShow(
   seasons,
   genre,
   status,
-  description
+  description,
+  streaming,
+  likes,
+  newseason
 ) {
   sessionStorage.setItem("showId", showId);
   sessionStorage.setItem("name", name);
@@ -93,6 +103,9 @@ function editShow(
   sessionStorage.setItem("genre", genre);
   sessionStorage.setItem("status", status);
   sessionStorage.setItem("description", description);
+  sessionStorage.setItem("streaming", streaming);
+  sessionStorage.setItem("likes", likes);
+  sessionStorage.setItem("newseason", newseason);
 
   window.location = "admin-edittvshow.html";
 }

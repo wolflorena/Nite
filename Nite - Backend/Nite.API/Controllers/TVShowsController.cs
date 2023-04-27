@@ -12,12 +12,14 @@ namespace Nite.API.Controllers
     {
         private readonly ILogger<TVShowsController> _logger;
         private readonly ITVShowsServiceModel _service;
+        private readonly IFileServiceModel _fileService;
 
 
-        public TVShowsController(ILogger<TVShowsController> logger, ITVShowsServiceModel service)
+        public TVShowsController(ILogger<TVShowsController> logger, ITVShowsServiceModel service, IFileServiceModel fs)
         {
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _service = service ?? throw new ArgumentNullException(nameof(service));
+            _fileService = fs;
         }
 
         [HttpGet]
@@ -60,13 +62,44 @@ namespace Nite.API.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateTVShow([FromBody] TVShowCreationDTO show)
+        public IActionResult CreateTVShow([FromForm] TVShowCreationDTO show)
         {
             try
             {
                 if (!ModelState.IsValid)
                 {
                     return BadRequest();
+                }
+
+                if (show.PosterFile != null)
+                {
+                    var posterResult = _fileService.SaveImage(show.PosterFile);
+
+                    if (posterResult.Item1 == 1)
+                    {
+                        show.Poster = posterResult.Item2;
+                    }
+
+                }
+
+                if(show.BannerFile != null)
+                {
+                    var bannerResult = _fileService.SaveImage(show.BannerFile);
+
+                    if (bannerResult.Item1 == 1)
+                    {
+                        show.Banner = bannerResult.Item2;
+                    }
+                }
+
+                if (show.LogoFile != null)
+                {
+                    var logoResult = _fileService.SaveImage(show.LogoFile);
+
+                    if (logoResult.Item1 == 1)
+                    {
+                        show.Logo = logoResult.Item2;
+                    }
                 }
 
                 var result = _service.AddTVShowService(show);

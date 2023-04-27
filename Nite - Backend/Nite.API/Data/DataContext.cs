@@ -64,7 +64,9 @@ namespace Nite.API.Data
                     Seasons = 8,
                     Genre = "Drama",
                     Status = "Ended",
-                    Description = "Nine noble families fight for control over the lands of Westeros, while an ancient enemy returns after being dormant for millennia."
+                    Description = "Nine noble families fight for control over the lands of Westeros, while an ancient enemy returns after being dormant for millennia.",
+                    Streaming = "Netflix",
+                    Likes = 1024
                 },
                  new TVShow()
                  {
@@ -75,7 +77,10 @@ namespace Nite.API.Data
                      Seasons = 10,
                      Genre = "Horror",
                      Status = "On going",
-                     Description = "Each season has its own self-contained storyline and characters and it has been posed that each season will introduce a new location as well as new characters and storylines."
+                     Description = "Each season has its own self-contained storyline and characters and it has been posed that each season will introduce a new location as well as new characters and storylines.",
+                     Streaming = "HBO",
+                     Likes = 2200,
+                     NewSeason = "11/12/2023"
                  },
                  new TVShow()
                  {
@@ -86,7 +91,9 @@ namespace Nite.API.Data
                      Seasons = 8,
                      Genre = "Mystery",
                      Status = "Ended",
-                     Description = "Dexter is a serial killer with a \"code\" which directs his compulsions to kill only the guilty. As a blood spatter analyst for the Miami police, he has access to crime scenes, picking up clues and checking DNA to confirm a target's guilt before he kills them."
+                     Description = "Dexter is a serial killer with a \"code\" which directs his compulsions to kill only the guilty. As a blood spatter analyst for the Miami police, he has access to crime scenes, picking up clues and checking DNA to confirm a target's guilt before he kills them.",
+                     Streaming = "Disney+",
+                     Likes = 870
                  },
                  new TVShow()
                  {
@@ -97,7 +104,10 @@ namespace Nite.API.Data
                      Seasons = 4,
                      Genre = "Psychological thriller",
                      Status = "On going",
-                     Description = "The series follows a dangerously charming, intensely obsessive young man who goes to extreme measures to insert himself into the lives of those he is transfixed by."
+                     Description = "The series follows a dangerously charming, intensely obsessive young man who goes to extreme measures to insert himself into the lives of those he is transfixed by.",
+                     Streaming = "Amazon Prime",
+                     Likes = 2560,
+                     NewSeason = "12/10/2023"
                  }
                 );
 
