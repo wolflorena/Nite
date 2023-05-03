@@ -1,4 +1,5 @@
 const id = sessionStorage.getItem("idUser");
+const username = sessionStorage.getItem("username");
 
 if (!id) {
   window.location = "login.html";
@@ -9,6 +10,11 @@ const showsUrl = "/api/shows";
 const url = portUrl + showsUrl;
 const getShowsPopularContainer = document.getElementById("cards-popular");
 const getShowsExploreContainer = document.getElementById("cards-explore");
+const welcomeMessage = document.getElementById("welcome-message");
+
+var username_message = document.createElement("span");
+username_message.innerHTML = " " + username;
+welcomeMessage.appendChild(username_message);
 
 fetch(url)
   .then((res) => res.json())
@@ -21,7 +27,7 @@ function getShow(shows) {
   let countExplore = 1;
 
   let popularShowsSort = [...shows].sort((s1, s2) =>
-    s1.year < s2.year ? 1 : s1.year > s2.year ? -1 : 0
+    s1.likes < s2.likes ? 1 : s1.likes > s2.likes ? -1 : 0
   );
 
   popularShowsSort.forEach((show) => {
@@ -61,8 +67,6 @@ function getShow(shows) {
 }
 
 function logout() {
-  setTimeout(function () {
-    document.location.href = "login.html";
-  }, 250);
+  document.location.href = "login.html";
   sessionStorage.clear();
 }
