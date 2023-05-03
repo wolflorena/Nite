@@ -66,6 +66,7 @@ function sendCredentials(username, password) {
         document.location.href = "admin-index.html";
       } else {
         sessionStorage.setItem("idUser", data.id);
+        sessionStorage.setItem("username", data.username);
         document.location.href = "index.html";
       }
     })

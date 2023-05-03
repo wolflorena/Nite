@@ -12,7 +12,7 @@ fetch(url)
   });
 
 function getShow(show) {
-  let info = `<img src="img/${show.logo}" alt="">
+  let info = `<img src="img/${show.logo}" alt="" class="title">
             <div class="first-child" id="first-child">
                 <ul class="general">
                     <li>${show.year}</li>
@@ -41,4 +41,31 @@ function getShow(show) {
 function logout() {
   sessionStorage.clear();
   window.location = "login.html";
+}
+
+const sliders = document.querySelector(".listOfEpisodes");
+const downArrow = document.getElementById("down");
+const upArrow = document.getElementById("up");
+var scrollPerClick = 350;
+var scrollAmount = 0;
+var clicks = 0;
+
+function sliderScrollUp() {
+  sliders.scrollTo({
+    top: (scrollAmount -= scrollPerClick),
+    behavior: "smooth",
+  });
+
+  if (scrollAmount < 0) {
+    scrollAmount = 0;
+  }
+}
+
+function sliderScrollDown() {
+  if (scrollAmount <= sliders.scrollHeight - sliders.clientHeight) {
+    sliders.scrollTo({
+      top: (scrollAmount += scrollPerClick),
+      behavior: "smooth",
+    });
+  }
 }
