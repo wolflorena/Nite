@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Nite.API.Data;
+﻿using Nite.API.Data;
 using Nite.API.Repository.Entities;
 
 namespace Nite.API.Repository
