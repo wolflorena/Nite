@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Nite.API.Data;
 
@@ -10,9 +11,11 @@ using Nite.API.Data;
 namespace Nite.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20230503212914_TVShowSeasons DB")]
+    partial class TVShowSeasonsDB
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -55,14 +58,6 @@ namespace Nite.API.Migrations
                             DurationEpisode = 42,
                             Name = "Season 1",
                             NumberOfEpisodes = 10,
-                            TVShowId = 1
-                        },
-                        new
-                        {
-                            Id = 2,
-                            DurationEpisode = 45,
-                            Name = "Season 2",
-                            NumberOfEpisodes = 12,
                             TVShowId = 1
                         });
                 });
@@ -189,14 +184,8 @@ namespace Nite.API.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Birthdate")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Gender")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsAdmin")

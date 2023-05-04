@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Storage;
 using Nite.API.Data;
 using Nite.API.Repository;
 using Nite.API.Services;
@@ -27,9 +26,11 @@ namespace Nite.API
             services.AddScoped<IServiceModel,ServiceModel>();
             services.AddScoped<ITVShowsServiceModel, TVShowsServiceModel>();
             services.AddScoped<IFileServiceModel, FileServiceModel>();
+            services.AddScoped<ISeasonsServiceModel, SeasonsServiceModel>();
 
             services.AddScoped<ILoginSignupRepository, LoginSignupRepository>();
             services.AddScoped<ITVShowsRepository, TVShowsRepository>();
+            services.AddScoped<ISeasonsRepository, SeasonsRepository>();
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 

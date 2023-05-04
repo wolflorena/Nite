@@ -90,6 +90,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 table {
   margin-left: 15px;
@@ -124,4 +125,15 @@ table td .description {
   width: 40px;
   height: 40px;
   cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: var(--white);
+}
+
+.no-data {
+  color: var(--yellow);
+  margin-bottom: 20px;
+  font-weight: bold;
 }
