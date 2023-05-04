@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="img/logCircle.png" />
+    <link rel="stylesheet" href="css/profile.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/09c942d75c.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>Nite | Home</title>
+  </head>
+  <body>
+    <menu class="vertical-menu">
+      <img src="img/logo.png" alt="" />
+      <div class="welcome-message">
+        <h1 id="welcome-message">Hello,</h1>
+      </div>
+      <div class="links">
+        <a href="index.html"> <i class="fa-solid fa-house"></i>Home</a>
+        <a href="upcoming.html"><i class="fa-solid fa-clock"></i>Upcoming</a>
+        <a href="#"><i class="fa-solid fa-list"></i>Watchlist</a>
+        <a href="#"><i class="fa-solid fa-heart"></i>Favorites</a>
+        <a href="#"
+          ><div class="active"><i class="fa-solid fa-user"></i> Profile</div></a
+        >
+      </div>
+      <button onclick="logout();">LOG OUT</button>
+    </menu>
+
+    <div class="main">
+      <div class="cards">
+        <div class="top">
+          <div class="card">
+            <h3>Total watch time</h3>
+            <h1>01 13 19</h1>
+            <h4>mths days hrs</h4>
+          </div>
+          <div class="card">
+            <h3>Watched series</h3>
+            <h1>23</h1>
+          </div>
+        </div>
+        <div class="bottom">
+          <div class="card">
+            <h3>Watched episodes</h3>
+            <h1>14k</h1>
+          </div>
+          <div class="card">
+            <h3>Currently watching</h3>
+            <h1>8</h1>
+          </div>
+        </div>
+      </div>
+
+      <div class="profileInfo">
+        <div class="header">
+          <div class="test">
+            <img src="img/chipdale.png" alt="" />
+            <div class="img-edit">
+              <i class="fa-regular fa-pen-to-square"></i>
+            </div>
+          </div>
+
+          <h3>Chip & Dale</h3>
+        </div>
+
+        <div class="credentials">
+          <div class="credentialName">
+            <h2>Username:</h2>
+            <h2>Password:</h2>
+            <h2>Email:</h2>
+            <h2>Gender:</h2>
+            <h2>Birthdate:</h2>
+          </div>
+          <div class="credential">
+            <h1>Chip & Dale</h1>
+            <span>
+              <h1>**********</h1>
+              <i
+                class="fa-regular fa-pen-to-square"
+                style="margin-top: 10px"
+              ></i>
+            </span>
+
+            <h1>chipdale@gmail.com</h1>
+            <span>
+              <span>
+                <button class="check">
+                  <i
+                    class="fa-solid fa-circle-check fa-xl"
+                    style="margin-top: 20px"
+                  ></i>
+                </button>
+                <h1>Female</h1>
+              </span>
+              <span>
+                <button class="check">
+                  <i
+                    class="fa-solid fa-circle-check fa-xl"
+                    style="margin-top: 20px"
+                  ></i>
+                </button>
+                <h1>Male</h1>
+              </span>
+            </span>
+
+            <h1>16/02/2001</h1>
+          </div>
+        </div>
+        <button class="saveButton">Save</button>
+      </div>
+    </div>
+
+    <script src="js/profile.js"></script>
+  </body>
+</html>
