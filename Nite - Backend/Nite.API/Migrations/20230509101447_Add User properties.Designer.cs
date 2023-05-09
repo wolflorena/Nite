@@ -11,8 +11,8 @@ using Nite.API.Data;
 namespace Nite.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230426194744_Poster - PUT")]
-    partial class PosterPUT
+    [Migration("20230509101447_Add User properties")]
+    partial class AddUserproperties
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,6 +23,34 @@ namespace Nite.API.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("Nite.API.Repository.Entities.Season", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("DurationEpisode")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("NumberOfEpisodes")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TVShowId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TVShowId");
+
+                    b.ToTable("TVShowSeasons");
+                });
 
             modelBuilder.Entity("Nite.API.Repository.Entities.TVShow", b =>
                 {
@@ -36,6 +64,9 @@ namespace Nite.API.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Banner")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -44,8 +75,17 @@ namespace Nite.API.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Likes")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Logo")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NewSeason")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Poster")
@@ -55,6 +95,10 @@ namespace Nite.API.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Streaming")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -72,9 +116,11 @@ namespace Nite.API.Migrations
                             Audience = "18+",
                             Description = "Nine noble families fight for control over the lands of Westeros, while an ancient enemy returns after being dormant for millennia.",
                             Genre = "Drama",
+                            Likes = 1024,
                             Name = "Game of Thrones",
                             Seasons = 8,
                             Status = "Ended",
+                            Streaming = "Netflix",
                             Year = 2011
                         },
                         new
@@ -83,9 +129,12 @@ namespace Nite.API.Migrations
                             Audience = "18+",
                             Description = "Each season has its own self-contained storyline and characters and it has been posed that each season will introduce a new location as well as new characters and storylines.",
                             Genre = "Horror",
+                            Likes = 2200,
                             Name = "American Horror Story",
+                            NewSeason = "11/12/2023",
                             Seasons = 10,
                             Status = "On going",
+                            Streaming = "HBO",
                             Year = 2011
                         },
                         new
@@ -94,9 +143,11 @@ namespace Nite.API.Migrations
                             Audience = "18+",
                             Description = "Dexter is a serial killer with a \"code\" which directs his compulsions to kill only the guilty. As a blood spatter analyst for the Miami police, he has access to crime scenes, picking up clues and checking DNA to confirm a target's guilt before he kills them.",
                             Genre = "Mystery",
+                            Likes = 870,
                             Name = "Dexter",
                             Seasons = 8,
                             Status = "Ended",
+                            Streaming = "Disney+",
                             Year = 2006
                         },
                         new
@@ -105,9 +156,12 @@ namespace Nite.API.Migrations
                             Audience = "16+",
                             Description = "The series follows a dangerously charming, intensely obsessive young man who goes to extreme measures to insert himself into the lives of those he is transfixed by.",
                             Genre = "Psychological thriller",
+                            Likes = 2560,
                             Name = "You",
+                            NewSeason = "12/10/2023",
                             Seasons = 4,
                             Status = "On going",
+                            Streaming = "Amazon Prime",
                             Year = 2018
                         });
                 });
@@ -120,8 +174,14 @@ namespace Nite.API.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("Birthdate")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Email")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Gender")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsAdmin")
@@ -172,6 +232,22 @@ namespace Nite.API.Migrations
                             Password = "ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f",
                             Username = "test2"
                         });
+                });
+
+            modelBuilder.Entity("Nite.API.Repository.Entities.Season", b =>
+                {
+                    b.HasOne("Nite.API.Repository.Entities.TVShow", "TVShow")
+                        .WithMany("TVShowSeasons")
+                        .HasForeignKey("TVShowId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("TVShow");
+                });
+
+            modelBuilder.Entity("Nite.API.Repository.Entities.TVShow", b =>
+                {
+                    b.Navigation("TVShowSeasons");
                 });
 #pragma warning restore 612, 618
         }

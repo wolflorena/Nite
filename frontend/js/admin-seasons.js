@@ -24,17 +24,17 @@ function getSeason(seasons) {
   let count = 1;
   seasons.forEach((season) => {
     let row = `<tr>
-                    <th id="index">${count}</th>
-                    <td id="name">${season.name}</td>
-                    <td id="numberofepisodes">${season.numberOfEpisodes}</td>
-                    <td id="durationepisode">${season.durationEpisode}</td>
-                    <td>
-                        <button id="delete-season" class="button-delete" onclick="deleteSeason()"> <i class="fa-solid fa-trash"></i></button>
-                    </td>
-                    <td>
-                        <button id="edit-season" class="button-edit" onclick="editSeason()"><i class="fa-solid fa-pen"></i></button>
-                    </td>
-                </tr>`;
+                      <th id="index">${count}</th>
+                      <td id="name">${season.name}</td>
+                      <td id="number-episodes">${season.numberOfEpisodes}</td>
+                      <td id="duration-episodes">${season.durationEpisode}</td>
+                      <td>
+                          <button id="delete-season" class="button-delete" onclick="deleteSeason(${season.id},${season.tvShowId})"> <i class="fa-solid fa-trash"></i></button>
+                      </td>
+                      <td>
+                          <button id="edit-season" class="button-edit" onclick="editSeason(${season.id},${season.tvShowId},'${season.name}',${season.numberOfEpisodes},${season.durationEpisode})"><i class="fa-solid fa-pen"></i></button>
+                      </td>
+                  </tr>`;
 
     if (getSeasonsTable != null) {
       const getSeasonsTable = document.getElementById("table");
@@ -50,7 +50,47 @@ function getSeason(seasons) {
   }
 }
 
+function deleteSeason(seasonId) {
+  const deleteUrl = url + "/" + `${seasonId}`;
+
+  swal({
+    title: "Are you sure?",
+    text: "Once deleted, you will not be able to recover this data!",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+  }).then((willDelete) => {
+    if (willDelete) {
+      fetch(deleteUrl, {
+        method: "DELETE",
+      })
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error("Delete failed");
+          }
+        })
+        .then(() => location.reload())
+        .catch((error) => console.error(error));
+    }
+  });
+}
+
+function editSeason(seasonId, showId, name, numberEpisodes, durationEpisodes) {
+  sessionStorage.setItem("seasonId", seasonId);
+  sessionStorage.setItem("showId", showId);
+  sessionStorage.setItem("name", name);
+  sessionStorage.setItem("numberEpisodes", numberEpisodes);
+  sessionStorage.setItem("durationEpisodes", durationEpisodes);
+
+  window.location = "admin-editseason.html";
+}
+
 function logout() {
   sessionStorage.clear();
   window.location = "login.html";
+}
+
+function addSeason() {
+  window.location = "admin-addseason.html";
+  sessionStorage.setItem("showId", showId);
 }

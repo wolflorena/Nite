@@ -26,6 +26,8 @@ namespace Nite.API.Data
                     Username = "deeagabor",
                     Email = "deeagabor@gmail.com",
                     Password = "ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f",
+                    Gender = "female",
+                    Birthdate = "16.12.2001",
                     IsAdmin = true
                 },
                 new User()
@@ -34,6 +36,8 @@ namespace Nite.API.Data
                     Username = "wolflorena",
                     Email = "wolflorena@gmail.com",
                     Password = "ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f",
+                    Gender = "female",
+                    Birthdate = "16.10.2001",
                     IsAdmin = true
                 },
                 new User()
@@ -42,6 +46,8 @@ namespace Nite.API.Data
                     Username = "test1",
                     Email = "testunu@gmail.com",
                     Password = "ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f",
+                    Gender = "male",
+                    Birthdate = "10.10.2005",
                     IsAdmin = false
                 },
                 new User()
@@ -50,6 +56,8 @@ namespace Nite.API.Data
                     Username = "test2",
                     Email = "testdoi@gmail.com",
                     Password = "ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f",
+                    Gender = "male",
+                    Birthdate = "08.04.2011",
                     IsAdmin = false
                 }
                 );
@@ -112,6 +120,25 @@ namespace Nite.API.Data
                      NewSeason = "12/10/2023"
                  }
                 );
+
+            modelBuilder.Entity<Season>()
+               .HasData(
+               new Season()
+               {
+                   Id = 1,
+                   TVShowId = 1,
+                   Name = "Season 1",
+                   NumberOfEpisodes = 10,
+                   DurationEpisode = 42
+               },
+               new Season()
+               {
+                   Id = 2,
+                   TVShowId = 1,
+                   Name = "Season 2",
+                   NumberOfEpisodes = 12,
+                   DurationEpisode = 45
+               });
 
             base.OnModelCreating(modelBuilder);
         }

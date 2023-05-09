@@ -137,3 +137,27 @@ a {
   margin-bottom: 20px;
   font-weight: bold;
 }
+
+.add {
+  display: flex;
+  justify-content: right;
+  width: 100%;
+}
+
+.add-season {
+  background-color: var(--yellow);
+  color: var(--dark-gray);
+  margin-bottom: 20px;
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 25px;
+  width: 150px;
+  font-weight: bold;
+  border: none;
+}
+
+.add-season i {
+  margin-right: 10px;
+  font-weight: bold;
+}
