@@ -305,3 +305,14 @@ D:/Nite/Nite - Backend/Nite.API/obj/Debug/net6.0/refint/Nite.API.dll
 D:/Nite/Nite - Backend/Nite.API/obj/Debug/net6.0/Nite.API.pdb
 D:/Nite/Nite - Backend/Nite.API/obj/Debug/net6.0/Nite.API.genruntimeconfig.cache
 D:/Nite/Nite - Backend/Nite.API/obj/Debug/net6.0/ref/Nite.API.dll
+D:\Nite\Nite - Backend\Nite.API\obj\Debug\net6.0\Nite.API.csproj.AssemblyReference.cache
+D:\Nite\Nite - Backend\Nite.API\obj\Debug\net6.0\Nite.API.GeneratedMSBuildEditorConfig.editorconfig
+D:\Nite\Nite - Backend\Nite.API\obj\Debug\net6.0\Nite.API.AssemblyInfoInputs.cache
+D:\Nite\Nite - Backend\Nite.API\obj\Debug\net6.0\Nite.API.AssemblyInfo.cs
+D:\Nite\Nite - Backend\Nite.API\obj\Debug\net6.0\Nite.API.csproj.CoreCompileInputs.cache
+D:\Nite\Nite - Backend\Nite.API\obj\Debug\net6.0\Nite.API.MvcApplicationPartsAssemblyInfo.cache
+D:\Nite\Nite - Backend\Nite.API\obj\Debug\net6.0\Nite.API.RazorAssemblyInfo.cache
+D:\Nite\Nite - Backend\Nite.API\obj\Debug\net6.0\Nite.API.RazorAssemblyInfo.cs
+D:\Nite\Nite - Backend\Nite.API\obj\Debug\net6.0\Nite.API.dll
+D:\Nite\Nite - Backend\Nite.API\obj\Debug\net6.0\refint\Nite.API.dll
+D:\Nite\Nite - Backend\Nite.API\obj\Debug\net6.0\Nite.API.pdb
