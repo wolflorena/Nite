@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Nite.API.Data.Models;
 using Nite.API.Repository;
+using Nite.API.Repository.Entities;
 
 namespace Nite.API.Services
 {
@@ -32,6 +33,42 @@ namespace Nite.API.Services
         {
             var result = _seasonsRepository.GetSeasons(showId);
             return _mapper.Map<IEnumerable<SeasonDTO>>(result);
+        }
+
+        public SeasonDTO? GetSeasonService(int? showId, int? seasonId)
+        {
+            var result = _seasonsRepository.GetSeason(showId, seasonId);
+
+            return (_mapper.Map<SeasonDTO>(result));
+        }
+        public SeasonDTO AddSeasonService(int showId, SeasonCreationDTO season)
+        {
+            var result = _mapper.Map<Season>(season);
+
+            _seasonsRepository.AddSeason(showId, result);
+            _seasonsRepository.Save();
+
+            return _mapper.Map<SeasonDTO>(result);
+        }
+
+        public void UpdateWithPutSeason(int showId, int id, SeasonUpdateDTO season)
+        {
+            var seasonEntity = _seasonsRepository.GetSeason(showId, id);
+            _mapper.Map(season, seasonEntity);
+        }
+
+        public void DeleteSeasonService(int showId, int id)
+        {
+            var result = _seasonsRepository.GetSeason(showId, id);
+
+            _seasonsRepository.DeleteSeason(result);
+
+            _seasonsRepository.Save();
+        }
+
+        public bool SaveService()
+        {
+            return _seasonsRepository.Save();
         }
     }
 }
