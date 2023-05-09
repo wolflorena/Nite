@@ -41,5 +41,7 @@ namespace Nite.API.Repository.Entities
 
         [NotMapped]
         public IFormFile? LogoFile { get; set; }
+
+        public ICollection<Season> TVShowSeasons { get; set; } = new List<Season>();
     }
 }

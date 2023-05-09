@@ -23,9 +23,10 @@ function getShow(shows) {
     if (show.newSeason != null && show.newSeason != "") k = show.newSeason;
     if (show.status != "On going") k = show.status;
 
+    let seasonsUrl = "admin-seasons.html?" + show.id;
     let row = `<tr>
                     <th id="index">${count}</th>
-                    <td id="name">${show.name}</td>
+                    <td id="name"><a href="${seasonsUrl}">${show.name}</a></td>
                     <td id="year">${show.year}</td>
                     <td id="audience">${show.audience}</td>
                     <td id="seasons">${show.seasons}</td>

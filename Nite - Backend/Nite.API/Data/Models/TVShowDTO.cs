@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Nite.API.Repository.Entities;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Nite.API.Data.Models
@@ -25,6 +26,8 @@ namespace Nite.API.Data.Models
         public string? Logo { get; set; }
 
         public IFormFile? LogoFile { get; set; }
+
+        public ICollection<SeasonDTO> TVShowSeasons { get; set; } = new List<SeasonDTO>();
     }
 }
 

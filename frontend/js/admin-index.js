@@ -23,12 +23,14 @@ function getUser(users) {
                     <th id="index">${count}</th>
                     <td id="username">${user.username}</td>
                     <td id="email">${user.email}</td>
+                    <td id="gender">${user.gender}</td>
+                    <td id="birthdate">${user.birthdate}</td>
                     <td id="admin">${user.isAdmin}</td>
                     <td>
                         <button id="delete-user" class="button-delete" onclick="deleteUser(${user.id})"> <i class="fa-solid fa-trash"></i></button>
                     </td>
                     <td>
-                        <button id="edit-user" class="button-edit" onclick="editUser(${user.id},'${user.username}','${user.email}',${user.isAdmin},'${user.password}')"><i class="fa-solid fa-pen"></i></button>
+                        <button id="edit-user" class="button-edit" onclick="editUser(${user.id},'${user.username}','${user.email}', '${user.gender}', '${user.birthdate}', ${user.isAdmin},'${user.password}')"><i class="fa-solid fa-pen"></i></button>
                     </td>
                 </tr>`;
 
@@ -71,10 +73,12 @@ function deleteUser(userId) {
   });
 }
 
-function editUser(userId, username, email, admin, password) {
+function editUser(userId, username, email, gender, birthdate, admin, password) {
   sessionStorage.setItem("userId", userId);
   sessionStorage.setItem("username", username);
   sessionStorage.setItem("email", email);
+  sessionStorage.setItem("gender", gender);
+  sessionStorage.setItem("birthdate", birthdate);
   sessionStorage.setItem("admin", admin);
   sessionStorage.setItem("password", password);
 

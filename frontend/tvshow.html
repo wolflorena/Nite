@@ -28,88 +28,100 @@
         <a href="index.html">
           <div class="active"><i class="fa-solid fa-house"></i>Home</div></a
         >
-        <a href="#"><i class="fa-solid fa-clock"></i>Upcoming</a>
+        <a href="upcoming.html"><i class="fa-solid fa-clock"></i>Upcoming</a>
         <a href="#"><i class="fa-solid fa-list"></i>Watchlist</a>
         <a href="#"><i class="fa-solid fa-heart"></i>Favorites</a>
-        <a href="#"><i class="fa-solid fa-user"></i>Profile</a>
+        <a href="profile.html"><i class="fa-solid fa-user"></i>Profile</a>
       </div>
       <button onclick="logout();">LOG OUT</button>
     </menu>
 
     <div class="main" id="main">
       <div class="info" id="info"></div>
-      <div class="episodes">
-        <div class="header">
-          <h3>Episodes</h3>
-          <label for="season"></label>
-          <select name="season" id="season">
-            <option value="season1">Season 1</option>
-          </select>
+      <div class="episodesList">
+        <div class="episodes">
+          <div class="header">
+            <h3>Episodes</h3>
+            <label for="season"></label>
+            <select name="season" id="season">
+              <option value="season1">Season 1</option>
+            </select>
+          </div>
+          <ol class="listOfEpisodes">
+            <div class="episode">
+              <li>Episode one</li>
+              <button class="check">
+                <i class="fa-solid fa-circle-check fa-2xl"></i>
+              </button>
+            </div>
+
+            <div class="episode">
+              <li>Please Don't Go</li>
+              <button class="check">
+                <i class="fa-solid fa-circle-check fa-2xl"></i>
+              </button>
+            </div>
+
+            <div class="episode">
+              <li>Doin' a Dahmer</li>
+              <button class="check">
+                <i class="fa-solid fa-circle-check fa-2xl"></i>
+              </button>
+            </div>
+
+            <div class="episode">
+              <li>The Good Boy Box</li>
+              <button class="check">
+                <i class="fa-solid fa-circle-check fa-2xl"></i>
+              </button>
+            </div>
+
+            <div class="episode">
+              <li>Blood On Their Hands</li>
+              <button class="check">
+                <i class="fa-solid fa-circle-check fa-2xl"></i>
+              </button>
+            </div>
+
+            <div class="episode">
+              <li>Silenced</li>
+              <button class="check">
+                <i class="fa-solid fa-circle-check fa-2xl"></i>
+              </button>
+            </div>
+
+            <div class="episode">
+              <li>Cassandra</li>
+              <button class="check">
+                <i class="fa-solid fa-circle-check fa-2xl"></i>
+              </button>
+            </div>
+
+            <div class="episode">
+              <li>Lionel</li>
+              <button class="check">
+                <i class="fa-solid fa-circle-check fa-2xl"></i>
+              </button>
+            </div>
+
+            <div class="episode">
+              <li>The Bogeyman</li>
+              <button class="check">
+                <i class="fa-solid fa-circle-check fa-2xl"></i>
+              </button>
+            </div>
+          </ol>
         </div>
-        <ol class="listOfEpisodes">
-          <div class="episode">
-            <li>Episode one</li>
-            <button class="check">
-              <i class="fa-solid fa-circle-check fa-2xl"></i>
-            </button>
-          </div>
-
-          <div class="episode">
-            <li>Please Don't Go</li>
-            <button class="check">
-              <i class="fa-solid fa-circle-check fa-2xl"></i>
-            </button>
-          </div>
-
-          <div class="episode">
-            <li>Doin' a Dahmer</li>
-            <button class="check">
-              <i class="fa-solid fa-circle-check fa-2xl"></i>
-            </button>
-          </div>
-
-          <div class="episode">
-            <li>The Good Boy Box</li>
-            <button class="check">
-              <i class="fa-solid fa-circle-check fa-2xl"></i>
-            </button>
-          </div>
-
-          <div class="episode">
-            <li>Blood On Their Hands</li>
-            <button class="check">
-              <i class="fa-solid fa-circle-check fa-2xl"></i>
-            </button>
-          </div>
-
-          <div class="episode">
-            <li>Silenced</li>
-            <button class="check">
-              <i class="fa-solid fa-circle-check fa-2xl"></i>
-            </button>
-          </div>
-
-          <div class="episode">
-            <li>Cassandra</li>
-            <button class="check">
-              <i class="fa-solid fa-circle-check fa-2xl"></i>
-            </button>
-          </div>
-
-          <div class="episode">
-            <li>Lionel</li>
-            <button class="check">
-              <i class="fa-solid fa-circle-check fa-2xl"></i>
-            </button>
-          </div>
-
-          <div class="episode">
-            <li>The Bogeyman</li>
-            <button class="check">
-              <i class="fa-solid fa-circle-check fa-2xl"></i>
-            </button>
-          </div>
-        </ol>
+        <div class="carousel-buttons">
+          <span class="carousel-buttons" id="small-carousel-buttons">
+            <a href="#" onclick="sliderScrollUp();return false;"
+              ><i class="fa-solid fa-chevron-up slider-button" id="up"></i
+            ></a>
+            <a href="#" onclick="sliderScrollDown();return false;"
+              ><i class="fa-solid fa-chevron-down slider-button" id="down"></i
+            ></a>
+          </span>
+        </div>
       </div>
     </div>
 

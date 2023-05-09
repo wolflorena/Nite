@@ -4,6 +4,8 @@ const usersUrl = "/api/users";
 const id = sessionStorage.getItem("userId");
 const username = sessionStorage.getItem("username");
 const email = sessionStorage.getItem("email");
+const gender = sessionStorage.getItem("gender");
+const birthdate = sessionStorage.getItem("birthdate");
 const admin = sessionStorage.getItem("admin");
 const password = sessionStorage.getItem("password");
 
@@ -13,6 +15,8 @@ if (!id) {
 
 const usernameValue = document.getElementById("username-input");
 const emailValue = document.getElementById("email-input");
+const genderValue = document.getElementById("gender-input");
+const birthdateValue = document.getElementById("birthdate-input");
 const adminValue = document.getElementById("admin-input");
 
 const buttonSave = document.getElementById("button");
@@ -21,6 +25,17 @@ const url = portUrl + usersUrl + "/" + `${id}`;
 
 usernameValue.value = username;
 emailValue.value = email;
+
+if (typeof gender.value === "undefined") {
+  genderValue.options[0].selected = true;
+} else {
+  for (let i = 0; i < genderValue.options.length; i++) {
+    if (genderValue.options[i].value === gender) {
+      genderValue.options[i].selected = true;
+      break;
+    }
+  }
+}
 
 for (let i = 0; i < adminValue.options.length; i++) {
   if (adminValue.options[i].value === admin) {
@@ -31,11 +46,6 @@ for (let i = 0; i < adminValue.options.length; i++) {
 
 buttonSave.addEventListener("click", (e) => {
   e.preventDefault();
-
-  console.log(usernameValue.value);
-  console.log(emailValue.value);
-  console.log(adminValue.value);
-  console.log(password);
 
   swal({
     title: "Are you sure?",
@@ -53,6 +63,8 @@ buttonSave.addEventListener("click", (e) => {
         body: JSON.stringify({
           username: usernameValue.value,
           email: emailValue.value,
+          gender: genderValue.value,
+          birthdate: birthdateValue.value,
           isAdmin: adminValue.value,
           password: password,
         }),
