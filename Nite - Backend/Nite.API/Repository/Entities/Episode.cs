@@ -1,9 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿
+using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
 namespace Nite.API.Repository.Entities
 {
-    public class Season
+    public class Episode
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -12,13 +13,12 @@ namespace Nite.API.Repository.Entities
         [ForeignKey("TVShowId")]
         public TVShow? TVShow { get; set; }
         public int TVShowId { get; set; }
+
+        [ForeignKey("SeasonId")]
+        public Season? Season { get; set; }
+        public int SeasonId { get; set; }
+
         [Required]
         public string? Name { get; set; }
-        [Required]
-        public int NumberOfEpisodes { get; set; }
-        [Required]
-        public int DurationEpisode { get; set; }
-
-        public ICollection<Episode> Episodes { get; set; } = new List<Episode>();
     }
 }
