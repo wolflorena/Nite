@@ -1,0 +1,225 @@
+2023-05-17 19:56:33.3839|INFO|Nite.API.Program|Initializing application...
+2023-05-17 19:56:49.3858|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (63ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1
+2023-05-17 19:56:49.6063|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (42ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [NiteDb] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+END;
+2023-05-17 19:56:49.7728|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (164ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+DROP DATABASE [NiteDb];
+2023-05-17 19:56:51.3375|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1,429ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+CREATE DATABASE [NiteDb];
+2023-05-17 19:56:52.5422|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1,201ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [NiteDb] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+2023-05-17 19:56:52.5775|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1
+2023-05-17 19:56:52.7797|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (16ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+);
+2023-05-17 19:56:52.7797|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1
+2023-05-17 19:56:52.8545|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (52ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-17 19:56:52.8794|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (9ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-05-17 19:56:52.9363|INFO|Microsoft.EntityFrameworkCore.Migrations|Applying migration '20230328164011_Initial Migration'.
+2023-05-17 19:56:53.0908|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (8ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [TVShows] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NOT NULL,
+    [Year] int NOT NULL,
+    [Audience] nvarchar(max) NOT NULL,
+    [Seasons] int NOT NULL,
+    [Genre] nvarchar(max) NOT NULL,
+    [Status] nvarchar(max) NOT NULL,
+    [Description] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_TVShows] PRIMARY KEY ([Id])
+);
+2023-05-17 19:56:53.0908|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [Users] (
+    [Id] int NOT NULL IDENTITY,
+    [Username] nvarchar(max) NOT NULL,
+    [Email] nvarchar(max) NOT NULL,
+    [Password] nvarchar(max) NOT NULL,
+    [IsAdmin] bit NOT NULL,
+    CONSTRAINT [PK_Users] PRIMARY KEY ([Id])
+);
+2023-05-17 19:56:53.1869|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (85ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Audience', N'Description', N'Genre', N'Name', N'Seasons', N'Status', N'Year') AND [object_id] = OBJECT_ID(N'[TVShows]'))
+    SET IDENTITY_INSERT [TVShows] ON;
+INSERT INTO [TVShows] ([Id], [Audience], [Description], [Genre], [Name], [Seasons], [Status], [Year])
+VALUES (1, N'18+', N'Nine noble families fight for control over the lands of Westeros, while an ancient enemy returns after being dormant for millennia.', N'Drama', N'Game of Thrones', 8, N'Ended', 2011),
+(2, N'18+', N'Each season has its own self-contained storyline and characters and it has been posed that each season will introduce a new location as well as new characters and storylines.', N'Horror', N'American Horror Story', 10, N'On going', 2011),
+(3, N'18+', N'Dexter is a serial killer with a "code" which directs his compulsions to kill only the guilty. As a blood spatter analyst for the Miami police, he has access to crime scenes, picking up clues and checking DNA to confirm a target''s guilt before he kills them.', N'Mystery', N'Dexter', 8, N'Ended', 2006),
+(4, N'16+', N'The series follows a dangerously charming, intensely obsessive young man who goes to extreme measures to insert himself into the lives of those he is transfixed by.', N'Psychological thriller', N'You', 4, N'On going', 2018);
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Audience', N'Description', N'Genre', N'Name', N'Seasons', N'Status', N'Year') AND [object_id] = OBJECT_ID(N'[TVShows]'))
+    SET IDENTITY_INSERT [TVShows] OFF;
+2023-05-17 19:56:53.2105|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (21ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Email', N'IsAdmin', N'Password', N'Username') AND [object_id] = OBJECT_ID(N'[Users]'))
+    SET IDENTITY_INSERT [Users] ON;
+INSERT INTO [Users] ([Id], [Email], [IsAdmin], [Password], [Username])
+VALUES (1, N'deeagabor@gmail.com', CAST(1 AS bit), N'ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f', N'deeagabor'),
+(2, N'wolflorena@gmail.com', CAST(1 AS bit), N'ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f', N'wolflorena'),
+(3, N'testunu@gmail.com', CAST(0 AS bit), N'ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f', N'test1'),
+(4, N'testdoi@gmail.com', CAST(0 AS bit), N'ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f', N'test2');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Email', N'IsAdmin', N'Password', N'Username') AND [object_id] = OBJECT_ID(N'[Users]'))
+    SET IDENTITY_INSERT [Users] OFF;
+2023-05-17 19:56:53.2172|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20230328164011_Initial Migration', N'7.0.4');
+2023-05-17 19:56:53.2494|INFO|Microsoft.EntityFrameworkCore.Migrations|Applying migration '20230425163840_Poster'.
+2023-05-17 19:56:53.2815|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER TABLE [TVShows] ADD [Poster] nvarchar(max) NULL;
+2023-05-17 19:56:53.2815|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+UPDATE [TVShows] SET [Poster] = NULL
+WHERE [Id] = 1;
+SELECT @@ROWCOUNT;
+2023-05-17 19:56:53.2935|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+UPDATE [TVShows] SET [Poster] = NULL
+WHERE [Id] = 2;
+SELECT @@ROWCOUNT;
+2023-05-17 19:56:53.2935|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+UPDATE [TVShows] SET [Poster] = NULL
+WHERE [Id] = 3;
+SELECT @@ROWCOUNT;
+2023-05-17 19:56:53.2935|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+UPDATE [TVShows] SET [Poster] = NULL
+WHERE [Id] = 4;
+SELECT @@ROWCOUNT;
+2023-05-17 19:56:53.3084|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20230425163840_Poster', N'7.0.4');
+2023-05-17 19:56:53.3084|INFO|Microsoft.EntityFrameworkCore.Migrations|Applying migration '20230426204947_New properties'.
+2023-05-17 19:56:53.3355|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER TABLE [TVShows] ADD [Banner] nvarchar(max) NULL;
+2023-05-17 19:56:53.3438|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER TABLE [TVShows] ADD [Likes] int NOT NULL DEFAULT 0;
+2023-05-17 19:56:53.3438|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER TABLE [TVShows] ADD [Logo] nvarchar(max) NULL;
+2023-05-17 19:56:53.3557|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER TABLE [TVShows] ADD [NewSeason] nvarchar(max) NULL;
+2023-05-17 19:56:53.3557|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER TABLE [TVShows] ADD [Streaming] nvarchar(max) NOT NULL DEFAULT N'';
+2023-05-17 19:56:53.3697|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+UPDATE [TVShows] SET [Banner] = NULL, [Likes] = 1024, [Logo] = NULL, [NewSeason] = NULL, [Streaming] = N'Netflix'
+WHERE [Id] = 1;
+SELECT @@ROWCOUNT;
+2023-05-17 19:56:53.3697|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+UPDATE [TVShows] SET [Banner] = NULL, [Likes] = 2200, [Logo] = NULL, [NewSeason] = N'11/12/2023', [Streaming] = N'HBO'
+WHERE [Id] = 2;
+SELECT @@ROWCOUNT;
+2023-05-17 19:56:53.3697|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+UPDATE [TVShows] SET [Banner] = NULL, [Likes] = 870, [Logo] = NULL, [NewSeason] = NULL, [Streaming] = N'Disney+'
+WHERE [Id] = 3;
+SELECT @@ROWCOUNT;
+2023-05-17 19:56:53.3862|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+UPDATE [TVShows] SET [Banner] = NULL, [Likes] = 2560, [Logo] = NULL, [NewSeason] = N'12/10/2023', [Streaming] = N'Amazon Prime'
+WHERE [Id] = 4;
+SELECT @@ROWCOUNT;
+2023-05-17 19:56:53.3862|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20230426204947_New properties', N'7.0.4');
+2023-05-17 19:56:53.3862|INFO|Microsoft.EntityFrameworkCore.Migrations|Applying migration '20230509085445_Seasons DB'.
+2023-05-17 19:56:53.4516|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [TVShowSeasons] (
+    [Id] int NOT NULL IDENTITY,
+    [TVShowId] int NOT NULL,
+    [Name] nvarchar(max) NOT NULL,
+    [NumberOfEpisodes] int NOT NULL,
+    [DurationEpisode] int NOT NULL,
+    CONSTRAINT [PK_TVShowSeasons] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_TVShowSeasons_TVShows_TVShowId] FOREIGN KEY ([TVShowId]) REFERENCES [TVShows] ([Id]) ON DELETE CASCADE
+);
+2023-05-17 19:56:53.4765|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (22ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'DurationEpisode', N'Name', N'NumberOfEpisodes', N'TVShowId') AND [object_id] = OBJECT_ID(N'[TVShowSeasons]'))
+    SET IDENTITY_INSERT [TVShowSeasons] ON;
+INSERT INTO [TVShowSeasons] ([Id], [DurationEpisode], [Name], [NumberOfEpisodes], [TVShowId])
+VALUES (1, 42, N'Season 1', 10, 1),
+(2, 45, N'Season 2', 12, 1);
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'DurationEpisode', N'Name', N'NumberOfEpisodes', N'TVShowId') AND [object_id] = OBJECT_ID(N'[TVShowSeasons]'))
+    SET IDENTITY_INSERT [TVShowSeasons] OFF;
+2023-05-17 19:56:53.4911|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (12ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX [IX_TVShowSeasons_TVShowId] ON [TVShowSeasons] ([TVShowId]);
+2023-05-17 19:56:53.4974|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20230509085445_Seasons DB', N'7.0.4');
+2023-05-17 19:56:53.4974|INFO|Microsoft.EntityFrameworkCore.Migrations|Applying migration '20230509101447_Add User properties'.
+2023-05-17 19:56:53.8882|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (369ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER TABLE [Users] ADD [Birthdate] nvarchar(max) NULL;
+2023-05-17 19:56:53.8882|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER TABLE [Users] ADD [Gender] nvarchar(max) NULL;
+2023-05-17 19:56:53.9014|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+UPDATE [Users] SET [Birthdate] = NULL, [Gender] = NULL
+WHERE [Id] = 1;
+SELECT @@ROWCOUNT;
+2023-05-17 19:56:53.9014|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+UPDATE [Users] SET [Birthdate] = NULL, [Gender] = NULL
+WHERE [Id] = 2;
+SELECT @@ROWCOUNT;
+2023-05-17 19:56:53.9014|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+UPDATE [Users] SET [Birthdate] = NULL, [Gender] = NULL
+WHERE [Id] = 3;
+SELECT @@ROWCOUNT;
+2023-05-17 19:56:53.9171|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+UPDATE [Users] SET [Birthdate] = NULL, [Gender] = NULL
+WHERE [Id] = 4;
+SELECT @@ROWCOUNT;
+2023-05-17 19:56:53.9171|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20230509101447_Add User properties', N'7.0.4');
+2023-05-17 19:56:53.9171|INFO|Microsoft.EntityFrameworkCore.Migrations|Applying migration '20230509104313_Update Data'.
+2023-05-17 19:56:53.9459|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+UPDATE [Users] SET [Birthdate] = N'16.12.2001', [Gender] = N'female'
+WHERE [Id] = 1;
+SELECT @@ROWCOUNT;
+2023-05-17 19:56:53.9516|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+UPDATE [Users] SET [Birthdate] = N'16.10.2001', [Gender] = N'female'
+WHERE [Id] = 2;
+SELECT @@ROWCOUNT;
+2023-05-17 19:56:53.9516|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+UPDATE [Users] SET [Birthdate] = N'10.10.2005', [Gender] = N'male'
+WHERE [Id] = 3;
+SELECT @@ROWCOUNT;
+2023-05-17 19:56:53.9516|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+UPDATE [Users] SET [Birthdate] = N'08.04.2011', [Gender] = N'male'
+WHERE [Id] = 4;
+SELECT @@ROWCOUNT;
+2023-05-17 19:56:53.9665|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20230509104313_Update Data', N'7.0.4');
+2023-05-17 19:56:53.9665|INFO|Microsoft.EntityFrameworkCore.Migrations|Applying migration '20230509105951_Update Seasons DB'.
+2023-05-17 19:56:53.9991|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (10ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'DurationEpisode', N'Name', N'NumberOfEpisodes', N'TVShowId') AND [object_id] = OBJECT_ID(N'[TVShowSeasons]'))
+    SET IDENTITY_INSERT [TVShowSeasons] ON;
+INSERT INTO [TVShowSeasons] ([Id], [DurationEpisode], [Name], [NumberOfEpisodes], [TVShowId])
+VALUES (1, 42, N'Season 1', 10, 1),
+(2, 45, N'Season 2', 12, 1);
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'DurationEpisode', N'Name', N'NumberOfEpisodes', N'TVShowId') AND [object_id] = OBJECT_ID(N'[TVShowSeasons]'))
+    SET IDENTITY_INSERT [TVShowSeasons] OFF;
+2023-05-17 19:56:54.2590|ERROR|Nite.API.Program|An error occured while migrating the database!|Microsoft.Data.SqlClient.SqlException (0x80131904): Violation of PRIMARY KEY constraint 'PK_TVShowSeasons'. Cannot insert duplicate key in object 'dbo.TVShowSeasons'. The duplicate key value is (1).
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean isAsync, Int32 timeout, Boolean asyncWrite)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String methodName)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteNonQuery(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Migrations.MigrationCommand.ExecuteNonQuery(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.ExecuteNonQuery(IEnumerable`1 migrationCommands, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.Migrate(String targetMigration)
+   at Nite.API.Program.Main(String[] args) in D:\Nite\Nite - Backend\Nite.API\Program.cs:line 29
+ClientConnectionId:4f3ad4ce-2b67-403e-9478-7f537f55dbab
+Error Number:2627,State:1,Class:14
+2023-05-17 19:56:55.0354|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\Andreea\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-05-17 19:57:00.0624|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 GET https://localhost:7053/ - -
+2023-05-17 19:57:00.3115|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 GET https://localhost:7053/ - - - 404 0 - 263.6575ms

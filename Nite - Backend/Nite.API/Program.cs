@@ -1,8 +1,6 @@
 using Microsoft.AspNetCore;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging.Abstractions;
 using Nite.API.Data;
-using NLog.Web;
 
 namespace Nite.API
 {
@@ -10,50 +8,25 @@ namespace Nite.API
     {
         public static void Main(string[] args)
         {
-            var logger = NLogBuilder
-                    .ConfigureNLog("nlog.config")
-                    .GetCurrentClassLogger();
+            var host = CreateWebHostBuilder(args).Build();
 
-            try
+            using (var scope = host.Services.CreateScope())
             {
-                logger.Info("Initializing application...");
-                var host = CreateWebHostBuilder(args).Build();
+                var context = scope.ServiceProvider.GetService<DataContext>();
 
-                using(var scope = host.Services.CreateScope())
-                {
-                    try
-                    {
-                        var context = scope.ServiceProvider.GetService<DataContext>();
+                context.Database.EnsureDeleted();
+                context.Database.Migrate();
+                context.SaveChanges();
+            }
 
-                        context.Database.EnsureDeleted();
-                        context.Database.Migrate();
-                    }
-                    catch(Exception ex)
-                    { 
-                        logger.Error(ex, "An error occured while migrating the database!");
-                    }
-                }
-
-                host.Run();
-            }
-            catch (Exception ex) 
-            {
-                logger.Error(ex, "Application stopped because of exception!");
-                throw;
-            }
-            finally
-            {
-                NLog.LogManager.Shutdown();
-            }
+            host.Run();
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-            .UseKestrel()
-            .UseContentRoot(Directory.GetCurrentDirectory())
-            .UseIISIntegration()
-            .UseStartup<Startup>()
-            .UseNLog();
+                .UseKestrel()
+                .UseContentRoot(Directory.GetCurrentDirectory())
+                .UseIISIntegration()
+                .UseStartup<Startup>();
     }
 }
-

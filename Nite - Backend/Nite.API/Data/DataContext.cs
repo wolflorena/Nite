@@ -10,6 +10,8 @@ namespace Nite.API.Data
 
         public DbSet<Season> TVShowSeasons { get; set; }
 
+        public DbSet<Episode> Episodes { get; set; }
+
         public DataContext(DbContextOptions<DataContext> options) 
             : base(options)
         { 
@@ -130,15 +132,17 @@ namespace Nite.API.Data
                    Name = "Season 1",
                    NumberOfEpisodes = 10,
                    DurationEpisode = 42
-               },
-               new Season()
-               {
-                   Id = 2,
-                   TVShowId = 1,
-                   Name = "Season 2",
-                   NumberOfEpisodes = 12,
-                   DurationEpisode = 45
                });
+
+            modelBuilder.Entity<Episode>()
+              .HasData(
+              new Episode()
+              {
+                  Id = 1,
+                  TVShowId = 1,
+                  SeasonId = 1,
+                  Name = "Episode 1"
+              });
 
             base.OnModelCreating(modelBuilder);
         }

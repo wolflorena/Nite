@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Nite.API.Data;
 
@@ -10,9 +11,11 @@ using Nite.API.Data;
 namespace Nite.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20230517165530_Seasons DB Fix Bug")]
+    partial class SeasonsDBFixBug
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -20,42 +23,6 @@ namespace Nite.API.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("Nite.API.Repository.Entities.Episode", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("SeasonId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TVShowId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("SeasonId");
-
-                    b.HasIndex("TVShowId");
-
-                    b.ToTable("Episodes");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Episode 1",
-                            SeasonId = 1,
-                            TVShowId = 1
-                        });
-                });
 
             modelBuilder.Entity("Nite.API.Repository.Entities.Season", b =>
                 {
@@ -285,25 +252,6 @@ namespace Nite.API.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Nite.API.Repository.Entities.Episode", b =>
-                {
-                    b.HasOne("Nite.API.Repository.Entities.Season", "Season")
-                        .WithMany("Episodes")
-                        .HasForeignKey("SeasonId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Nite.API.Repository.Entities.TVShow", "TVShow")
-                        .WithMany()
-                        .HasForeignKey("TVShowId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Season");
-
-                    b.Navigation("TVShow");
-                });
-
             modelBuilder.Entity("Nite.API.Repository.Entities.Season", b =>
                 {
                     b.HasOne("Nite.API.Repository.Entities.TVShow", "TVShow")
@@ -313,11 +261,6 @@ namespace Nite.API.Migrations
                         .IsRequired();
 
                     b.Navigation("TVShow");
-                });
-
-            modelBuilder.Entity("Nite.API.Repository.Entities.Season", b =>
-                {
-                    b.Navigation("Episodes");
                 });
 
             modelBuilder.Entity("Nite.API.Repository.Entities.TVShow", b =>

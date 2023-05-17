@@ -11,8 +11,8 @@ using Nite.API.Data;
 namespace Nite.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230509105951_Update Seasons DB")]
-    partial class UpdateSeasonsDB
+    [Migration("20230517171222_Episodes DB")]
+    partial class EpisodesDB
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,6 +23,42 @@ namespace Nite.API.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("Nite.API.Repository.Entities.Episode", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("SeasonId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TVShowId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SeasonId");
+
+                    b.HasIndex("TVShowId");
+
+                    b.ToTable("Episodes");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Episode 1",
+                            SeasonId = 1,
+                            TVShowId = 1
+                        });
+                });
 
             modelBuilder.Entity("Nite.API.Repository.Entities.Season", b =>
                 {
@@ -58,14 +94,6 @@ namespace Nite.API.Migrations
                             DurationEpisode = 42,
                             Name = "Season 1",
                             NumberOfEpisodes = 10,
-                            TVShowId = 1
-                        },
-                        new
-                        {
-                            Id = 2,
-                            DurationEpisode = 45,
-                            Name = "Season 2",
-                            NumberOfEpisodes = 12,
                             TVShowId = 1
                         });
                 });
@@ -258,6 +286,25 @@ namespace Nite.API.Migrations
                             Password = "ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f",
                             Username = "test2"
                         });
+                });
+
+            modelBuilder.Entity("Nite.API.Repository.Entities.Episode", b =>
+                {
+                    b.HasOne("Nite.API.Repository.Entities.Season", "Season")
+                        .WithMany()
+                        .HasForeignKey("SeasonId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Nite.API.Repository.Entities.TVShow", "TVShow")
+                        .WithMany()
+                        .HasForeignKey("TVShowId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Season");
+
+                    b.Navigation("TVShow");
                 });
 
             modelBuilder.Entity("Nite.API.Repository.Entities.Season", b =>
