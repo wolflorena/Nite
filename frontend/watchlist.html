@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="img/logCircle.png" />
+    <link rel="stylesheet" href="css/watchlist.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/09c942d75c.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>Nite | Home</title>
+  </head>
+  <body>
+    <menu class="vertical-menu">
+      <div class="vertical-menu-top">
+        <img src="img/logo.png" alt="" />
+        <div class="welcome-message">
+          <h1 id="welcome-message">Hello,</h1>
+        </div>
+        <div class="links">
+          <a href="index.html"> <i class="fa-solid fa-house"></i>Home</a>
+          <a href="#"> <i class="fa-solid fa-clock"></i>Upcoming </a>
+          <a href="#"
+            ><div class="active">
+              <i class="fa-solid fa-list"></i>Watchlist
+            </div></a
+          >
+          <a href="#"><i class="fa-solid fa-heart"></i>Favorites</a>
+          <a href="profile.html"><i class="fa-solid fa-user"></i>Profile</a>
+        </div>
+      </div>
+      <button onclick="logout();">LOG OUT</button>
+    </menu>
+
+    <div class="main">
+      <input
+        type="text"
+        id="search"
+        class="search"
+        placeholder="&#xF002; Search"
+        style="font-family: Arial, FontAwesome"
+      />
+      <div class="movies">
+        <div class="currentlyWatching">
+          <div class="text">
+            <h1>Currently watching</h1>
+            <h3><a href="#"> See all.. </a></h3>
+          </div>
+          <div class="cards" id="cards-watching">
+            <a href="#">
+              <div class="card">
+                <img src="img/card_controlz.png" alt="" />
+                <div class="pie-container">
+                  <div class="pie" style="--p: 75">75%</div>
+                </div>
+                <h3>Control Z</h3>
+              </div>
+            </a>
+            <a href="#">
+              <div class="card">
+                <img src="img/card_rebelde.png" alt="" />
+                <div class="pie-container">
+                  <div class="pie" style="--p: 97">97%</div>
+                </div>
+                <h3>Rebelde</h3>
+              </div>
+            </a>
+            <a href="#">
+              <div class="card">
+                <img src="img/card_breakingbad.png" alt="" />
+                <div class="pie-container">
+                  <div class="pie" style="--p: 25">25%</div>
+                </div>
+                <h3>Breaking Bad</h3>
+              </div>
+            </a>
+            <a href="#">
+              <div class="card">
+                <img src="img/card_rickmorty.png" alt="" />
+                <div class="pie-container">
+                  <div class="pie" style="--p: 45">45%</div>
+                </div>
+                <h3>Rick and Morty</h3>
+              </div>
+            </a>
+            <a href="#">
+              <div class="card">
+                <img src="img/card_arcane.png" alt="" />
+                <div class="pie-container">
+                  <div class="pie" style="--p: 90">90%</div>
+                </div>
+                <h3>Arcane</h3>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="notStarted">
+          <div class="text">
+            <h1>Not started yet</h1>
+            <h3><a href="#"> See all.. </a></h3>
+          </div>
+          <div class="cards" id="cards-notStarted">
+            <a href="#">
+              <div class="card">
+                <img src="img/card_controlz.png" alt="" />
+                <h3>Control Z</h3>
+              </div>
+            </a>
+            <a href="#">
+              <div class="card">
+                <img src="img/card_rebelde.png" alt="" />
+                <h3>Rebelde</h3>
+              </div>
+            </a>
+            <a href="#">
+              <div class="card">
+                <img src="img/card_breakingbad.png" alt="" />
+                <h3>Breaking Bad</h3>
+              </div>
+            </a>
+            <a href="#">
+              <div class="card">
+                <img src="img/card_rickmorty.png" alt="" />
+                <h3>Rick and Morty</h3>
+              </div>
+            </a>
+            <a href="#">
+              <div class="card">
+                <img src="img/card_arcane.png" alt="" />
+                <h3>Arcane</h3>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="upToDate">
+          <div class="text">
+            <h1>Up to date</h1>
+            <h3><a href="#"> See all.. </a></h3>
+          </div>
+          <div class="cards" id="cards-upToDate">
+            <a href="#">
+              <div class="card">
+                <img src="img/card_controlz.png" alt="" />
+                <h3>Control Z</h3>
+              </div>
+            </a>
+            <a href="#">
+              <div class="card">
+                <img src="img/card_rebelde.png" alt="" />
+                <h3>Rebelde</h3>
+              </div>
+            </a>
+            <a href="#">
+              <div class="card">
+                <img src="img/card_breakingbad.png" alt="" />
+                <h3>Breaking Bad</h3>
+              </div>
+            </a>
+            <a href="#">
+              <div class="card">
+                <img src="img/card_rickmorty.png" alt="" />
+                <h3>Rick and Morty</h3>
+              </div>
+            </a>
+            <a href="#">
+              <div class="card">
+                <img src="img/card_arcane.png" alt="" />
+                <h3>Arcane</h3>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="finished">
+          <div class="text">
+            <h1>Finished</h1>
+            <h3><a href="#"> See all.. </a></h3>
+          </div>
+          <div class="cards" id="cards-finished">
+            <a href="#">
+              <div class="card">
+                <img src="img/card_controlz.png" alt="" />
+                <h3>Control Z</h3>
+              </div>
+            </a>
+            <a href="#">
+              <div class="card">
+                <img src="img/card_rebelde.png" alt="" />
+                <h3>Rebelde</h3>
+              </div>
+            </a>
+            <a href="#">
+              <div class="card">
+                <img src="img/card_breakingbad.png" alt="" />
+                <h3>Breaking Bad</h3>
+              </div>
+            </a>
+            <a href="#">
+              <div class="card">
+                <img src="img/card_rickmorty.png" alt="" />
+                <h3>Rick and Morty</h3>
+              </div>
+            </a>
+            <a href="#">
+              <div class="card">
+                <img src="img/card_arcane.png" alt="" />
+                <h3>Arcane</h3>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/watchlist.js"></script>
+  </body>
+</html>
