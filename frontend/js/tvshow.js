@@ -1,9 +1,17 @@
 let showId = window.location.href.split("?")[1];
+const id = sessionStorage.getItem("idUser");
+const username = sessionStorage.getItem("username");
 
 const portUrl = "https://localhost:7053";
 const showsUrl = "/api/shows/";
 const url = portUrl + showsUrl + showId;
 const getShowInfo = document.getElementById("info");
+
+const welcomeMessage = document.getElementById("welcome-message");
+
+var username_message = document.createElement("span");
+username_message.innerHTML = " " + username;
+welcomeMessage.appendChild(username_message);
 
 fetch(url)
   .then((res) => res.json())
@@ -68,4 +76,9 @@ function sliderScrollDown() {
       behavior: "smooth",
     });
   }
+}
+
+function logout() {
+  document.location.href = "login.html";
+  sessionStorage.clear();
 }
