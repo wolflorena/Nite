@@ -12,6 +12,12 @@ namespace Nite.API.Data
 
         public DbSet<Episode> Episodes { get; set; }
 
+        public DbSet<Favorites> Favorites { get; set; }
+
+        public DbSet<Add> Added { get; set; }
+
+        public DbSet<Watch> Watched { get; set; }
+
         public DataContext(DbContextOptions<DataContext> options) 
             : base(options)
         { 
@@ -143,6 +149,37 @@ namespace Nite.API.Data
                   SeasonId = 1,
                   Name = "Episode 1"
               });
+
+
+            modelBuilder.Entity<Favorites>()
+              .HasData(
+              new Favorites()
+              {
+                  Id = 1,
+                  UserId = 3,
+                  TVShowId = 1
+              });
+
+            modelBuilder.Entity<Add>()
+             .HasData(
+             new Add()
+             {
+                 Id = 1,
+                 UserId = 3,
+                 TVShowId = 2
+             });
+
+            modelBuilder.Entity<Watch>()
+            .HasData(
+            new Watch()
+            {
+                Id = 1,
+                UserId = 3,
+                TVShowId = 1,
+                SeasonId = 1,
+                EpisodeId = 1
+            });
+
 
             base.OnModelCreating(modelBuilder);
         }

@@ -1,6 +1,8 @@
 ﻿using Nite.API.Repository.Entities;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Http;
+using System.Collections.Generic;
 
 namespace Nite.API.Data.Models
 {
@@ -28,6 +30,21 @@ namespace Nite.API.Data.Models
         public IFormFile? LogoFile { get; set; }
 
         public ICollection<SeasonDTO> TVShowSeasons { get; set; } = new List<SeasonDTO>();
+
+
+        public int DaysUntilNewSeason
+        {
+            get
+            {
+                if (DateTime.TryParse(NewSeason, out DateTime newSeasonDate))
+                {
+                    TimeSpan timeUntilNewSeason = newSeasonDate.Date - DateTime.Today;
+                    return timeUntilNewSeason.Days;
+                }
+
+                return -1; 
+            }
+        }
     }
 }
 
