@@ -29,6 +29,7 @@ namespace Nite.API.Migrations
                         principalTable: "TVShowSeasons",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.NoAction);
+
                     table.ForeignKey(
                         name: "FK_Episodes_TVShows_TVShowId",
                         column: x => x.TVShowId,

@@ -28,11 +28,13 @@ namespace Nite.API
             services.AddScoped<IFileServiceModel, FileServiceModel>();
             services.AddScoped<ISeasonsServiceModel, SeasonsServiceModel>();
             services.AddScoped<IEpisodesServiceModel, EpisodesServiceModel>();
+            services.AddScoped<IActionsServiceModel, ActionsServiceModel>();
 
             services.AddScoped<ILoginSignupRepository, LoginSignupRepository>();
             services.AddScoped<ITVShowsRepository, TVShowsRepository>();
             services.AddScoped<ISeasonsRepository, SeasonsRepository>();
             services.AddScoped<IEpisodesRepository, EpisodesRepository>();
+            services.AddScoped<IActionsRepository, ActionsRepository>();
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 

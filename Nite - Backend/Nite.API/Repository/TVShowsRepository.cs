@@ -1,4 +1,5 @@
-﻿using Nite.API.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using Nite.API.Data;
 using Nite.API.Repository.Entities;
 
 namespace Nite.API.Repository
@@ -16,7 +17,6 @@ namespace Nite.API.Repository
         {
             return _context.TVShows.ToList();
         }
-
 
         public TVShow? GetTVShow(int showId)
         {
