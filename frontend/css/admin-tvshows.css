@@ -12,7 +12,7 @@
 }
 
 body {
-  height: 100vh;
+  /* height: 100vh; */
   background-color: var(--light-gray);
   display: flex;
 }
@@ -24,6 +24,7 @@ body {
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
+  height: 100%;
 }
 .vertical-menu .links {
   height: 100vh;
@@ -87,18 +88,19 @@ body {
 
 .main {
   width: 79vw;
-  display: flex;
+  /* display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
+  flex-direction: column; */
 }
+
 table {
   margin-left: 15px;
   background-color: var(--dark-gray);
   color: var(--white);
   border-radius: 25px;
   padding: 10px;
-  width: 100%;
+  width: 77vw;
 }
 
 table thead {
