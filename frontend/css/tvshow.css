@@ -16,6 +16,7 @@ body {
   background-color: var(--light-gray);
   display: flex;
 }
+
 h1 {
   font-size: 20px;
   font-weight: 100;
@@ -171,10 +172,12 @@ a {
   height: 150px;
   width: 250px;
 }
+
 .main .episodes {
   color: var(--white);
   margin: 50px 0 0 50px;
 }
+
 .main .episodes select {
   -webkit-appearance: none;
   padding-left: 10px;
@@ -241,5 +244,19 @@ a {
 }
 
 .heart .fa-solid {
+  color: var(--yellow);
+}
+
+.plus {
+  background-color: transparent;
+  border: none;
+}
+
+#addIcon {
+  color: var(--white);
+  margin-left: 15px;
+}
+
+#addIcon .fa-check {
   color: var(--yellow);
 }

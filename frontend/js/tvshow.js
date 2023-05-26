@@ -10,6 +10,8 @@ const urlFavorites = portUrl + "/api/favorites/" + id + "/" + showId;
 const urlGetFav = portUrl + "/api/favorites/" + id;
 const urlGetWatched = portUrl + "/api/watched/" + id;
 const urlSeasons = url + "/seasons";
+const urlAdded = portUrl + "/api/added/" + id + "/" + showId;
+const urlGetAdded = portUrl + "/api/added/" + id;
 
 const getShowInfo = document.getElementById("info");
 const welcomeMessage = document.getElementById("welcome-message");
@@ -126,6 +128,24 @@ fetch(url)
       });
   });
 
+fetch(url)
+  .then((res) => res.json())
+  .then((data) => {
+    getShow(data);
+    fetch(urlGetAdded)
+      .then((res) => res.json())
+      .then((data) => {
+        var addIconStorage = document.getElementById("addIcon");
+
+        data.forEach((element) => {
+          if (element.tvShowId == showId) {
+            addIconStorage.classList.remove("fa-plus");
+            addIconStorage.classList.add("fa-check");
+          }
+        });
+      });
+  });
+
 function getShow(show) {
   let info = `<img src="img/${show.logo}" alt="" class="title">
             <div class="first-child" id="first-child">
@@ -137,6 +157,7 @@ function getShow(show) {
                 </ul>
                 <img src="img/${show.streaming}.png" alt="">
                 <button class="heart" onclick="toggleHeart();"><i id="heart-icon" class="fa-regular fa-heart fa-2x"></i></button>
+                <button class="plus" onclick="toggleAdd();"><i id="addIcon" class="fa-solid fa-plus fa-2xl"></i></button>
             </div>
 
             <div class="description" id="description">
@@ -192,11 +213,49 @@ function toggleHeart() {
   }
 }
 
+function toggleAdd() {
+  var plusIcon = document.getElementById("addIcon");
+  if (plusIcon.classList.contains("fa-plus")) {
+    plusIcon.classList.remove("fa-plus");
+    plusIcon.classList.add("fa-check");
+
+    fetch(urlAdded, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json; charset=UTF-8",
+      },
+      body: JSON.stringify({
+        TVShowId: showId,
+        UserId: id,
+      }),
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Post failed");
+        }
+      })
+      .catch((error) => console.error(error));
+  } else if (plusIcon.classList.contains("fa-check")) {
+    plusIcon.classList.remove("fa-check");
+    plusIcon.classList.add("fa-plus");
+
+    fetch(urlAdded, {
+      method: "DELETE",
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Delete failed");
+        }
+      })
+
+      .catch((error) => console.error(error));
+  }
+}
+
 function episodeSeen(episodeID, seasonId) {
   var seenIcon = document.getElementById(episodeID);
 
   if (seenIcon.style.color === "rgb(238, 238, 238)") {
-    // console.log("caca");
     seenIcon.style.color = "rgb(255, 211, 105)";
 
     fetch(seenEpsiodesUrl + seasonId + "/" + episodeID, {
