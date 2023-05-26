@@ -1,7 +1,7 @@
 :root {
   --dark-gray: hwb(216 13% 81%);
   --white: rgb(238, 238, 238);
-  --yellow: #ffd369;
+  --yellow: rgb(255, 211, 105);
   --light-gray: rgb(57, 62, 70);
 }
 
@@ -234,4 +234,12 @@ a {
 .listOfEpisodes {
   height: 40vh;
   overflow: hidden;
+}
+
+#seeEpisode {
+  color: var(--white);
+}
+
+.heart .fa-solid {
+  color: var(--yellow);
 }

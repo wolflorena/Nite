@@ -71,114 +71,114 @@ namespace Nite.API.Data
                 );
 
 
-            modelBuilder.Entity<TVShow>()
-                .HasData(
-                new TVShow()
-                {
-                    Id = 1,
-                    Name = "Game of Thrones",
-                    Year = 2011,
-                    Audience = "18+",
-                    Seasons = 8,
-                    Genre = "Drama",
-                    Status = "Ended",
-                    Description = "Nine noble families fight for control over the lands of Westeros, while an ancient enemy returns after being dormant for millennia.",
-                    Streaming = "Netflix",
-                    Likes = 1024
-                },
-                 new TVShow()
-                 {
-                     Id = 2,
-                     Name = "American Horror Story",
-                     Year = 2011,
-                     Audience = "18+",
-                     Seasons = 10,
-                     Genre = "Horror",
-                     Status = "On going",
-                     Description = "Each season has its own self-contained storyline and characters and it has been posed that each season will introduce a new location as well as new characters and storylines.",
-                     Streaming = "HBO",
-                     Likes = 2200,
-                     NewSeason = "11/12/2023"
-                 },
-                 new TVShow()
-                 {
-                     Id = 3,
-                     Name = "Dexter",
-                     Year = 2006,
-                     Audience = "18+",
-                     Seasons = 8,
-                     Genre = "Mystery",
-                     Status = "Ended",
-                     Description = "Dexter is a serial killer with a \"code\" which directs his compulsions to kill only the guilty. As a blood spatter analyst for the Miami police, he has access to crime scenes, picking up clues and checking DNA to confirm a target's guilt before he kills them.",
-                     Streaming = "Disney+",
-                     Likes = 870
-                 },
-                 new TVShow()
-                 {
-                     Id = 4,
-                     Name = "You",
-                     Year = 2018,
-                     Audience = "16+",
-                     Seasons = 4,
-                     Genre = "Psychological thriller",
-                     Status = "On going",
-                     Description = "The series follows a dangerously charming, intensely obsessive young man who goes to extreme measures to insert himself into the lives of those he is transfixed by.",
-                     Streaming = "Amazon Prime",
-                     Likes = 2560,
-                     NewSeason = "12/10/2023"
-                 }
-                );
+            //modelBuilder.Entity<TVShow>()
+            //    .HasData(
+            //     new TVShow()
+            //     {
+            //         Id = 1,
+            //         Name = "Game of Thrones",
+            //         Year = 2011,
+            //         Audience = "18+",
+            //         Seasons = 8,
+            //         Genre = "Drama",
+            //         Status = "Ended",
+            //         Description = "Nine noble families fight for control over the lands of Westeros, while an ancient enemy returns after being dormant for millennia.",
+            //         Streaming = "Netflix",
+            //         Likes = 1024
+            //     },
+            //     new TVShow()
+            //     {
+            //         Id = 2,
+            //         Name = "American Horror Story",
+            //         Year = 2011,
+            //         Audience = "18+",
+            //         Seasons = 10,
+            //         Genre = "Horror",
+            //         Status = "On going",
+            //         Description = "Each season has its own self-contained storyline and characters and it has been posed that each season will introduce a new location as well as new characters and storylines.",
+            //         Streaming = "HBO",
+            //         Likes = 2200,
+            //         NewSeason = "11/12/2023"
+            //     },
+            //     new TVShow()
+            //     {
+            //         Id = 3,
+            //         Name = "Dexter",
+            //         Year = 2006,
+            //         Audience = "18+",
+            //         Seasons = 8,
+            //         Genre = "Mystery",
+            //         Status = "Ended",
+            //         Description = "Dexter is a serial killer with a \"code\" which directs his compulsions to kill only the guilty. As a blood spatter analyst for the Miami police, he has access to crime scenes, picking up clues and checking DNA to confirm a target's guilt before he kills them.",
+            //         Streaming = "Disney+",
+            //         Likes = 870
+            //     },
+            //     new TVShow()
+            //     {
+            //         Id = 4,
+            //         Name = "You",
+            //         Year = 2018,
+            //         Audience = "16+",
+            //         Seasons = 4,
+            //         Genre = "Psychological thriller",
+            //         Status = "On going",
+            //         Description = "The series follows a dangerously charming, intensely obsessive young man who goes to extreme measures to insert himself into the lives of those he is transfixed by.",
+            //         Streaming = "Amazon Prime",
+            //         Likes = 2560,
+            //         NewSeason = "12/10/2023"
+            //     }
+            //    );
 
-            modelBuilder.Entity<Season>()
-               .HasData(
-               new Season()
-               {
-                   Id = 1,
-                   TVShowId = 1,
-                   Name = "Season 1",
-                   NumberOfEpisodes = 10,
-                   DurationEpisode = 42
-               });
+            //modelBuilder.Entity<Season>()
+            //   .HasData(
+            //   new Season()
+            //   {
+            //       Id = 1,
+            //       TVShowId = 1,
+            //       Name = "Season 1",
+            //       NumberOfEpisodes = 10,
+            //       DurationEpisode = 42
+            //   });
 
-            modelBuilder.Entity<Episode>()
-              .HasData(
-              new Episode()
-              {
-                  Id = 1,
-                  TVShowId = 1,
-                  SeasonId = 1,
-                  Name = "Episode 1"
-              });
+            //modelBuilder.Entity<Episode>()
+            //  .HasData(
+            //  new Episode()
+            //  {
+            //      Id = 1,
+            //      TVShowId = 1,
+            //      SeasonId = 1,
+            //      Name = "Episode 1"
+            //  });
 
 
-            modelBuilder.Entity<Favorites>()
-              .HasData(
-              new Favorites()
-              {
-                  Id = 1,
-                  UserId = 3,
-                  TVShowId = 1
-              });
+            //modelBuilder.Entity<Favorites>()
+            //  .HasData(
+            //  new Favorites()
+            //  {
+            //      Id = 1,
+            //      UserId = 3,
+            //      TVShowId = 1
+            //  });
 
-            modelBuilder.Entity<Add>()
-             .HasData(
-             new Add()
-             {
-                 Id = 1,
-                 UserId = 3,
-                 TVShowId = 2
-             });
+            //modelBuilder.Entity<Add>()
+            // .HasData(
+            // new Add()
+            // {
+            //     Id = 1,
+            //     UserId = 3,
+            //     TVShowId = 2
+            // });
 
-            modelBuilder.Entity<Watch>()
-            .HasData(
-            new Watch()
-            {
-                Id = 1,
-                UserId = 3,
-                TVShowId = 1,
-                SeasonId = 1,
-                EpisodeId = 1
-            });
+            //modelBuilder.Entity<Watch>()
+            //.HasData(
+            //new Watch()
+            //{
+            //    Id = 1,
+            //    UserId = 3,
+            //    TVShowId = 1,
+            //    SeasonId = 1,
+            //    EpisodeId = 1
+            //});
 
 
             base.OnModelCreating(modelBuilder);
