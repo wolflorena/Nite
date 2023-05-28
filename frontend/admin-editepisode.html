@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="img/logCircle.png" />
-    <link rel="stylesheet" href="css/admin-tvshows.css" />
+    <link rel="stylesheet" href="css/admin-addtvshow.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,7 +18,7 @@
       crossorigin="anonymous"
     ></script>
 
-    <title>Nite | Seasons</title>
+    <title>Nite | Edit Episode</title>
   </head>
   <body>
     <menu class="vertical-menu">
@@ -31,35 +31,28 @@
           </div></a
         >
         <a href="admin-addtvshow.html"
-          ><i class="fa-solid fa-plus"></i>Add a TV Show</a
+          ><div><i class="fa-solid fa-plus"></i>Add a TV Show</div></a
         >
       </div>
       <button onclick="logout();">LOG OUT</button>
     </menu>
 
     <div class="main">
-      <div class="no-data">
-        <p id="no-data"></p>
-      </div>
-      <div class="add">
-        <button class="add-episode" onclick="addEpisode()">
-          <i class="fa fa-plus"></i>Add Season
-        </button>
-      </div>
-      <table class="table">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Number of episodes</th>
-            <th>Duration episodes (minutes)</th>
-          </tr>
-        </thead>
-        <tbody id="table"></tbody>
-      </table>
+      <form class="form" id="form">
+        <div class="form-input">
+          <div class="info">
+            <div class="labelInput">
+              <label for="name">Name</label>
+              <input type="text" name="name" id="name-input" />
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" id="button">SAVE</button>
+      </form>
     </div>
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="js/admin-seasons.js"></script>
+    <script src="js/admin-editepisode.js"></script>
   </body>
 </html>

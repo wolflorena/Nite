@@ -5,7 +5,7 @@ const portUrl = "https://localhost:7053";
 const showsUrl = "/api/shows/";
 const seasonsUrl = "/seasons";
 
-const showId = sessionStorage.getItem("showId");
+const showId = sessionStorage.getItem("addShowId");
 const url = portUrl + showsUrl + showId + seasonsUrl;
 
 const id = sessionStorage.getItem("id");
@@ -60,9 +60,10 @@ addSeasonsForm.addEventListener("submit", (e) => {
 function getSeason(seasons) {
   let count = 1;
   seasons.forEach((season) => {
+    let episodesUrl = "admin-episodes.html?" + showId + "?" + season.id;
     let row = `<tr>
                       <th id="index">${count}</th>
-                      <td id="name">${season.name}</td>
+                      <td id="name"><a href="${episodesUrl}">${season.name}</td>
                       <td id="number-episodes">${season.numberOfEpisodes}</td>
                       <td id="duration-episodes">${season.durationEpisode}</td>
                       <td>
