@@ -136,8 +136,9 @@ a {
 
 .no-data {
   color: var(--yellow);
-  margin-bottom: 20px;
+  margin-top: 20px;
   font-weight: bold;
+  text-align: center;
 }
 
 .add {
@@ -146,10 +147,12 @@ a {
   width: 100%;
 }
 
-.add-season {
+.add-season,
+.add-episode {
   background-color: var(--yellow);
   color: var(--dark-gray);
   margin-bottom: 20px;
+  margin-right: 20px;
   text-align: center;
   padding: 10px;
   cursor: pointer;
@@ -159,7 +162,8 @@ a {
   border: none;
 }
 
-.add-season i {
+.add-season,
+.add-episode i {
   margin-right: 10px;
   font-weight: bold;
 }

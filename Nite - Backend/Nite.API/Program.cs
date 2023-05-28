@@ -14,7 +14,7 @@ namespace Nite.API
             {
                 var context = scope.ServiceProvider.GetService<DataContext>();
 
-                //context.Database.EnsureDeleted();
+                context.Database.EnsureDeleted();
                 context.Database.Migrate();
                 context.SaveChanges();
             }

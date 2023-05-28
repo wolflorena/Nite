@@ -23,9 +23,10 @@ const noData = document.getElementById("no-data");
 function getSeason(seasons) {
   let count = 1;
   seasons.forEach((season) => {
+    let episodesUrl = "admin-episodes.html?" + showId + "?" + season.id;
     let row = `<tr>
                       <th id="index">${count}</th>
-                      <td id="name">${season.name}</td>
+                      <td id="name"><a href="${episodesUrl}">${season.name}</td>
                       <td id="number-episodes">${season.numberOfEpisodes}</td>
                       <td id="duration-episodes">${season.durationEpisode}</td>
                       <td>
@@ -92,5 +93,5 @@ function logout() {
 
 function addSeason() {
   window.location = "admin-addseason.html";
-  sessionStorage.setItem("showId", showId);
+  sessionStorage.setItem("addShowId", showId);
 }
