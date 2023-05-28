@@ -1,7 +1,7 @@
 const imgs = [];
 
 imgs[0] = "img/ahs.jpg";
-imgs[1] = "img/breakingBad.jpg";
+imgs[1] = "img/ahs.jpg";
 imgs[2] = "img/wednesday.jpg";
 imgs[3] = "img/witcher.jpg";
 imgs[4] = "img/vikings.jpg";
@@ -19,6 +19,8 @@ window.onload = function () {
 const username = document.getElementById("username");
 const email = document.getElementById("email");
 const password = document.getElementById("password");
+const gender = document.getElementById("gender");
+const birthdate = document.getElementById("birthdate");
 const passwordConfirm = document.getElementById("passwordConfirm");
 const form = document.getElementById("form");
 const url = "https://localhost:7053/api/users";
@@ -32,7 +34,6 @@ form.addEventListener("submit", (e) => {
   if (messages.length > 0) {
     alert.innerText = messages.join("\n");
   }
-
   if (messages.length == 0) {
     const hashedPassword = CryptoJS.SHA256(password.value).toString(
       CryptoJS.enc.Hex
@@ -51,6 +52,8 @@ form.addEventListener("submit", (e) => {
             username: username.value,
             email: email.value,
             password: hashedPassword,
+            gender: gender.value,
+            birthdate: birthdate.value.toString(),
             isAdmin: false,
           }),
         })

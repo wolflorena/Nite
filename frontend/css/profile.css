@@ -174,7 +174,8 @@ a {
 
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+
+  gap: 150px;
   align-items: center;
 }
 
@@ -182,6 +183,12 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 50px;
+}
+
+.main .profileInfo .header h3 {
+  margin-left: 20px;
+  font-size: 30px;
 }
 
 .main .profileInfo .header img {
