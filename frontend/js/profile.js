@@ -46,7 +46,7 @@ fetch(url)
     title.innerHTML = data.username;
   });
 
-fetch(urlWatched) //EPISOADE VAZUTE
+fetch(urlWatched)
   .then((res) => res.json())
   .then((data) => {
     getWatchedEpisodes(data).then((watched) => {
