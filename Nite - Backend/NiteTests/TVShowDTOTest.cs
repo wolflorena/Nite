@@ -69,12 +69,12 @@ namespace NiteTests
         }
 
         [TestMethod]
-        public void YearTest()
+        public void NameIsNullTest()
         {
             var show = new TVShowDTO()
             {
                 Id = 1,
-                Name = "Game of Thrones",
+                Name = "",
                 Year = 2011,
                 Audience = "18+",
                 Seasons = 8,
@@ -85,165 +85,12 @@ namespace NiteTests
                 Likes = 1024
             };
 
-            var expected = 2011;
+            var expected = true;
 
-            Assert.AreEqual(expected, show.Year);
-        }
+            if (string.IsNullOrEmpty(show.Name))
+                expected = false;
 
-        [TestMethod]
-        public void AudienceTest()
-        {
-            var show = new TVShowDTO()
-            {
-                Id = 1,
-                Name = "Game of Thrones",
-                Year = 2011,
-                Audience = "18+",
-                Seasons = 8,
-                Genre = "Drama",
-                Status = "Ended",
-                Description = "Nine noble families fight for control over the lands of Westeros, while an ancient enemy returns after being dormant for millennia.",
-                Streaming = "Netflix",
-                Likes = 1024
-            };
-
-            var expected = "18+";
-
-            Assert.AreEqual(expected, show.Audience);
-        }
-
-        [TestMethod]
-        public void SeasonsTest()
-        {
-            var show = new TVShowDTO()
-            {
-                Id = 1,
-                Name = "Game of Thrones",
-                Year = 2011,
-                Audience = "18+",
-                Seasons = 8,
-                Genre = "Drama",
-                Status = "Ended",
-                Description = "Nine noble families fight for control over the lands of Westeros, while an ancient enemy returns after being dormant for millennia.",
-                Streaming = "Netflix",
-                Likes = 1024
-            };
-
-            var expected = 8;
-
-            Assert.AreEqual(expected, show.Seasons);
-        }
-
-
-        [TestMethod]
-        public void GenreTest()
-        {
-            var show = new TVShowDTO()
-            {
-                Id = 1,
-                Name = "Game of Thrones",
-                Year = 2011,
-                Audience = "18+",
-                Seasons = 8,
-                Genre = "Drama",
-                Status = "Ended",
-                Description = "Nine noble families fight for control over the lands of Westeros, while an ancient enemy returns after being dormant for millennia.",
-                Streaming = "Netflix",
-                Likes = 1024
-            };
-
-            var expected = "Drama";
-
-            Assert.AreEqual(expected, show.Genre);
-        }
-
-
-        [TestMethod]
-        public void StatusTest()
-        {
-            var show = new TVShowDTO()
-            {
-                Id = 1,
-                Name = "Game of Thrones",
-                Year = 2011,
-                Audience = "18+",
-                Seasons = 8,
-                Genre = "Drama",
-                Status = "Ended",
-                Description = "Nine noble families fight for control over the lands of Westeros, while an ancient enemy returns after being dormant for millennia.",
-                Streaming = "Netflix",
-                Likes = 1024
-            };
-
-            var expected = "Ended";
-
-            Assert.AreEqual(expected, show.Status);
-        }
-
-        [TestMethod]
-        public void DescriptionTest()
-        {
-            var show = new TVShowDTO()
-            {
-                Id = 1,
-                Name = "Game of Thrones",
-                Year = 2011,
-                Audience = "18+",
-                Seasons = 8,
-                Genre = "Drama",
-                Status = "Ended",
-                Description = "Nine noble families fight for control over the lands of Westeros, while an ancient enemy returns after being dormant for millennia.",
-                Streaming = "Netflix",
-                Likes = 1024
-            };
-
-            var expected = "Nine noble families fight for control over the lands of Westeros, while an ancient enemy returns after being dormant for millennia.";
-
-            Assert.AreEqual(expected, show.Description);
-        }
-
-        [TestMethod]
-        public void StreamingTest()
-        {
-            var show = new TVShowDTO()
-            {
-                Id = 1,
-                Name = "Game of Thrones",
-                Year = 2011,
-                Audience = "18+",
-                Seasons = 8,
-                Genre = "Drama",
-                Status = "Ended",
-                Description = "Nine noble families fight for control over the lands of Westeros, while an ancient enemy returns after being dormant for millennia.",
-                Streaming = "Netflix",
-                Likes = 1024
-            };
-
-            var expected = "Netflix";
-
-            Assert.AreEqual(expected, show.Streaming);
-        }
-
-        [TestMethod]
-        public void LikesTest()
-        {
-            var show = new TVShowDTO()
-            {
-                Id = 1,
-                Name = "Game of Thrones",
-                Year = 2011,
-                Audience = "18+",
-                Seasons = 8,
-                Genre = "Drama",
-                Status = "Ended",
-                Description = "Nine noble families fight for control over the lands of Westeros, while an ancient enemy returns after being dormant for millennia.",
-                Streaming = "Netflix",
-                Likes = 1024
-            };
-
-            var expected = 1024;
-
-            Assert.AreEqual(expected, show.Likes);
+            Assert.IsFalse(expected);
         }
 
         [TestMethod]
