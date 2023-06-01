@@ -49,7 +49,9 @@ function getShow(shows) {
   });
 
   shows.forEach((show) => {
-    let explore = `<a href="tvshow.html">
+    let find = "tvshow.html?" + show.id;
+
+    let explore = `<a href="${find}">
                       <div class="card">
                           <img src="img/${show.poster}" alt="">
                           <h3>${show.name}</h3>

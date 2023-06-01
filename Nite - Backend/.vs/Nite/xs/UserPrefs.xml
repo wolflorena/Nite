@@ -1,25 +1,27 @@
 ﻿<Properties StartupConfiguration="{E6CBEAB9-C075-42CE-89A7-ED187342D1F8}|Default">
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Nite.API PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Nite.API/Controllers/SeasonsController.cs">
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Nite.API/Program.cs">
     <Files>
       <File FileName="Nite.API/Data/Models/TVShowUpdateDTO.cs" Line="1" Column="1" IsPinned="True" />
-      <File FileName="Nite.API/Program.cs" Line="18" Column="1" />
-      <File FileName="Nite.API/Startup.cs" />
+      <File FileName="Nite.API/Program.cs" Line="17" Column="19" />
+      <File FileName="Nite.API/Startup.cs" Line="1" Column="1" />
       <File FileName="Nite.API/Controllers/TVShowsController.cs" />
       <File FileName="Nite.API/Services/TVShowsServiceModel.cs" />
       <File FileName="Nite.API/appsettings.json" />
-      <File FileName="Nite.API/Data/DataContext.cs" Line="179" Column="32" />
+      <File FileName="Nite.API/Data/DataContext.cs" />
       <File FileName=".vs/Nite/xs/project-cache/Nite.API-Debug.json" />
       <File FileName="Nite.API/Controllers/ActionsController.cs" />
       <File FileName="Nite.API/Data/Models/EpisodeDTO.cs" />
       <File FileName="Nite.API/Controllers/EpisodesController.cs" />
-      <File FileName="Nite.API/Controllers/UsersController.cs" Line="104" Column="14" />
-      <File FileName="Nite.API/Repository/Entities/User.cs" Line="1" Column="1" />
-      <File FileName="Nite.API/Data/Models/UserDTO.cs" Line="1" Column="1" />
-      <File FileName="Nite.API/Data/Models/UserCreationDTO.cs" Line="1" Column="1" />
+      <File FileName="Nite.API/Controllers/UsersController.cs" />
+      <File FileName="Nite.API/Repository/Entities/User.cs" />
+      <File FileName="Nite.API/Data/Models/UserDTO.cs" />
+      <File FileName="Nite.API/Data/Models/UserCreationDTO.cs" />
       <File FileName="Nite.API/Controllers/SeasonsController.cs" Line="40" Column="1" />
     </Files>
     <Pads>
@@ -27,9 +29,7 @@
         <State name="__root__">
           <Node name="Nite" expanded="True">
             <Node name="Nite.API" expanded="True">
-              <Node name="Controllers" expanded="True">
-                <Node name="SeasonsController.cs" selected="True" />
-              </Node>
+              <Node name="Controllers" expanded="True" />
               <Node name="Data" expanded="True">
                 <Node name="Models" expanded="True" />
               </Node>
@@ -43,6 +43,4 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Nite.API PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
-  <MultiItemStartupConfigurations />
 </Properties>
